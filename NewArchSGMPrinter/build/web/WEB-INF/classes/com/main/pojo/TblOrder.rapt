@@ -1,0 +1,10 @@
+com/main/pojo/TblParcel_.java
+com/main/pojo/TblGsmLup_.java
+com/main/pojo/TblClient_.java
+com/main/pojo/TblAccount_.java
+com/main/pojo/TblQuotation_.java
+com/main/pojo/TblSideLup_.java
+com/main/pojo/TblLaminationLup_.java
+com/main/pojo/TblOrder_.java
+com/main/pojo/TblPaperLup_.java
+com/main/pojo/TblTbltLup_.java

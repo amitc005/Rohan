@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblPrintingType" table="tbl_printing_type" catalog="offsetmanager" optimistic-lock="version">
+        <id name="printingTypeId" type="java.lang.Integer">
+            <column name="printing_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="printingTypeName" type="string">
+            <column name="printing_type_name" not-null="true" />
+        </property>
+        <property name="ptAddedDate" type="date">
+            <column name="pt_added_date" length="10" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblOrders" table="tbl_order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="printing_type_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblOrder" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblClient" table="tbl_client" catalog="offsetmanager" optimistic-lock="version">
+        <id name="clientId" type="java.lang.Integer">
+            <column name="client_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblCitylist" class="com.main.pojo.TblCitylist" fetch="select">
+            <column name="city_id" />
+        </many-to-one>
+        <many-to-one name="tblDistrict" class="com.main.pojo.TblDistrict" fetch="select">
+            <column name="district_id" />
+        </many-to-one>
+        <many-to-one name="tblState" class="com.main.pojo.TblState" fetch="select">
+            <column name="state_id" />
+        </many-to-one>
+        <property name="clientName" type="string">
+            <column name="client_name" length="30" not-null="true" />
+        </property>
+        <property name="clientAddress" type="string">
+            <column name="client_address" length="65535" not-null="true" />
+        </property>
+        <property name="propriterName" type="string">
+            <column name="propriter_name" length="60" not-null="true" />
+        </property>
+        <property name="propriterImage" type="string">
+            <column name="propriter_image" length="65535" not-null="true" />
+        </property>
+        <property name="firmName" type="string">
+            <column name="firm_name" length="60" not-null="true" />
+        </property>
+        <property name="mobileNo" type="string">
+            <column name="mobile_no" length="11" not-null="true" />
+        </property>
+        <property name="phoneNo1" type="string">
+            <column name="phone_no_1" length="30" not-null="true" />
+        </property>
+        <property name="postalAddress" type="string">
+            <column name="postal_address" length="65535" not-null="true" />
+        </property>
+        <property name="phoneNo2" type="string">
+            <column name="phone_no_2" length="30" not-null="true" />
+        </property>
+        <property name="clientAddedDate" type="date">
+            <column name="client_added_date" length="10" not-null="true" />
+        </property>
+        <property name="clientUpdateDate" type="date">
+            <column name="client_update_date" length="10" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblQuotations" table="tbl_quotation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="client_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblQuotation" />
+        </set>
+        <set name="tblOrders" table="tbl_order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="client_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblOrder" />
+        </set>
+    </class>
+</hibernate-mapping>

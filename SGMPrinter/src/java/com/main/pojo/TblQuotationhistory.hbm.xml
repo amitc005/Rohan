@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblQuotationhistory" table="tbl_quotationhistory" catalog="offsetmanager" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblQuotation" class="com.main.pojo.TblQuotation" fetch="select">
+            <column name="quotation_id" />
+        </many-to-one>
+        <property name="requestquery" type="string">
+            <column name="requestquery" length="65535" />
+        </property>
+        <property name="replyanswer" type="string">
+            <column name="replyanswer" length="65535" />
+        </property>
+        <property name="requestdate" type="date">
+            <column name="requestdate" length="10" not-null="true" />
+        </property>
+        <property name="replydate" type="date">
+            <column name="replydate" length="10" not-null="true" />
+        </property>
+        <property name="hisstatus" type="string">
+            <column name="hisstatus" length="10" />
+        </property>
+        <property name="isactive" type="java.lang.Character">
+            <column name="isactive" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

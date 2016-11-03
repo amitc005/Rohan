@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblOrder" table="tbl_order" catalog="offsetmanager" optimistic-lock="version">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="order_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblCardType" class="com.main.pojo.TblCardType" fetch="select">
+            <column name="card_type_id" />
+        </many-to-one>
+        <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
+            <column name="client_id" />
+        </many-to-one>
+        <many-to-one name="tblGsmsize" class="com.main.pojo.TblGsmsize" fetch="select">
+            <column name="gsm_id" />
+        </many-to-one>
+        <many-to-one name="tblLaminationType" class="com.main.pojo.TblLaminationType" fetch="select">
+            <column name="lamination_type_id" />
+        </many-to-one>
+        <many-to-one name="tblPaper" class="com.main.pojo.TblPaper" fetch="select">
+            <column name="paper_id" />
+        </many-to-one>
+        <many-to-one name="tblPostpress" class="com.main.pojo.TblPostpress" fetch="select">
+            <column name="postpress_id" />
+        </many-to-one>
+        <many-to-one name="tblPrintingType" class="com.main.pojo.TblPrintingType" fetch="select">
+            <column name="printing_type_id" />
+        </many-to-one>
+        <many-to-one name="tblQty" class="com.main.pojo.TblQty" fetch="select">
+            <column name="qty_id" />
+        </many-to-one>
+        <many-to-one name="tblQuotation" class="com.main.pojo.TblQuotation" fetch="select">
+            <column name="quotation_id" />
+        </many-to-one>
+        <many-to-one name="tblSides" class="com.main.pojo.TblSides" fetch="select">
+            <column name="side_id" />
+        </many-to-one>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+        <property name="requestdate" type="date">
+            <column name="requestdate" length="10" not-null="true" />
+        </property>
+        <property name="orderstatus" type="string">
+            <column name="orderstatus" length="10" />
+        </property>
+        <property name="isactive" type="java.lang.Character">
+            <column name="isactive" length="1" />
+        </property>
+        <set name="tblOrderStatusHistories" table="tbl_order_status_history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblOrderStatusHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

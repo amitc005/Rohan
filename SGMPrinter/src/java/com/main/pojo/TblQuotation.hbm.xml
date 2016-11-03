@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblQuotation" table="tbl_quotation" catalog="offsetmanager" optimistic-lock="version">
+        <id name="quotationId" type="java.lang.Integer">
+            <column name="quotation_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
+            <column name="client_id" />
+        </many-to-one>
+        <property name="quotationDesc" type="string">
+            <column name="quotation_desc" length="65535" />
+        </property>
+        <property name="quotationAddedDate" type="date">
+            <column name="quotation_added_date" length="10" not-null="true" />
+        </property>
+        <property name="quotationUpdateDate" type="date">
+            <column name="quotation_update_date" length="10" not-null="true" />
+        </property>
+        <property name="readStatus" type="string">
+            <column name="read_status" length="20" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblQuotationhistories" table="tbl_quotationhistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quotation_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblQuotationhistory" />
+        </set>
+        <set name="tblOrders" table="tbl_order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="quotation_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblOrder" />
+        </set>
+    </class>
+</hibernate-mapping>

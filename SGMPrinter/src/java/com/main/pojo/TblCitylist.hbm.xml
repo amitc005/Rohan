@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblCitylist" table="tbl_citylist" catalog="offsetmanager" optimistic-lock="version">
+        <id name="cityId" type="java.lang.Integer">
+            <column name="city_id" />
+            <generator class="identity" />
+        </id>
+        <property name="cityName" type="string">
+            <column name="city_name" length="50" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="10" />
+        </property>
+        <property name="longitude" type="string">
+            <column name="longitude" length="10" />
+        </property>
+        <property name="stateId" type="string">
+            <column name="state_id" length="50" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblClients" table="tbl_client" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="city_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblClient" />
+        </set>
+    </class>
+</hibernate-mapping>

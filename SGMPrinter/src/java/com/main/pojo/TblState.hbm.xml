@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblState" table="tbl_state" catalog="offsetmanager" optimistic-lock="version">
+        <id name="stateId" type="java.lang.Integer">
+            <column name="state_id" />
+            <generator class="identity" />
+        </id>
+        <property name="stateName" type="string">
+            <column name="state_name" length="20" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblClients" table="tbl_client" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="state_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblClient" />
+        </set>
+    </class>
+</hibernate-mapping>

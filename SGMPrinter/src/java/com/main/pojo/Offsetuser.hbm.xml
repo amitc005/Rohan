@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.Offsetuser" table="offsetuser" catalog="offsetmanager" optimistic-lock="version">
+        <id name="adminId" type="java.lang.Integer">
+            <column name="admin_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userTypeId" type="java.lang.Integer">
+            <column name="user_type_id" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="50" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="first_name" length="50" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="50" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="email_id" length="100" />
+        </property>
+        <property name="lastLogin" type="string">
+            <column name="last_login" length="50" />
+        </property>
+        <property name="actionPermission" type="string">
+            <column name="action_permission" length="100" />
+        </property>
+        <property name="pagePermission" type="string">
+            <column name="page_permission" length="65535" />
+        </property>
+        <property name="intime" type="string">
+            <column name="intime" length="10" />
+        </property>
+        <property name="outtime" type="string">
+            <column name="outtime" length="10" />
+        </property>
+        <property name="macid" type="string">
+            <column name="macid" length="50" />
+        </property>
+        <property name="isActive" type="java.lang.Character">
+            <column name="is_active" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

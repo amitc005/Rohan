@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblLaminationType" table="tbl_lamination_type" catalog="offsetmanager" optimistic-lock="version">
+        <id name="laminationTypeId" type="java.lang.Integer">
+            <column name="lamination_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="laminationTypeName" type="string">
+            <column name="lamination_type_name" not-null="true" />
+        </property>
+        <property name="laminationDesc" type="string">
+            <column name="lamination_desc" length="250" not-null="true" />
+        </property>
+        <property name="laminationAddedDate" type="date">
+            <column name="lamination_added_date" length="10" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+        <set name="tblOrders" table="tbl_order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="lamination_type_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblOrder" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,531 @@
+========================FOR TABLE OFFSETUSER =================================
+<label class="control-label ">USER TYPE ID :</label>
+<div class="controls">
+<input type="text" name="user_type_id" maxlength="11" class="span11"  required="" placeholder="USER TYPE ID" />
+</div>
+
+<label class="control-label ">USERNAME :</label>
+<div class="controls">
+<input type="text" name="username" maxlength="50" class="span11"  required="" placeholder="USERNAME" />
+</div>
+
+<label class="control-label ">PASSWORD :</label>
+<div class="controls">
+<input type="text" name="password" maxlength="50" class="span11"  required="" placeholder="PASSWORD" />
+</div>
+
+<label class="control-label ">FIRST NAME :</label>
+<div class="controls">
+<input type="text" name="first_name" maxlength="50" class="span11"  required="" placeholder="FIRST NAME" />
+</div>
+
+<label class="control-label ">LAST NAME :</label>
+<div class="controls">
+<input type="text" name="last_name" maxlength="50" class="span11"  required="" placeholder="LAST NAME" />
+</div>
+
+<label class="control-label ">EMAIL ID :</label>
+<div class="controls">
+<input type="text" name="email_id" maxlength="100" class="span11"  required="" placeholder="EMAIL ID" />
+</div>
+
+<label class="control-label ">LAST LOGIN :</label>
+<div class="controls">
+<input type="text" name="last_login" maxlength="50" class="span11"  required="" placeholder="LAST LOGIN" />
+</div>
+
+<label class="control-label ">ACTION PERMISSION :</label>
+<div class="controls">
+<input type="text" name="action_permission" maxlength="100" class="span11"  required="" placeholder="ACTION PERMISSION" />
+</div>
+
+<label class="control-label ">PAGE PERMISSION :</label>
+<div class="controls">
+<input type="text" name="page_permission" maxlength="21845" class="span11"  required="" placeholder="PAGE PERMISSION" />
+</div>
+
+<label class="control-label ">INTIME :</label>
+<div class="controls">
+<input type="text" name="intime" maxlength="10" class="span11"  required="" placeholder="INTIME" />
+</div>
+
+<label class="control-label ">OUTTIME :</label>
+<div class="controls">
+<input type="text" name="outtime" maxlength="10" class="span11"  required="" placeholder="OUTTIME" />
+</div>
+
+<label class="control-label ">MACID :</label>
+<div class="controls">
+<input type="text" name="macid" maxlength="50" class="span11"  required="" placeholder="MACID" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE OFFSETUSER =================================
+========================FOR TABLE TBL_CARD =================================
+<label class="control-label ">CARD NAME :</label>
+<div class="controls">
+<input type="text" name="card_name" maxlength="100" class="span11"  required="" placeholder="CARD NAME" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_CARD =================================
+========================FOR TABLE TBL_CITYLIST =================================
+<label class="control-label ">CITY NAME :</label>
+<div class="controls">
+<input type="text" name="city_name" maxlength="100" class="span11"  required="" placeholder="CITY NAME" />
+</div>
+
+<label class="control-label ">LATITUDE :</label>
+<div class="controls">
+<input type="text" name="latitude" maxlength="10" class="span11"  required="" placeholder="LATITUDE" />
+</div>
+
+<label class="control-label ">LONGITUDE :</label>
+<div class="controls">
+<input type="text" name="longitude" maxlength="10" class="span11"  required="" placeholder="LONGITUDE" />
+</div>
+
+<label class="control-label ">STATE ID :</label>
+<div class="controls">
+<input type="text" name="state_id" maxlength="50" class="span11"  required="" placeholder="STATE ID" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_CITYLIST =================================
+========================FOR TABLE TBL_CLIENT =================================
+<label class="control-label ">CLIENT NAME :</label>
+<div class="controls">
+<input type="text" name="client_name" maxlength="30" class="span11"  required="" placeholder="CLIENT NAME" />
+</div>
+
+<label class="control-label ">CLIENT ADDRESS :</label>
+<div class="controls">
+<input type="text" name="client_address" maxlength="21845" class="span11"  required="" placeholder="CLIENT ADDRESS" />
+</div>
+
+<label class="control-label ">PROPRITER NAME :</label>
+<div class="controls">
+<input type="text" name="propriter_name" maxlength="100" class="span11"  required="" placeholder="PROPRITER NAME" />
+</div>
+
+<label class="control-label ">PROPRITER IMAGE :</label>
+<div class="controls">
+<input type="text" name="propriter_image" maxlength="21845" class="span11"  required="" placeholder="PROPRITER IMAGE" />
+</div>
+
+<label class="control-label ">FIRM NAME :</label>
+<div class="controls">
+<input type="text" name="firm_name" maxlength="100" class="span11"  required="" placeholder="FIRM NAME" />
+</div>
+
+<label class="control-label ">MOBILE NO :</label>
+<div class="controls">
+<input type="text" name="mobile_no" maxlength="11" class="span11"  required="" placeholder="MOBILE NO" />
+</div>
+
+<label class="control-label ">PHONE NO 1 :</label>
+<div class="controls">
+<input type="text" name="phone_no_1" maxlength="30" class="span11"  required="" placeholder="PHONE NO 1" />
+</div>
+
+<label class="control-label ">POSTAL ADDRESS :</label>
+<div class="controls">
+<input type="text" name="postal_address" maxlength="21845" class="span11"  required="" placeholder="POSTAL ADDRESS" />
+</div>
+
+<label class="control-label ">PHONE NO 2 :</label>
+<div class="controls">
+<input type="text" name="phone_no_2" maxlength="30" class="span11"  required="" placeholder="PHONE NO 2" />
+</div>
+
+<label class="control-label ">CITY ID :</label>
+<div class="controls">
+<input type="text" name="city_id" maxlength="11" class="span11"  required="" placeholder="CITY ID" />
+</div>
+
+<label class="control-label ">DISTRICT ID :</label>
+<div class="controls">
+<input type="text" name="district_id" maxlength="11" class="span11"  required="" placeholder="DISTRICT ID" />
+</div>
+
+<label class="control-label ">STATE ID :</label>
+<div class="controls">
+<input type="text" name="state_id" maxlength="11" class="span11"  required="" placeholder="STATE ID" />
+</div>
+
+<label class="control-label ">CLIENT ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="client_added_date" maxlength="10" class="span11"  required="" placeholder="CLIENT ADDED DATE" />
+</div>
+
+<label class="control-label ">CLIENT UPDATE DATE :</label>
+<div class="controls">
+<input type="text" name="client_update_date" maxlength="10" class="span11"  required="" placeholder="CLIENT UPDATE DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_CLIENT =================================
+========================FOR TABLE TBL_DISTRICT =================================
+<label class="control-label ">DISTRICT NAME :</label>
+<div class="controls">
+<input type="text" name="district_name" maxlength="100" class="span11"  required="" placeholder="DISTRICT NAME" />
+</div>
+
+<label class="control-label ">LATITUDE :</label>
+<div class="controls">
+<input type="text" name="latitude" maxlength="10" class="span11"  required="" placeholder="LATITUDE" />
+</div>
+
+<label class="control-label ">LONGITUDE :</label>
+<div class="controls">
+<input type="text" name="longitude" maxlength="10" class="span11"  required="" placeholder="LONGITUDE" />
+</div>
+
+<label class="control-label ">STATE ID :</label>
+<div class="controls">
+<input type="text" name="state_id" maxlength="50" class="span11"  required="" placeholder="STATE ID" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_DISTRICT =================================
+========================FOR TABLE TBL_GSM =================================
+<label class="control-label ">GSM NAME :</label>
+<div class="controls">
+<input type="text" name="gsm_name" maxlength="100" class="span11"  required="" placeholder="GSM NAME" />
+</div>
+
+<label class="control-label ">GSM ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="gsm_added_date" maxlength="10" class="span11"  required="" placeholder="GSM ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_GSM =================================
+========================FOR TABLE TBL_LAMINATION =================================
+<label class="control-label ">LAMINATION NAME :</label>
+<div class="controls">
+<input type="text" name="lamination_name" maxlength="100" class="span11"  required="" placeholder="LAMINATION NAME" />
+</div>
+
+<label class="control-label ">LAMINATION DESC :</label>
+<div class="controls">
+<input type="text" name="lamination_desc" maxlength="250" class="span11"  required="" placeholder="LAMINATION DESC" />
+</div>
+
+<label class="control-label ">LAMINATION ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="lamination_added_date" maxlength="10" class="span11"  required="" placeholder="LAMINATION ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_LAMINATION =================================
+========================FOR TABLE TBL_ORDER =================================
+<label class="control-label ">QUOTATION ID :</label>
+<div class="controls">
+<input type="text" name="quotation_id" maxlength="11" class="span11"  required="" placeholder="QUOTATION ID" />
+</div>
+
+<label class="control-label ">CLIENT ID :</label>
+<div class="controls">
+<input type="text" name="client_id" maxlength="11" class="span11"  required="" placeholder="CLIENT ID" />
+</div>
+
+<label class="control-label ">GSM ID :</label>
+<div class="controls">
+<input type="text" name="gsm_id" maxlength="11" class="span11"  required="" placeholder="GSM ID" />
+</div>
+
+<label class="control-label ">LAMINATION ID :</label>
+<div class="controls">
+<input type="text" name="lamination_id" maxlength="11" class="span11"  required="" placeholder="LAMINATION ID" />
+</div>
+
+<label class="control-label ">POSTPRESS ID :</label>
+<div class="controls">
+<input type="text" name="postpress_id" maxlength="11" class="span11"  required="" placeholder="POSTPRESS ID" />
+</div>
+
+<label class="control-label ">PRINTING ID :</label>
+<div class="controls">
+<input type="text" name="printing_id" maxlength="11" class="span11"  required="" placeholder="PRINTING ID" />
+</div>
+
+<label class="control-label ">QTY ID :</label>
+<div class="controls">
+<input type="text" name="qty_id" maxlength="11" class="span11"  required="" placeholder="QTY ID" />
+</div>
+
+<label class="control-label ">SIDE ID :</label>
+<div class="controls">
+<input type="text" name="side_id" maxlength="11" class="span11"  required="" placeholder="SIDE ID" />
+</div>
+
+<label class="control-label ">PAPER ID :</label>
+<div class="controls">
+<input type="text" name="paper_id" maxlength="11" class="span11"  required="" placeholder="PAPER ID" />
+</div>
+
+<label class="control-label ">CARD ID :</label>
+<div class="controls">
+<input type="text" name="card_id" maxlength="11" class="span11"  required="" placeholder="CARD ID" />
+</div>
+
+<label class="control-label ">COMMENT :</label>
+<div class="controls">
+<input type="text" name="comment" maxlength="21845" class="span11"  required="" placeholder="COMMENT" />
+</div>
+
+<label class="control-label ">REQUESTDATE :</label>
+<div class="controls">
+<input type="text" name="requestdate" maxlength="10" class="span11"  required="" placeholder="REQUESTDATE" />
+</div>
+
+<label class="control-label ">ORDERSTATUS :</label>
+<div class="controls">
+<input type="text" name="orderstatus" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
+</div>
+
+<label class="control-label ">ISACTIVE :</label>
+<div class="controls">
+<input type="text" name="isactive" maxlength="1" class="span11"  required="" placeholder="ISACTIVE" />
+</div>
+
+========================FOR TABLE TBL_ORDER =================================
+========================FOR TABLE TBL_ORDER_STATUS_HISTORY =================================
+<label class="control-label ">ORDER ID :</label>
+<div class="controls">
+<input type="text" name="order_id" maxlength="11" class="span11"  required="" placeholder="ORDER ID" />
+</div>
+
+<label class="control-label ">ORDERSTATUS :</label>
+<div class="controls">
+<input type="text" name="orderstatus" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
+</div>
+
+<label class="control-label ">CREATEDATE :</label>
+<div class="controls">
+<input type="text" name="createdate" maxlength="10" class="span11"  required="" placeholder="CREATEDATE" />
+</div>
+
+<label class="control-label ">MODIFYDATE :</label>
+<div class="controls">
+<input type="text" name="modifydate" maxlength="10" class="span11"  required="" placeholder="MODIFYDATE" />
+</div>
+
+========================FOR TABLE TBL_ORDER_STATUS_HISTORY =================================
+========================FOR TABLE TBL_PAPER =================================
+<label class="control-label ">PAPER NAME :</label>
+<div class="controls">
+<input type="text" name="paper_name" maxlength="100" class="span11"  required="" placeholder="PAPER NAME" />
+</div>
+
+<label class="control-label ">P ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="p_added_date" maxlength="10" class="span11"  required="" placeholder="P ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_PAPER =================================
+========================FOR TABLE TBL_POSTPRESS =================================
+<label class="control-label ">POSTPRESS NAME :</label>
+<div class="controls">
+<input type="text" name="postpress_name" maxlength="100" class="span11"  required="" placeholder="POSTPRESS NAME" />
+</div>
+
+<label class="control-label ">POSTPRESS DESC :</label>
+<div class="controls">
+<input type="text" name="postpress_desc" maxlength="21845" class="span11"  required="" placeholder="POSTPRESS DESC" />
+</div>
+
+<label class="control-label ">POSTPRESS ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="postpress_added_date" maxlength="10" class="span11"  required="" placeholder="POSTPRESS ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_POSTPRESS =================================
+========================FOR TABLE TBL_PRINTING =================================
+<label class="control-label ">PRINTING NAME :</label>
+<div class="controls">
+<input type="text" name="printing_name" maxlength="100" class="span11"  required="" placeholder="PRINTING NAME" />
+</div>
+
+<label class="control-label ">PT ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="pt_added_date" maxlength="10" class="span11"  required="" placeholder="PT ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_PRINTING =================================
+========================FOR TABLE TBL_QTY =================================
+<label class="control-label ">QTY NAME :</label>
+<div class="controls">
+<input type="text" name="qty_name" maxlength="100" class="span11"  required="" placeholder="QTY NAME" />
+</div>
+
+<label class="control-label ">QTY ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="qty_added_date" maxlength="10" class="span11"  required="" placeholder="QTY ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_QTY =================================
+========================FOR TABLE TBL_QUOTATION =================================
+<label class="control-label ">CLIENT ID :</label>
+<div class="controls">
+<input type="text" name="client_id" maxlength="11" class="span11"  required="" placeholder="CLIENT ID" />
+</div>
+
+<label class="control-label ">QUOTATION DESC :</label>
+<div class="controls">
+<input type="text" name="quotation_desc" maxlength="21845" class="span11"  required="" placeholder="QUOTATION DESC" />
+</div>
+
+<label class="control-label ">QUOTATION ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="quotation_added_date" maxlength="10" class="span11"  required="" placeholder="QUOTATION ADDED DATE" />
+</div>
+
+<label class="control-label ">QUOTATION UPDATE DATE :</label>
+<div class="controls">
+<input type="text" name="quotation_update_date" maxlength="10" class="span11"  required="" placeholder="QUOTATION UPDATE DATE" />
+</div>
+
+<label class="control-label ">READ STATUS :</label>
+<div class="controls">
+<input type="text" name="read_status" maxlength="20" class="span11"  required="" placeholder="READ STATUS" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_QUOTATION =================================
+========================FOR TABLE TBL_QUOTATIONHISTORY =================================
+<label class="control-label ">QUOTATION ID :</label>
+<div class="controls">
+<input type="text" name="quotation_id" maxlength="11" class="span11"  required="" placeholder="QUOTATION ID" />
+</div>
+
+<label class="control-label ">REQUESTQUERY :</label>
+<div class="controls">
+<input type="text" name="requestquery" maxlength="21845" class="span11"  required="" placeholder="REQUESTQUERY" />
+</div>
+
+<label class="control-label ">REPLYANSWER :</label>
+<div class="controls">
+<input type="text" name="replyanswer" maxlength="21845" class="span11"  required="" placeholder="REPLYANSWER" />
+</div>
+
+<label class="control-label ">REQUESTDATE :</label>
+<div class="controls">
+<input type="text" name="requestdate" maxlength="10" class="span11"  required="" placeholder="REQUESTDATE" />
+</div>
+
+<label class="control-label ">REPLYDATE :</label>
+<div class="controls">
+<input type="text" name="replydate" maxlength="10" class="span11"  required="" placeholder="REPLYDATE" />
+</div>
+
+<label class="control-label ">HISSTATUS :</label>
+<div class="controls">
+<input type="text" name="hisstatus" maxlength="10" class="span11"  required="" placeholder="HISSTATUS" />
+</div>
+
+<label class="control-label ">ISACTIVE :</label>
+<div class="controls">
+<input type="text" name="isactive" maxlength="1" class="span11"  required="" placeholder="ISACTIVE" />
+</div>
+
+========================FOR TABLE TBL_QUOTATIONHISTORY =================================
+========================FOR TABLE TBL_SIDES =================================
+<label class="control-label ">SIDE NAME :</label>
+<div class="controls">
+<input type="text" name="side_name" maxlength="100" class="span11"  required="" placeholder="SIDE NAME" />
+</div>
+
+<label class="control-label ">SIDE ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="side_added_date" maxlength="10" class="span11"  required="" placeholder="SIDE ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_SIDES =================================
+========================FOR TABLE TBL_STATE =================================
+<label class="control-label ">STATE NAME :</label>
+<div class="controls">
+<input type="text" name="state_name" maxlength="100" class="span11"  required="" placeholder="STATE NAME" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_STATE =================================
+========================FOR TABLE TBL_USERTYPE =================================
+<label class="control-label ">USERTYPE :</label>
+<div class="controls">
+<input type="text" name="usertype" maxlength="100" class="span11"  required="" placeholder="USERTYPE" />
+</div>
+
+<label class="control-label ">USERTYPE ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="usertype_added_date" maxlength="10" class="span11"  required="" placeholder="USERTYPE ADDED DATE" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
+
+========================FOR TABLE TBL_USERTYPE =================================

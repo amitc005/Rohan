@@ -6,7 +6,7 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action="./" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
                                 <div class="span6">
                                     <label class="control-label ">First Name :</label>
@@ -15,10 +15,11 @@
                                     </div>
                                 </div>
                                 <div class="span6">
-
                                     <label class="control-label">Last Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
+                                        <select class="span11">
+                                            <option></option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -26,7 +27,7 @@
                                 <div class="span6">
                                     <label class="control-label ">First Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
+                                        <input type="text"  class="span12"  placeholder="First name" />
                                     </div>
                                 </div>
                                 <div class="span6">

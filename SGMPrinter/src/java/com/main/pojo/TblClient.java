@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated 3 Nov, 2016 4:21:05 PM by Hibernate Tools 4.3.1
+// Generated 4 Nov, 2016 4:39:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -148,7 +148,7 @@ public class TblClient  implements java.io.Serializable {
     }
 
     
-    @Column(name="propriter_name", nullable=false, length=60)
+    @Column(name="propriter_name", nullable=false, length=100)
     public String getPropriterName() {
         return this.propriterName;
     }
@@ -168,7 +168,7 @@ public class TblClient  implements java.io.Serializable {
     }
 
     
-    @Column(name="firm_name", nullable=false, length=60)
+    @Column(name="firm_name", nullable=false, length=100)
     public String getFirmName() {
         return this.firmName;
     }

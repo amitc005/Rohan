@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Nov, 2016 4:39:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblSides" table="tbl_sides" catalog="offsetmanager" optimistic-lock="version">
         <id name="sideId" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="sideName" type="string">
-            <column name="side_name" not-null="true" />
+            <column name="side_name" length="100" not-null="true" />
         </property>
         <property name="sideAddedDate" type="date">
             <column name="side_added_date" length="10" not-null="true" />

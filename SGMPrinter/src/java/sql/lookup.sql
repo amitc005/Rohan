@@ -1,52 +1,52 @@
 USE `offsetmanager`;
 
 
-INSERT INTO `tbl_gsmsize` VALUES(1, '10 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(2, '20 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(3, '30 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(4, '40 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(5, '50 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(6, '60 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(7, '70 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(8, '80 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(9, '90 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(10, '100 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(11, '110 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(12, '120 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(13, '130 gsm', '0000-00-00', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(14, '140 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(15, '150 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(16, '160 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(17, '170 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(18, '180 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(19, '190 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(20, '200 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(21, '210 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(22, '220 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(23, '230 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(24, '240 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(25, '250 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(26, '260 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(27, '270 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(28, '280 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(29, '290 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(30, '300 gsm', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(31, '310 GSM', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(32, '320 GSM', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(33, '330 GSM', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(34, '340 GSM', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(35, '350 GSM', '2012-07-05', 'Y');
-INSERT INTO `tbl_gsmsize` VALUES(36, '360 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(1, '10 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(2, '20 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(3, '30 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(4, '40 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(5, '50 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(6, '60 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(7, '70 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(8, '80 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(9, '90 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(10, '100 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(11, '110 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(12, '120 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(13, '130 gsm', '0000-00-00', 'Y');
+INSERT INTO `tbl_gsm` VALUES(14, '140 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(15, '150 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(16, '160 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(17, '170 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(18, '180 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(19, '190 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(20, '200 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(21, '210 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(22, '220 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(23, '230 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(24, '240 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(25, '250 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(26, '260 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(27, '270 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(28, '280 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(29, '290 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(30, '300 gsm', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(31, '310 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(32, '320 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(33, '330 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(34, '340 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(35, '350 GSM', '2012-07-05', 'Y');
+INSERT INTO `tbl_gsm` VALUES(36, '360 GSM', '2012-07-05', 'Y');
 
 
 --
--- Dumping data for table `tbl_lamination_type`
+-- Dumping data for table `tbl_lamination`
 --
 
-INSERT INTO `tbl_lamination_type` VALUES(1, 'Gloss Lamination', 'Type of lamination', '2012-07-06', 'Y');
-INSERT INTO `tbl_lamination_type` VALUES(2, 'Matt Lamination', 'Type of lamination', '2012-07-06', 'Y');
-INSERT INTO `tbl_lamination_type` VALUES(3, 'Without Lamination', 'Type of lamination', '2012-07-06', 'Y');
-INSERT INTO `tbl_lamination_type` VALUES(4, 'Spot Lamination', 'Type of lamination', '2012-07-06', 'Y');
+INSERT INTO `tbl_lamination` VALUES(1, 'Gloss Lamination', 'Type of lamination', '2012-07-06', 'Y');
+INSERT INTO `tbl_lamination` VALUES(2, 'Matt Lamination', 'Type of lamination', '2012-07-06', 'Y');
+INSERT INTO `tbl_lamination` VALUES(3, 'Without Lamination', 'Type of lamination', '2012-07-06', 'Y');
+INSERT INTO `tbl_lamination` VALUES(4, 'Spot Lamination', 'Type of lamination', '2012-07-06', 'Y');
 
 
 --
@@ -83,13 +83,13 @@ INSERT INTO `tbl_postpress` VALUES(10, 'Clips', 'Clips', '2012-12-25', 'T');
 INSERT INTO `tbl_postpress` VALUES(11, 'Without Clips', 'Without Clips', '2012-12-25', 'T');
 
 --
--- Dumping data for table `tbl_printing_type`
+-- Dumping data for table `tbl_printing`
 --
 
-INSERT INTO `tbl_printing_type` VALUES(1, 'Single Color Printing', '2012-07-06', 'T');
-INSERT INTO `tbl_printing_type` VALUES(2, 'Two color Printing', '2012-07-06', 'T');
-INSERT INTO `tbl_printing_type` VALUES(3, 'Three color Printing', '2012-07-06', 'T');
-INSERT INTO `tbl_printing_type` VALUES(4, 'Multi color Printing', '2012-07-06', 'T');
+INSERT INTO `tbl_printing` VALUES(1, 'Single Color Printing', '2012-07-06', 'T');
+INSERT INTO `tbl_printing` VALUES(2, 'Two color Printing', '2012-07-06', 'T');
+INSERT INTO `tbl_printing` VALUES(3, 'Three color Printing', '2012-07-06', 'T');
+INSERT INTO `tbl_printing` VALUES(4, 'Multi color Printing', '2012-07-06', 'T');
 
 
 --
@@ -1295,18 +1295,18 @@ INSERT INTO `tbl_state` VALUES(32, 'West Bengal', 'Y');
 
 
 --
--- Dumping data for table `tbl_card_type`
+-- Dumping data for table `tbl_card`
 --
 
-INSERT INTO `tbl_card_type` VALUES(1, 'READY-MADE SWEET BOX', 'Y');
-INSERT INTO `tbl_card_type` VALUES(2, 'TAG', 'Y');
-INSERT INTO `tbl_card_type` VALUES(3, 'PLASTIC FILE', 'Y');
-INSERT INTO `tbl_card_type` VALUES(4, 'VISITING CARD', 'Y');
-INSERT INTO `tbl_card_type` VALUES(5, 'INVITATION CARD', 'Y');
-INSERT INTO `tbl_card_type` VALUES(6, 'ALL PAPER', 'Y');
-INSERT INTO `tbl_card_type` VALUES(7, 'ENVELOPE', 'Y');
-INSERT INTO `tbl_card_type` VALUES(8, 'FILE', 'Y');
-INSERT INTO `tbl_card_type` VALUES(9, 'STICKER', 'Y');
+INSERT INTO `tbl_card` VALUES(1, 'READY-MADE SWEET BOX', 'Y');
+INSERT INTO `tbl_card` VALUES(2, 'TAG', 'Y');
+INSERT INTO `tbl_card` VALUES(3, 'PLASTIC FILE', 'Y');
+INSERT INTO `tbl_card` VALUES(4, 'VISITING CARD', 'Y');
+INSERT INTO `tbl_card` VALUES(5, 'INVITATION CARD', 'Y');
+INSERT INTO `tbl_card` VALUES(6, 'ALL PAPER', 'Y');
+INSERT INTO `tbl_card` VALUES(7, 'ENVELOPE', 'Y');
+INSERT INTO `tbl_card` VALUES(8, 'FILE', 'Y');
+INSERT INTO `tbl_card` VALUES(9, 'STICKER', 'Y');
 
 
 --

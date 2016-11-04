@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Nov, 2016 4:39:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblClient" table="tbl_client" catalog="offsetmanager" optimistic-lock="version">
         <id name="clientId" type="java.lang.Integer">
@@ -24,13 +24,13 @@
             <column name="client_address" length="65535" not-null="true" />
         </property>
         <property name="propriterName" type="string">
-            <column name="propriter_name" length="60" not-null="true" />
+            <column name="propriter_name" length="100" not-null="true" />
         </property>
         <property name="propriterImage" type="string">
             <column name="propriter_image" length="65535" not-null="true" />
         </property>
         <property name="firmName" type="string">
-            <column name="firm_name" length="60" not-null="true" />
+            <column name="firm_name" length="100" not-null="true" />
         </property>
         <property name="mobileNo" type="string">
             <column name="mobile_no" length="11" not-null="true" />

@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Nov, 2016 4:39:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblOrder" table="tbl_order" catalog="offsetmanager" optimistic-lock="version">
         <id name="orderId" type="java.lang.Integer">
             <column name="order_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="tblCardType" class="com.main.pojo.TblCardType" fetch="select">
-            <column name="card_type_id" />
+        <many-to-one name="tblCard" class="com.main.pojo.TblCard" fetch="select">
+            <column name="card_id" />
         </many-to-one>
         <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
             <column name="client_id" />
         </many-to-one>
-        <many-to-one name="tblGsmsize" class="com.main.pojo.TblGsmsize" fetch="select">
+        <many-to-one name="tblGsm" class="com.main.pojo.TblGsm" fetch="select">
             <column name="gsm_id" />
         </many-to-one>
-        <many-to-one name="tblLaminationType" class="com.main.pojo.TblLaminationType" fetch="select">
-            <column name="lamination_type_id" />
+        <many-to-one name="tblLamination" class="com.main.pojo.TblLamination" fetch="select">
+            <column name="lamination_id" />
         </many-to-one>
         <many-to-one name="tblPaper" class="com.main.pojo.TblPaper" fetch="select">
             <column name="paper_id" />
@@ -26,8 +26,8 @@
         <many-to-one name="tblPostpress" class="com.main.pojo.TblPostpress" fetch="select">
             <column name="postpress_id" />
         </many-to-one>
-        <many-to-one name="tblPrintingType" class="com.main.pojo.TblPrintingType" fetch="select">
-            <column name="printing_type_id" />
+        <many-to-one name="tblPrinting" class="com.main.pojo.TblPrinting" fetch="select">
+            <column name="printing_id" />
         </many-to-one>
         <many-to-one name="tblQty" class="com.main.pojo.TblQty" fetch="select">
             <column name="qty_id" />

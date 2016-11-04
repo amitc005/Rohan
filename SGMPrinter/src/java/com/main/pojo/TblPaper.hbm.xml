@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 3 Nov, 2016 4:21:06 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Nov, 2016 4:39:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblPaper" table="tbl_paper" catalog="offsetmanager" optimistic-lock="version">
         <id name="paperId" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="paperName" type="string">
-            <column name="paper_name" length="30" not-null="true" />
+            <column name="paper_name" length="100" not-null="true" />
         </property>
         <property name="PAddedDate" type="date">
             <column name="p_added_date" length="10" not-null="true" />

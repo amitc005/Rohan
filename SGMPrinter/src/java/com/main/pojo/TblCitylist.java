@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated 3 Nov, 2016 4:21:05 PM by Hibernate Tools 4.3.1
+// Generated 4 Nov, 2016 4:39:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -60,7 +60,7 @@ public class TblCitylist  implements java.io.Serializable {
     }
 
     
-    @Column(name="city_name", length=50)
+    @Column(name="city_name", length=100)
     public String getCityName() {
         return this.cityName;
     }

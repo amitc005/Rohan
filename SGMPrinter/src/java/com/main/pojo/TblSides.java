@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated 3 Nov, 2016 4:21:05 PM by Hibernate Tools 4.3.1
+// Generated 4 Nov, 2016 4:39:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -61,7 +61,7 @@ public class TblSides  implements java.io.Serializable {
     }
 
     
-    @Column(name="side_name", nullable=false)
+    @Column(name="side_name", nullable=false, length=100)
     public String getSideName() {
         return this.sideName;
     }

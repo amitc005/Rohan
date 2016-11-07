@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class TblPaperService {
 
+    public static void main(String[] args) {
+      TblPaper tblPaperById = getTblPaperById(2);
+        System.out.println("tblPaperById =" +tblPaperById.getPaperName());
+    }
+    
     public static boolean saveTblPaper(TblPaper tblTblPaper) {
         try {
             SuperConnection.saveEntity(tblTblPaper);
@@ -51,5 +56,14 @@ public class TblPaperService {
         }
         return null;
     }
-
+    
+    public static TblPaper getTblPaperById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblPaper(), 1);
+            return (TblPaper) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

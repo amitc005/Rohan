@@ -12,6 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class QtyService {
+    
+    public static void main(String[] args) {
+      TblQty tblQtyById = getTblQtyById(2);
+        System.out.println("tblQtyById =" +tblQtyById.getQtyName());
+    }
 
     public static boolean saveTblQty(TblQty tblTblQty) {
         try {
@@ -52,4 +57,14 @@ public class QtyService {
         return null;
     }
 
+    
+    public static TblQty getTblQtyById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblQty(), 1);
+            return (TblQty) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

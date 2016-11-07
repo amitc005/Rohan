@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class SidesService {
 
+     public static void main(String[] args) {
+      TblSides tblSlidesById = getTblSlidesById(2);
+        System.out.println("tblSlidesById =" +tblSlidesById.getSideName());
+    }
+    
     public static boolean saveTblSides(TblSides tblTblSides) {
         try {
             SuperConnection.saveEntity(tblTblSides);
@@ -51,5 +56,14 @@ public class SidesService {
         }
         return null;
     }
-
+    
+    public static TblSides getTblSlidesById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblSides(), 1);
+            return (TblSides) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

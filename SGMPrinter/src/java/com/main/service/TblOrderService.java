@@ -44,6 +44,11 @@ public class TblOrderService {
         
         saveTblOrder(tblOrder);
         
+        
+      TblOrder tblOrderById = getTblOrderlistById(2);
+        System.out.println("tblOrderById =" +tblOrderById.getOrderstatus());
+    
+        
     }
     
     public static boolean saveTblOrder(TblOrder tblTblOrder) {
@@ -85,4 +90,14 @@ public class TblOrderService {
         return null;
     }
 
+     public static TblOrder getTblOrderlistById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new TblOrder(), 1);
+            return (TblOrder) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     
 }

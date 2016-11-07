@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class QuotationService {
 
+    public static void main(String[] args) {
+      TblQuotation tblQuotationById = getTblQuotationById(2);
+        System.out.println("tblQuotationById =" +tblQuotationById.getQuotationDesc());
+    }
+    
     public static boolean saveTblQuotation(TblQuotation tblTblQuotation) {
         try {
             SuperConnection.saveEntity(tblTblQuotation);
@@ -51,5 +56,14 @@ public class QuotationService {
         }
         return null;
     }
-
+    
+    public static TblQuotation getTblQuotationById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblQuotation(), 1);
+            return (TblQuotation) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

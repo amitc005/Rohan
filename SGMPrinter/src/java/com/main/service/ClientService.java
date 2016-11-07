@@ -13,6 +13,12 @@ import java.util.logging.Logger;
 
 public class ClientService {
 
+    public static void main(String[] args) {
+        TblClient tblClientById = getTblClientById(2);
+        System.out.println("tblClientById =" +tblClientById.getClientName());
+    }
+    
+    
     public static boolean saveClient(TblClient tblClient) {
         try {
             SuperConnection.saveEntity(tblClient);
@@ -48,6 +54,15 @@ public class ClientService {
             return SuperConnection.listEntity(new TblClient());
         } catch (Exception ex) {
             Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public static TblClient getTblClientById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblClient(), 1);
+            return (TblClient) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

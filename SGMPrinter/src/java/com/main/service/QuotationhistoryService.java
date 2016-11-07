@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class QuotationhistoryService {
 
+     public static void main(String[] args) {
+         TblQuotationhistory tblQuotationhistoryById = getTblQuotationHistoryById(2);
+        System.out.println("tblQuotationhistoryById =" +tblQuotationhistoryById.getHisstatus());
+    }
+    
     public static boolean saveTblQuotationhistory(TblQuotationhistory tblTblQuotationhistory) {
         try {
             SuperConnection.saveEntity(tblTblQuotationhistory);
@@ -51,5 +56,14 @@ public class QuotationhistoryService {
         }
         return null;
     }
-
+    
+    public static TblQuotationhistory getTblQuotationHistoryById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblQuotationhistory(), 1);
+            return (TblQuotationhistory) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

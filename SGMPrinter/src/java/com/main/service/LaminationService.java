@@ -12,6 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LaminationService {
+    
+    public static void main(String[] args) {
+      TblLamination tblLaminationById = getTblLaminationlistById(2);
+        System.out.println("tblLaminationById =" +tblLaminationById.getLaminationName());
+    }
 
     public static boolean saveTblLamination(TblLamination tblTblLamination) {
         try {
@@ -51,5 +56,15 @@ public class LaminationService {
         }
         return null;
     }
-
+    
+     public static TblLamination getTblLaminationlistById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new TblLamination(), 1);
+            return (TblLamination) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 }

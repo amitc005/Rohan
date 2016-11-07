@@ -13,6 +13,47 @@ import java.util.logging.Logger;
 
 public class DistrictService {
 
+    
+     
+    public static void main(String[] args) {
+        try{
+      TblDistrict district = new TblDistrict();
+      district.setDistrictId(1);
+      district.setDistrictName("roajannas");
+      district.setLatitude("asdas");
+      district.setLongitude("qweqw");
+      district.setStateId("12");
+      district.setIsActive('Y');
+      saveTblDistrict(district);
+        }
+        catch(Exception e){
+            System.out.println(""+e.getMessage());
+        }
+      
+        try{
+      TblDistrict district = new TblDistrict();
+      district.setDistrictId(95);
+      district.setDistrictName("Nagpur");
+      district.setLatitude("44");
+      district.setLongitude("55");
+      district.setStateId("34");
+      district.setIsActive('Y');
+      updateTblDistrict(district);
+        }
+        catch(Exception e){
+            System.out.println(""+e.getMessage());
+        }
+        
+       List<TblDistrict> districts = getTblDistrictList();
+        for (TblDistrict district : districts) {
+             System.out.println("District=" + district.getDistrictName());
+        }
+        
+       TblDistrict districtById = getTblDistrictById(2);
+        System.out.println("DistrictByID= "+ districtById.getDistrictName());
+    }
+    
+    
     public static boolean saveTblDistrict(TblDistrict tblTblDistrict) {
         try {
             SuperConnection.saveEntity(tblTblDistrict);
@@ -51,5 +92,14 @@ public class DistrictService {
         }
         return null;
     }
-
+    
+    public static TblDistrict getTblDistrictById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new TblDistrict(), 1);
+            return (TblDistrict) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class OffsetuserService {
 
+    public static void main(String[] args) {
+      Offsetuser OffsetUserById = getTblLaminationlistById(2);
+        System.out.println("OffsetUserById =" +OffsetUserById.getFirstName());
+    }
+    
     public static boolean saveOffsetuser(Offsetuser tblOffsetuser) {
         try {
             SuperConnection.saveEntity(tblOffsetuser);
@@ -52,4 +57,13 @@ public class OffsetuserService {
         return null;
     }
 
+    public static Offsetuser getTblLaminationlistById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new Offsetuser(), 1);
+            return (Offsetuser) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }   
 }

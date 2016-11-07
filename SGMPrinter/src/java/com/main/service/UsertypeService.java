@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class UsertypeService {
 
+    public static void main(String[] args) {
+      TblUsertype tblUsertypeById = getTblUsertypeById(2);
+        System.out.println("tblUsertypeById =" +tblUsertypeById.getUsertype());
+    }
+    
     public static boolean saveTblUsertype(TblUsertype tblTblUsertype) {
         try {
             SuperConnection.saveEntity(tblTblUsertype);
@@ -51,5 +56,14 @@ public class UsertypeService {
         }
         return null;
     }
-
+    
+    public static TblUsertype getTblUsertypeById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblUsertype(), 1);
+            return (TblUsertype) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

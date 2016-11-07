@@ -18,6 +18,12 @@ public class GsmService {
         for (TblGsm gsmsizeList1 : gsmsizeList) {
             System.out.println("gsmsizeList1 = " + gsmsizeList1.getGsmName());
         }
+        
+        
+         TblGsm gsmById = getTblGsmlistById(2);
+        System.out.println("Gsm= "+ gsmById.getGsmName());
+        
+        
     }
     
     public static boolean saveGsmsize(TblGsm tblGsmsize) {
@@ -59,4 +65,13 @@ public class GsmService {
         return null;
     }
 
+        public static TblGsm getTblGsmlistById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new TblGsm(), 1);
+            return (TblGsm) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class OrderStatusHistoryService {
 
+    public static void main(String[] args) {
+        TblOrderStatusHistory orderStatusHistoryById = getTblOrderStatusHistorylistById(2);
+        System.out.println("orderStatusHistoryById="+orderStatusHistoryById.getCreatedate());
+    }
+    
     public static boolean saveTblOrderStatusHistory(TblOrderStatusHistory tblTblOrderStatusHistory) {
         try {
             SuperConnection.saveEntity(tblTblOrderStatusHistory);
@@ -52,4 +57,13 @@ public class OrderStatusHistoryService {
         return null;
     }
 
+     public static TblOrderStatusHistory getTblOrderStatusHistorylistById(Integer id){
+     try {
+            Object object = SuperConnection.getEntityById(new TblOrderStatusHistory(), 1);
+            return (TblOrderStatusHistory) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class PostpressService {
 
+    public static void main(String[] args) {
+      TblPostpress tblPostpressById = getTblPostpressById(2);
+        System.out.println("tblPostpressById =" +tblPostpressById.getPostpressName());
+    }
+    
     public static boolean saveTblPostpress(TblPostpress tblTblPostpress) {
         try {
             SuperConnection.saveEntity(tblTblPostpress);
@@ -51,5 +56,13 @@ public class PostpressService {
         }
         return null;
     }
-
+     public static TblPostpress getTblPostpressById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblPostpress(), 1);
+            return (TblPostpress) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblState;
+import com.main.service.StateService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class StateServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblState tblState = doMapping(request, response);
+            boolean saveTblState = StateService.saveTblState(tblState);
+            if (saveTblState) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblState tblState = doMapping(request, response);
+            boolean updateTblState = StateService.updateTblState(tblState);
+            if (updateTblState) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,14 @@ public class StateServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblState doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblState  tblState = new TblState();
+        
+        tblState.setStateName(request.getParameter("state_name"));
+//        tblState.setIsActive(request.getParameter("is_active"));
+        
+        return tblState;
+    }
+    
+    
 }

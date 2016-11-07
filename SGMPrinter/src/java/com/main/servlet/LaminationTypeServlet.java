@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblLamination;
+import com.main.service.LaminationService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,36 @@ public class LaminationTypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblLamination tblLamination = doMapping(request, response);
+            boolean saveTblLamination = LaminationService.saveTblLamination(tblLamination);
+            if (saveTblLamination) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblLamination tblLamination = doMapping(request, response);
+            boolean updateTblLamination = LaminationService.updateTblLamination(tblLamination);
+            if (updateTblLamination) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +119,14 @@ public class LaminationTypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+     private TblLamination doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblLamination tblLamination = new TblLamination();
+        
+        tblLamination.setLaminationName(request.getParameter("lamination_name"));
+        tblLamination.setLaminationDesc(request.getParameter("lamination_desc"));
+//        tblLamination.setLaminationAddedDate(request.getParameter("lamination_added_date"));
+//        tblLamination.setIsActive(request.getParameter("is_active"));
+        return tblLamination;
+    }
+    
 }

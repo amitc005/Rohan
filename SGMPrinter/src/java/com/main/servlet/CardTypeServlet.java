@@ -93,6 +93,20 @@ public class CardTypeServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            TblCard tblCard = doMapping(request, response);
+            boolean updateTblCard = CardTypeService.updateTblCard(tblCard);
+            if (updateTblCard) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -106,8 +120,8 @@ public class CardTypeServlet extends HttpServlet {
 
     private TblCard doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblCard tblCard = new TblCard();
-        tblCard.setCardName(request.getParameter(""));
-        tblCard.setCardName(request.getParameter(""));
+        tblCard.setCardName(request.getParameter("card_name"));
+//        tblCard.setIsActive(request.getParameter("is_active"));
         return tblCard;
     }
 

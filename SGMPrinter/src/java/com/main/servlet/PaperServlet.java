@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblPaper;
+import com.main.service.TblPaperService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class PaperServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblPaper tblPaper = doMapping(request, response);
+            boolean saveTblPaper = TblPaperService.saveTblPaper(tblPaper);
+            if (saveTblPaper) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblPaper tblPaper = doMapping(request, response);
+            boolean updateTblPaper = TblPaperService.updateTblPaper(tblPaper);
+            if (updateTblPaper) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,12 @@ public class PaperServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblPaper doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblPaper  tblPaper = new TblPaper();
+        
+        tblPaper.setPaperName(request.getParameter("paper_name"));
+//        tblPaper.setPAddedDate(request.getParameter("p_added_date"));
+//        tblPaper.setIsActive(request.getParameter("is_active"));
+        return tblPaper;
+    }
 }

@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblQuotationhistory;
+import com.main.service.QuotationhistoryService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class QuotationhistoryServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblQuotationhistory tblQuotationhistory = doMapping(request, response);
+            boolean saveTblQuotationhistory = QuotationhistoryService.saveTblQuotationhistory(tblQuotationhistory);
+            if (saveTblQuotationhistory) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblQuotationhistory tblQuotationhistory = doMapping(request, response);
+            boolean updateTblQuotationhistory = QuotationhistoryService.updateTblQuotationhistory(tblQuotationhistory);
+            if (updateTblQuotationhistory) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,20 @@ public class QuotationhistoryServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    
+     private TblQuotationhistory doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblQuotationhistory  tblQuotationhistory = new TblQuotationhistory();
+        
+        tblQuotationhistory.setId(Integer.parseInt(request.getParameter("quotation_id")));
+        tblQuotationhistory.setRequestquery(request.getParameter("requestquery"));
+        tblQuotationhistory.setReplyanswer(request.getParameter("replyanswer"));
+//        tblQuotationhistory.setRequestdate(request.getParameter("requestdate"));
+//        tblQuotationhistory.setReplydate(request.getParameter("replydate"));
+        tblQuotationhistory.setHisstatus(request.getParameter("hisstatus"));
+//        tblQuotationhistory.setIsactive(request.getParameter("isactive"));
+                
+                
+                
+        return tblQuotationhistory;
+    }
 }

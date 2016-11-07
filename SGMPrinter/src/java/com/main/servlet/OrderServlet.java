@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblOrder;
+import com.main.service.TblOrderService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class OrderServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblOrder tblOrder = doMapping(request, response);
+            boolean saveTblOrder = TblOrderService.saveTblOrder(tblOrder);
+            if (saveTblOrder) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_ORDER);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblOrder tblOrder = doMapping(request, response);
+            boolean updateTblOrder = TblOrderService.updateTblOrder(tblOrder);
+            if (updateTblOrder) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_ORDER);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,13 @@ public class OrderServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblOrder doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblOrder  tblOrder = new TblOrder();
+        
+        
+        
+        
+        return tblOrder;
+    }
+    
 }

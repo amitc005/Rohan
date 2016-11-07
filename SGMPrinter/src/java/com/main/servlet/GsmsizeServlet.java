@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblGsm;
+import com.main.service.GsmService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,38 @@ public class GsmsizeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblGsm tblGsm = doMapping(request, response);
+            boolean saveGsmsize = GsmService.saveGsmsize(tblGsm);
+            if (saveGsmsize) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_GSMSIZE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblGsm tblGsm = doMapping(request, response);
+            boolean updateGsmsize = GsmService.updateGsmsize(tblGsm);
+            if (updateGsmsize) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_GSMSIZE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +121,12 @@ public class GsmsizeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblGsm doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblGsm tblGsm = new TblGsm();
+        
+        tblGsm.setGsmName(request.getParameter("gsm_name"));
+//        tblGsm.setGsmAddedDate(request.getParameter("gsm_added_date"));
+//        tblGsm.setIsActive(request.getParameter("is_active"));
+        return tblGsm;
+    }
 }

@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblDistrict;
+import com.main.service.DistrictService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,35 @@ public class DistrictServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblDistrict tblDistrict = doMapping(request, response);
+            boolean saveTblDistrictlist = DistrictService.saveTblDistrict(tblDistrict);
+            if (saveTblDistrictlist) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        try {
+             TblDistrict tblDistrict = doMapping(request, response);
+            boolean updateTblDistrictlist = DistrictService.updateTblDistrict(tblDistrict);
+            if (updateTblDistrictlist) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_DISTRICT);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +118,15 @@ public class DistrictServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblDistrict doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblDistrict tblDistrict = new TblDistrict();
+        
+        tblDistrict.setDistrictName(request.getParameter("district_name"));
+        tblDistrict.setLatitude(request.getParameter("latitude"));
+        tblDistrict.setLongitude(request.getParameter("longitude"));
+        tblDistrict.setStateId(request.getParameter("state_id"));
+     //   tblDistrict.setIsActive(request.getParameter("is_active"));
+        return tblDistrict;
+    }
+    
 }

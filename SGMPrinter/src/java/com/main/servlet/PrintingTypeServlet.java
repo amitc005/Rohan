@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblPrinting;
+import com.main.service.PrintingService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,36 @@ public class PrintingTypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblPrinting tblPrinting = doMapping(request, response);
+            boolean saveTblPrinting = PrintingService.saveTblPrinting(tblPrinting);
+            if (saveTblPrinting) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblPrinting tblPrinting = doMapping(request, response);
+            boolean updateTblPrinting = PrintingService.updateTblPrinting(tblPrinting);
+            if (updateTblPrinting) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +119,12 @@ public class PrintingTypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblPrinting doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblPrinting  tblPrinting = new TblPrinting();
+        
+        tblPrinting.setPrintingName(request.getParameter("printing_name"));
+//        tblPrinting.setPtAddedDate(request.getParameter("pt_added_date"));
+//        tblPrinting.setIsActive(request.getParameter("is_active"));
+        return tblPrinting;
+    }
 }

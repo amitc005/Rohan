@@ -1,7 +1,12 @@
 package com.main.servlet;
 
+import com.main.pojo.TblUsertype;
+import com.main.service.UsertypeService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +79,38 @@ public class UsertypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblUsertype tblUsertype = doMapping(request, response);
+            boolean saveTblUsertype = UsertypeService.saveTblUsertype(tblUsertype);
+            if (saveTblUsertype) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblUsertype tblUsertype = doMapping(request, response);
+            boolean updateTblUsertype = UsertypeService.updateTblUsertype(tblUsertype);
+            if (updateTblUsertype) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +122,14 @@ public class UsertypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+     private TblUsertype doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblUsertype  tblUsertype = new TblUsertype();
+        
+        tblUsertype.setUsertype(request.getParameter("usertype"));
+//        tblUsertype.setUsertypeAddedDate(new Date());
+//        tblUsertype.setIsActive(request.getParameter("is_active"));
+        
+        return tblUsertype;
+    }
+    
 }

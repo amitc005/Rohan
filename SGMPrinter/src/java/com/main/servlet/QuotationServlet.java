@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblQuotation;
+import com.main.service.QuotationService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class QuotationServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblQuotation tblQuotation = doMapping(request, response);
+            boolean saveTblQuotation = QuotationService.saveTblQuotation(tblQuotation);
+            if (saveTblQuotation) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblQuotation tblQuotation = doMapping(request, response);
+            boolean updateTblQuotation = QuotationService.updateTblQuotation(tblQuotation);
+            if (updateTblQuotation) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,13 @@ public class QuotationServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    
+    private TblQuotation doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblQuotation  tblQuotation = new TblQuotation();
+        
+        
+        
+        
+        return tblQuotation;
+    }
 }

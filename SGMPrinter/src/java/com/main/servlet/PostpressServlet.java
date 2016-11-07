@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblPostpress;
+import com.main.service.PostpressService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,37 @@ public class PostpressServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblPostpress tblPostpress = doMapping(request, response);
+            boolean saveTblPostpress = PostpressService.saveTblPostpress(tblPostpress);
+            if (saveTblPostpress) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_POSTPRESS);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblPostpress tblPostpress = doMapping(request, response);
+            boolean updateTblPostpress = PostpressService.updateTblPostpress(tblPostpress);
+            if (updateTblPostpress) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_POSTPRESS);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +120,15 @@ public class PostpressServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+     private TblPostpress doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblPostpress  tblPostpress = new TblPostpress();
+        
+        tblPostpress.setPostpressName(request.getParameter("postpress_name"));
+        tblPostpress.setPostpressDesc(request.getParameter("postpress_desc"));
+//        tblPostpress.setPostpressAddedDate(request.getParameter("postpress_added_date"));
+//        tblPostpress.setIsActive(request.getParameter("is_active"));
+        
+        return tblPostpress;
+    }
+    
 }

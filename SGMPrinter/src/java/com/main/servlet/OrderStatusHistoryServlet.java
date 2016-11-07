@@ -1,7 +1,12 @@
 package com.main.servlet;
 
+import com.main.pojo.TblOrderStatusHistory;
+import com.main.service.OrderStatusHistoryService;
+import com.main.service.TblOrderService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +79,38 @@ public class OrderStatusHistoryServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
+            boolean saveTblOrderStatusHistory = OrderStatusHistoryService.saveTblOrderStatusHistory(orderStatusHistory);
+            if (saveTblOrderStatusHistory) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_ORDERHISTORY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
+            boolean updateTblOrderStatusHistory = OrderStatusHistoryService.updateTblOrderStatusHistory(orderStatusHistory);
+            if (updateTblOrderStatusHistory) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_ORDERHISTORY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +122,14 @@ public class OrderStatusHistoryServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private TblOrderStatusHistory doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblOrderStatusHistory  orderStatusHistory = new TblOrderStatusHistory();
+        
+        orderStatusHistory.setId(Integer.parseInt(request.getParameter("order_id")));
+        orderStatusHistory.setOrderstatus(request.getParameter("orderstatus"));
+//        orderStatusHistory.setCreatedate(request.getParameter("createdate"));
+//        orderStatusHistory.setModifydate(request.getParameter("modifydate"));
+                
+        return orderStatusHistory;
+    }
 }

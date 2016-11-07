@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblQty;
+import com.main.service.QtyService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,38 @@ public class QtyServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        
+        try {
+             TblQty tblQty = doMapping(request, response);
+            boolean saveTblQty = QtyService.saveTblQty(tblQty);
+            if (saveTblQty) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             TblQty tblQty = doMapping(request, response);
+            boolean updateTblQty = QtyService.updateTblQty(tblQty);
+            if (updateTblQty) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +121,12 @@ public class QtyServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+     private TblQty doMapping(HttpServletRequest request, HttpServletResponse response) {
+         TblQty  tblQty = new TblQty();
+        
+        tblQty.setQtyName(request.getParameter("qty_name"));
+//        tblQty.setQtyAddedDate(request.getParameter("qty_added_date"));
+//        tblQty.setIsActive(request.getParameter("is_active"));
+        return tblQty;
+    }
 }

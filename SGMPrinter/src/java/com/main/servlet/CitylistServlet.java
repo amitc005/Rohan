@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.TblCitylist;
+import com.main.service.CitylistService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,36 @@ public class CitylistServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            TblCitylist tblCitylist = doMapping(request, response);
+            boolean saveTblCitylist = CitylistService.saveTblCitylist(tblCitylist);
+            if (saveTblCitylist) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+   
+        try {
+            TblCitylist tblCitylist = doMapping(request, response);
+            boolean updateTblCitylist = CitylistService.updateTblCitylist(tblCitylist);
+            if (updateTblCitylist) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +119,14 @@ public class CitylistServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+     private TblCitylist doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblCitylist tblCitylist = new TblCitylist();
+        
+        tblCitylist.setCityName(request.getParameter("city_name"));
+        tblCitylist.setLatitude(request.getParameter("latitude"));
+        tblCitylist.setLongitude(request.getParameter("longitude"));
+        tblCitylist.setStateId(request.getParameter("state_id"));
+      //  tblCitylist.setIsActive(request.getParameter("is_active"));
+        return tblCitylist;
+    }
 }

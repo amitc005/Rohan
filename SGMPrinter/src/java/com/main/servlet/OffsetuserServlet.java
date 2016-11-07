@@ -1,7 +1,11 @@
 package com.main.servlet;
 
+import com.main.pojo.Offsetuser;
+import com.main.service.OffsetuserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,9 +78,35 @@ public class OffsetuserServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+             Offsetuser offsetuser = doMapping(request, response);
+            boolean saveOffsetuser = OffsetuserService.saveOffsetuser(offsetuser);
+            if (saveOffsetuser) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+         try {
+             Offsetuser offsetuser = doMapping(request, response);
+            boolean updateOffsetuser = OffsetuserService.updateOffsetuser(offsetuser);
+            if (updateOffsetuser) {
+                response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
+            } else {
+                request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -88,4 +118,23 @@ public class OffsetuserServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
+    private Offsetuser doMapping(HttpServletRequest request, HttpServletResponse response) {
+        Offsetuser  offsetuser = new Offsetuser();
+        
+        offsetuser.setUserTypeId(Integer.parseInt(request.getParameter("user_type_id")));
+        offsetuser.setUsername(request.getParameter("username"));
+        offsetuser.setPassword(request.getParameter("password"));
+        offsetuser.setFirstName(request.getParameter("first_name"));
+        offsetuser.setLastName(request.getParameter("last_name"));
+        offsetuser.setEmailId(request.getParameter("email_id"));
+        offsetuser.setLastLogin(request.getParameter("last_login"));
+        offsetuser.setActionPermission(request.getParameter("action_permission"));
+        offsetuser.setPagePermission(request.getParameter("page_permission"));
+        offsetuser.setIntime(request.getParameter("intime"));
+        offsetuser.setOuttime(request.getParameter("outtime"));
+        offsetuser.setMacid(request.getParameter("macid"));
+      //  offsetuser.setIsActive(request.getParameter("is_active"));
+        
+        return offsetuser;
+    }
 }

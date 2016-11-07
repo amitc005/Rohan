@@ -14,23 +14,8 @@ import java.util.logging.Logger;
 public class CardTypeService {
 
     public static void main(String[] args) {
-
-        // test saving
-        try {
-            TblCard tblCard = new TblCard();
-            tblCard.setCardName("test name");
-            saveTblCard(tblCard);
-        } catch (Exception e) {
-            System.out.println(""+e.getMessage());
-        }
-        
-        List<TblCard> tblCardList = getTblCardList();
-        for (TblCard tblCardList1 : tblCardList) {
-            System.out.println("tblCardList1 = " + tblCardList1.getCardName());
-        }
-        
-        
-
+        TblCard tblCardById = getTblCardById(2);
+        System.out.println("tblCardById = " + tblCardById.getCardName());
     }
 
     public static boolean saveTblCard(TblCard tblTblCard) {
@@ -66,6 +51,16 @@ public class CardTypeService {
     public static List<TblCard> getTblCardList() {
         try {
             return SuperConnection.listEntity(new TblCard());
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public static TblCard getTblCardById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblCard(), 1);
+            return (TblCard) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
         }

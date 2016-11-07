@@ -56,6 +56,18 @@ public class SuperConnection {
         return criteria.list();
     }
 
+    public static Object getEntityById(Object entity, Integer id) {
+        session = DatabaseUnility.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Object object;
+        try {
+            object = session.load(entity.getClass(), id);
+        } catch (Exception e) {
+            object = session.get(entity.getClass(), id);
+        }
+        return object;
+    }
+
     public static List<Object> listEntityByQuery(String query) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -85,5 +97,5 @@ public class SuperConnection {
         }
         return sb.toString();
     }
-    
+
 }

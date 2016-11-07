@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 
 public class CitylistService {
 
+      public static void main(String[] args) {
+        TblCitylist tblCardById = getTblCitylistById(2);
+        System.out.println("tblCardById = " + tblCardById.getCityName());
+    }
+    
     public static boolean saveTblCitylist(TblCitylist tblTblCitylist) {
         try {
             SuperConnection.saveEntity(tblTblCitylist);
@@ -52,4 +57,13 @@ public class CitylistService {
         return null;
     }
 
+    public static TblCitylist getTblCitylistById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblCitylist(), 1);
+            return (TblCitylist) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

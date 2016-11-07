@@ -1,3 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.main.pojo.TblQty"%>
+<%@page import="java.util.List"%>
+<%@page import="com.main.service.QtyService"%>
+<%
+    List<TblQty>  tblQtyList = QtyService.getTblQtyList();
+    pageContext.setAttribute("tblQtyList", tblQtyList);
+%>
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -10,46 +18,19 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td class="center"> 4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0</td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5</td>
-                                <td>Win 95+</td>
-                                <td class="center">5.5</td>
-                                <td class="center">A</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 6</td>
-                                <td>Win 98+</td>
-                                <td class="center">6</td>
-                                <td class="center">A</td>
-                            </tr>
+                            <c:forEach var="qty" items="${pageScope.tblQtyList}"> 
+                                <tr>
+                                    <td><c:out value="${qty.qtyName}"/> </td>
+                                    <td><c:out value="${qty.qtyAddedDate}"/> </td>
+                                    <td><c:out value="${qty.isActive}"/> </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

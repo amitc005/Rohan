@@ -1,3 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.main.pojo.TblCitylist"%>
+<%@page import="java.util.List"%>
+<%@page import="com.main.service.CitylistService"%>
+<%
+    List<TblCitylist> citylists = CitylistService.getTblCitylistList();
+    pageContext.setAttribute("citylists", citylists);
+%>
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -10,46 +18,23 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>City Name</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>State Id</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td class="center"> 4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0</td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5</td>
-                                <td>Win 95+</td>
-                                <td class="center">5.5</td>
-                                <td class="center">A</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 6</td>
-                                <td>Win 98+</td>
-                                <td class="center">6</td>
-                                <td class="center">A</td>
-                            </tr>
+                            <c:forEach var="city" items="${pageScope.citylists}"> 
+                                <tr>
+                                    <td><c:out value="${city.cityName}"/> </td>
+                                    <td><c:out value="${city.latitude}"/> </td>
+                                    <td><c:out value="${city.longitude}"/> </td>
+                                    <td><c:out value="${city.stateId}"/> </td>
+                                    <td><c:out value="${city.isActive}"/> </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

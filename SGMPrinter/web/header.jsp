@@ -14,3 +14,7 @@
 <link rel="stylesheet" href="<%=IServletConstant.SERVER_URL%>css/colorpicker.css" />
 <link rel="stylesheet" href="<%=IServletConstant.SERVER_URL%>css/datepicker.css" />
 <link rel="stylesheet" href="<%=IServletConstant.SERVER_URL%>css/bootstrap-wysihtml5.css" />
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />

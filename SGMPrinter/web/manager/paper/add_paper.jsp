@@ -6,51 +6,22 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action="./PaperServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" autofocus="" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
+                               <label class="control-label ">PAPER NAME :</label>
+<div class="controls">
+<input type="text" name="paper_name" maxlength="100" class="span11"  required="" placeholder="PAPER NAME" />
+</div>
 
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">P ADDED DATE :</label>
+<div class="controls">
+<input type="text" name="p_added_date" maxlength="10" class="span11"  required="" placeholder="P ADDED DATE" />
+</div>
 
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="First name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
                             <center>
                                 <div class="form-actions right">
                                     <button type="submit" class="btn btn-success">Save</button>

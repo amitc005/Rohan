@@ -6,51 +6,72 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action=".//OffsetuserServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" autofocus="" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
+                               <label class="control-label ">USER TYPE ID :</label>
+<div class="controls">
+<input type="text" name="user_type_id" maxlength="11" class="span11"  required="" placeholder="USER TYPE ID" />
+</div>
 
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">USERNAME :</label>
+<div class="controls">
+<input type="text" name="username" maxlength="50" class="span11"  required="" placeholder="USERNAME" />
+</div>
 
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="First name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">PASSWORD :</label>
+<div class="controls">
+<input type="text" name="password" maxlength="50" class="span11"  required="" placeholder="PASSWORD" />
+</div>
+
+<label class="control-label ">FIRST NAME :</label>
+<div class="controls">
+<input type="text" name="first_name" maxlength="50" class="span11"  required="" placeholder="FIRST NAME" />
+</div>
+
+<label class="control-label ">LAST NAME :</label>
+<div class="controls">
+<input type="text" name="last_name" maxlength="50" class="span11"  required="" placeholder="LAST NAME" />
+</div>
+
+<label class="control-label ">EMAIL ID :</label>
+<div class="controls">
+<input type="text" name="email_id" maxlength="100" class="span11"  required="" placeholder="EMAIL ID" />
+</div>
+
+<label class="control-label ">LAST LOGIN :</label>
+<div class="controls">
+<input type="text" name="last_login" maxlength="50" class="span11"  required="" placeholder="LAST LOGIN" />
+</div>
+
+<label class="control-label ">ACTION PERMISSION :</label>
+<div class="controls">
+<input type="text" name="action_permission" maxlength="100" class="span11"  required="" placeholder="ACTION PERMISSION" />
+</div>
+
+<label class="control-label ">PAGE PERMISSION :</label>
+<div class="controls">
+<input type="text" name="page_permission" maxlength="21845" class="span11"  required="" placeholder="PAGE PERMISSION" />
+</div>
+
+<label class="control-label ">INTIME :</label>
+<div class="controls">
+<input type="text" name="intime" maxlength="10" class="span11"  required="" placeholder="INTIME" />
+</div>
+
+<label class="control-label ">OUTTIME :</label>
+<div class="controls">
+<input type="text" name="outtime" maxlength="10" class="span11"  required="" placeholder="OUTTIME" />
+</div>
+
+<label class="control-label ">MACID :</label>
+<div class="controls">
+<input type="text" name="macid" maxlength="50" class="span11"  required="" placeholder="MACID" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
                             <center>
                                 <div class="form-actions right">
                                     <button type="submit" class="btn btn-success">Save</button>

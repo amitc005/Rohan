@@ -6,51 +6,28 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action="./OrderStatusHistoryServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" autofocus="" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
+                               <label class="control-label ">ORDER ID :</label>
+<div class="controls">
+<input type="text" name="order_id" maxlength="11" class="span11"  required="" placeholder="ORDER ID" />
+</div>
 
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">ORDERSTATUS :</label>
+<div class="controls">
+<input type="text" name="orderstatus" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
+</div>
 
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="First name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">CREATEDATE :</label>
+<div class="controls">
+<input type="text" name="createdate" maxlength="10" class="span11"  required="" placeholder="CREATEDATE" />
+</div>
+
+<label class="control-label ">MODIFYDATE :</label>
+<div class="controls">
+<input type="text" name="modifydate" maxlength="10" class="span11"  required="" placeholder="MODIFYDATE" />
+</div>
+
                             <center>
                                 <div class="form-actions right">
                                     <button type="submit" class="btn btn-success">Save</button>

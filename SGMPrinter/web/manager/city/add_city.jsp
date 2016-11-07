@@ -6,51 +6,32 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action="./CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" autofocus="" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
+                              <label class="control-label ">CITY NAME :</label>
+<div class="controls">
+<input type="text" name="city_name" maxlength="100" class="span11"  required="" placeholder="CITY NAME" />
+</div>
 
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="Last name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">LATITUDE :</label>
+<div class="controls">
+<input type="text" name="latitude" maxlength="10" class="span11"  required="" placeholder="LATITUDE" />
+</div>
 
-                            <div class="control-group">
-                                <div class="span6">
-                                    <label class="control-label ">First Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span12" placeholder="First name" />
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <label class="control-label">Last Name :</label>
-                                    <div class="controls">
-                                        <input type="text" class="span11" placeholder="First name" />
-                                    </div>
-                                </div>
-                            </div>
+<label class="control-label ">LONGITUDE :</label>
+<div class="controls">
+<input type="text" name="longitude" maxlength="10" class="span11"  required="" placeholder="LONGITUDE" />
+</div>
+
+<label class="control-label ">STATE ID :</label>
+<div class="controls">
+<input type="text" name="state_id" maxlength="50" class="span11"  required="" placeholder="STATE ID" />
+</div>
+
+<label class="control-label ">IS ACTIVE :</label>
+<div class="controls">
+<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+</div>
                             <center>
                                 <div class="form-actions right">
                                     <button type="submit" class="btn btn-success">Save</button>

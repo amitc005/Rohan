@@ -11,6 +11,10 @@ import org.hibernate.Transaction;
 
 public class SuperConnection {
 
+    public static void main(String[] args) {
+        
+    }
+    
     public static Session session = null;
     public static Transaction transaction = null;
 

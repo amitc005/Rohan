@@ -90,7 +90,7 @@ public class CitylistService {
 
     public static TblCitylist getTblCitylistById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblCitylist(), 1);
+            Object object = SuperConnection.getEntityById(new TblCitylist(), id);
             return (TblCitylist) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

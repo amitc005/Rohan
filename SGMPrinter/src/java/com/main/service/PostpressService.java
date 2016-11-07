@@ -58,7 +58,7 @@ public class PostpressService {
     }
      public static TblPostpress getTblPostpressById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblPostpress(), 1);
+            Object object = SuperConnection.getEntityById(new TblPostpress(), id);
             return (TblPostpress) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

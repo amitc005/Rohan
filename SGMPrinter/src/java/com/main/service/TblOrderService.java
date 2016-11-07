@@ -92,7 +92,7 @@ public class TblOrderService {
 
      public static TblOrder getTblOrderlistById(Integer id){
      try {
-            Object object = SuperConnection.getEntityById(new TblOrder(), 1);
+            Object object = SuperConnection.getEntityById(new TblOrder(), id);
             return (TblOrder) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

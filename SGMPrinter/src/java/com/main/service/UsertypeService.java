@@ -59,7 +59,7 @@ public class UsertypeService {
     
     public static TblUsertype getTblUsertypeById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblUsertype(), 1);
+            Object object = SuperConnection.getEntityById(new TblUsertype(), id);
             return (TblUsertype) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

@@ -60,7 +60,7 @@ public class QtyService {
     
     public static TblQty getTblQtyById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblQty(), 1);
+            Object object = SuperConnection.getEntityById(new TblQty(), id);
             return (TblQty) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

@@ -59,7 +59,7 @@ public class QuotationService {
     
     public static TblQuotation getTblQuotationById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblQuotation(), 1);
+            Object object = SuperConnection.getEntityById(new TblQuotation(), id);
             return (TblQuotation) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

@@ -59,7 +59,7 @@ public class OffsetuserService {
 
     public static Offsetuser getTblLaminationlistById(Integer id){
      try {
-            Object object = SuperConnection.getEntityById(new Offsetuser(), 1);
+            Object object = SuperConnection.getEntityById(new Offsetuser(), id);
             return (Offsetuser) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

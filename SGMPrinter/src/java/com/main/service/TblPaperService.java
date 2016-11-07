@@ -59,7 +59,7 @@ public class TblPaperService {
     
     public static TblPaper getTblPaperById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblPaper(), 1);
+            Object object = SuperConnection.getEntityById(new TblPaper(), id);
             return (TblPaper) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

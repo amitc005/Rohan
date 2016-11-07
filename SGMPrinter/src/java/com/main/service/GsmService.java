@@ -67,7 +67,7 @@ public class GsmService {
 
         public static TblGsm getTblGsmlistById(Integer id){
      try {
-            Object object = SuperConnection.getEntityById(new TblGsm(), 1);
+            Object object = SuperConnection.getEntityById(new TblGsm(), id);
             return (TblGsm) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

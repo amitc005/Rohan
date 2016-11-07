@@ -59,7 +59,7 @@ public class OrderStatusHistoryService {
 
      public static TblOrderStatusHistory getTblOrderStatusHistorylistById(Integer id){
      try {
-            Object object = SuperConnection.getEntityById(new TblOrderStatusHistory(), 1);
+            Object object = SuperConnection.getEntityById(new TblOrderStatusHistory(), id);
             return (TblOrderStatusHistory) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

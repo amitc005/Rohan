@@ -61,7 +61,7 @@ public class PrintingService {
     
     public static TblPrinting getTblPrintingById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new TblPrinting(), 1);
+            Object object = SuperConnection.getEntityById(new TblPrinting(), id);
             return (TblPrinting) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

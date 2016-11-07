@@ -95,7 +95,7 @@ public class DistrictService {
     
     public static TblDistrict getTblDistrictById(Integer id){
      try {
-            Object object = SuperConnection.getEntityById(new TblDistrict(), 1);
+            Object object = SuperConnection.getEntityById(new TblDistrict(), id);
             return (TblDistrict) object;
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);

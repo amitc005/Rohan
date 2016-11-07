@@ -106,10 +106,8 @@ public class CardTypeServlet extends HttpServlet {
 
     private TblCard doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblCard tblCard = new TblCard();
-        
         tblCard.setCardName(request.getParameter(""));
         tblCard.setCardName(request.getParameter(""));
-        
         return tblCard;
     }
 

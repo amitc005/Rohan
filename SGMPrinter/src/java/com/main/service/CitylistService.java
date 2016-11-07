@@ -14,30 +14,6 @@ import java.util.logging.Logger;
 public class CitylistService {
 
       public static void main(String[] args) {
-          
-        try {
-            TblCitylist citylist = new TblCitylist();
-            citylist.setCityId(10);
-            citylist.setCityName("Rohan");
-            citylist.setLatitude("riedj");
-            citylist.setLongitude("jshdas");
-            citylist.setStateId("12sd");
-            saveTblCitylist(citylist);
-        } catch (Exception e) {
-              System.out.println(""+e.getMessage());
-        }
-        
-        try {
-            TblCitylist citylist = new TblCitylist();
-            citylist.setCityId(10);
-            citylist.setCityName("Rohan");
-            citylist.setLatitude("112");
-            citylist.setLongitude("1412");
-            citylist.setStateId("14");
-            updateTblCitylist(citylist);
-        } catch (Exception e) {
-              System.out.println(""+e.getMessage());
-        }
         
         List<TblCitylist> citylists = getTblCitylistList();
         for (TblCitylist citylist : citylists) {

@@ -2,6 +2,7 @@
 <%@page import="com.main.pojo.TblCitylist"%>
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.CitylistService"%>
+ 
 <%
     List<TblCitylist> citylists = CitylistService.getTblCitylistList();
     pageContext.setAttribute("citylists", citylists);
@@ -15,7 +16,7 @@
                     <h5>Static table</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered table-striped">
+                    <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>City Name</th>

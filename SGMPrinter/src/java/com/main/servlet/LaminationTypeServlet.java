@@ -4,6 +4,7 @@ import com.main.pojo.TblLamination;
 import com.main.service.LaminationService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -124,8 +125,8 @@ public class LaminationTypeServlet extends HttpServlet {
         
         tblLamination.setLaminationName(request.getParameter("lamination_name"));
         tblLamination.setLaminationDesc(request.getParameter("lamination_desc"));
-//        tblLamination.setLaminationAddedDate(request.getParameter("lamination_added_date"));
-//        tblLamination.setIsActive(request.getParameter("is_active"));
+        tblLamination.setLaminationAddedDate(new Date());
+        tblLamination.setIsActive(new Character('Y'));
         return tblLamination;
     }
     

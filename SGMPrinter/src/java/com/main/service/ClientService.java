@@ -14,6 +14,15 @@ import java.util.logging.Logger;
 public class ClientService {
 
     public static void main(String[] args) {
+        
+        
+        
+       List<TblClient> clients = getClientList();
+        for (TblClient client : clients) {
+            System.out.println("Client="+client.getClientName());
+        }
+ 
+       
         TblClient tblClientById = getTblClientById(2);
         System.out.println("tblClientById =" +tblClientById.getClientName());
     }

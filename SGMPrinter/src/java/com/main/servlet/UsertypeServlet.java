@@ -126,8 +126,8 @@ public class UsertypeServlet extends HttpServlet {
          TblUsertype  tblUsertype = new TblUsertype();
         
         tblUsertype.setUsertype(request.getParameter("usertype"));
-//        tblUsertype.setUsertypeAddedDate(new Date());
-//        tblUsertype.setIsActive(request.getParameter("is_active"));
+        tblUsertype.setUsertypeAddedDate(new Date());
+        tblUsertype.setIsActive(new Character('Y'));
         
         return tblUsertype;
     }

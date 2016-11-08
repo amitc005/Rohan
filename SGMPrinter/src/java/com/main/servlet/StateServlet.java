@@ -124,7 +124,7 @@ public class StateServlet extends HttpServlet {
          TblState  tblState = new TblState();
         
         tblState.setStateName(request.getParameter("state_name"));
-//        tblState.setIsActive(request.getParameter("is_active"));
+      tblState.setIsActive(new Character('Y'));
         
         return tblState;
     }

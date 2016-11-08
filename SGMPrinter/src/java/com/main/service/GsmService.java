@@ -14,6 +14,9 @@ import java.util.logging.Logger;
 public class GsmService {
 
     public static void main(String[] args) {
+        
+        
+        
         List<TblGsm> gsmsizeList = getGsmsizeList();
         for (TblGsm gsmsizeList1 : gsmsizeList) {
             System.out.println("gsmsizeList1 = " + gsmsizeList1.getGsmName());

@@ -4,6 +4,7 @@ import com.main.pojo.TblQuotationhistory;
 import com.main.service.QuotationhistoryService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -127,10 +128,10 @@ public class QuotationhistoryServlet extends HttpServlet {
         tblQuotationhistory.setId(Integer.parseInt(request.getParameter("quotation_id")));
         tblQuotationhistory.setRequestquery(request.getParameter("requestquery"));
         tblQuotationhistory.setReplyanswer(request.getParameter("replyanswer"));
-//        tblQuotationhistory.setRequestdate(request.getParameter("requestdate"));
-//        tblQuotationhistory.setReplydate(request.getParameter("replydate"));
+        tblQuotationhistory.setRequestdate(new Date());
+        tblQuotationhistory.setReplydate(new Date());
         tblQuotationhistory.setHisstatus(request.getParameter("hisstatus"));
-//        tblQuotationhistory.setIsactive(request.getParameter("isactive"));
+        tblQuotationhistory.setIsactive(new Character('Y'));
                 
                 
                 

@@ -4,6 +4,7 @@ import com.main.pojo.TblPrinting;
 import com.main.service.PrintingService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -123,8 +124,8 @@ public class PrintingTypeServlet extends HttpServlet {
          TblPrinting  tblPrinting = new TblPrinting();
         
         tblPrinting.setPrintingName(request.getParameter("printing_name"));
-//        tblPrinting.setPtAddedDate(request.getParameter("pt_added_date"));
-//        tblPrinting.setIsActive(request.getParameter("is_active"));
+        tblPrinting.setPtAddedDate(new Date());
+        tblPrinting.setIsActive(new Character('Y'));
         return tblPrinting;
     }
 }

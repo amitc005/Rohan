@@ -4,6 +4,7 @@ import com.main.pojo.TblPaper;
 import com.main.service.TblPaperService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -124,8 +125,8 @@ public class PaperServlet extends HttpServlet {
         TblPaper  tblPaper = new TblPaper();
         
         tblPaper.setPaperName(request.getParameter("paper_name"));
-//        tblPaper.setPAddedDate(request.getParameter("p_added_date"));
-//        tblPaper.setIsActive(request.getParameter("is_active"));
+        tblPaper.setPAddedDate(new Date());
+        tblPaper.setIsActive(new Character('Y'));
         return tblPaper;
     }
 }

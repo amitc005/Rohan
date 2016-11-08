@@ -4,6 +4,7 @@ import com.main.pojo.TblPostpress;
 import com.main.service.PostpressService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -125,8 +126,8 @@ public class PostpressServlet extends HttpServlet {
         
         tblPostpress.setPostpressName(request.getParameter("postpress_name"));
         tblPostpress.setPostpressDesc(request.getParameter("postpress_desc"));
-//        tblPostpress.setPostpressAddedDate(request.getParameter("postpress_added_date"));
-//        tblPostpress.setIsActive(request.getParameter("is_active"));
+        tblPostpress.setPostpressAddedDate(new Date());
+        tblPostpress.setIsActive(new Character('Y'));
         
         return tblPostpress;
     }

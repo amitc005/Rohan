@@ -4,6 +4,7 @@ import com.main.pojo.TblClient;
 import com.main.service.ClientService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -132,9 +133,9 @@ public class ClientServlet extends HttpServlet {
         tblClient.setPhoneNo1(request.getParameter("phone_no_1"));
         tblClient.setPostalAddress(request.getParameter("postal_address"));
         tblClient.setPhoneNo2(request.getParameter("phone_no_2"));
-//        tblClient.setClientAddedDate(request.getParameter("client_added_date"));
-//        tblClient.setClientUpdateDate(request.getParameter("client_update_date"));
-//        tblClient.setIsActive(request.getParameter("is_active"));
+        tblClient.setClientAddedDate(new Date());
+        tblClient.setClientUpdateDate(new Date());
+        tblClient.setIsActive(new Character('Y'));
         return tblClient;
     }
 }

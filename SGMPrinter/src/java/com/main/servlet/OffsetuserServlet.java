@@ -133,7 +133,7 @@ public class OffsetuserServlet extends HttpServlet {
         offsetuser.setIntime(request.getParameter("intime"));
         offsetuser.setOuttime(request.getParameter("outtime"));
         offsetuser.setMacid(request.getParameter("macid"));
-      //  offsetuser.setIsActive(request.getParameter("is_active"));
+        offsetuser.setIsActive(new Character('Y'));
         
         return offsetuser;
     }

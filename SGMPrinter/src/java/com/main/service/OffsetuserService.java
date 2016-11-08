@@ -14,7 +14,15 @@ import java.util.logging.Logger;
 public class OffsetuserService {
 
     public static void main(String[] args) {
-      Offsetuser OffsetUserById = getTblLaminationlistById(2);
+        
+        Offsetuser offsetuser =new Offsetuser();
+        offsetuser.setAdminId(1);
+        offsetuser.setUserTypeId(12);
+        offsetuser.setEmailId("rojan.gill");
+        offsetuser.setLastName("sadasd");
+        saveOffsetuser(offsetuser);
+        
+      Offsetuser OffsetUserById = getTblLaminationlistById(1);
         System.out.println("OffsetUserById =" +OffsetUserById.getFirstName());
     }
     

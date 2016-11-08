@@ -126,7 +126,7 @@ public class CitylistServlet extends HttpServlet {
         tblCitylist.setLatitude(request.getParameter("latitude"));
         tblCitylist.setLongitude(request.getParameter("longitude"));
         tblCitylist.setStateId(request.getParameter("state_id"));
-      //  tblCitylist.setIsActive(request.getParameter("is_active"));
+        tblCitylist.setIsActive(new Character('Y'));
         return tblCitylist;
     }
 }

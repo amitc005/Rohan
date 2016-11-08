@@ -5,6 +5,7 @@ import com.main.service.OrderStatusHistoryService;
 import com.main.service.TblOrderService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -127,8 +128,8 @@ public class OrderStatusHistoryServlet extends HttpServlet {
         
         orderStatusHistory.setId(Integer.parseInt(request.getParameter("order_id")));
         orderStatusHistory.setOrderstatus(request.getParameter("orderstatus"));
-//        orderStatusHistory.setCreatedate(request.getParameter("createdate"));
-//        orderStatusHistory.setModifydate(request.getParameter("modifydate"));
+        orderStatusHistory.setCreatedate(new Date());
+        orderStatusHistory.setModifydate(new Date());
                 
         return orderStatusHistory;
     }

@@ -125,7 +125,7 @@ public class DistrictServlet extends HttpServlet {
         tblDistrict.setLatitude(request.getParameter("latitude"));
         tblDistrict.setLongitude(request.getParameter("longitude"));
         tblDistrict.setStateId(request.getParameter("state_id"));
-     //   tblDistrict.setIsActive(request.getParameter("is_active"));
+        tblDistrict.setIsActive(new Character('Y'));
         return tblDistrict;
     }
     

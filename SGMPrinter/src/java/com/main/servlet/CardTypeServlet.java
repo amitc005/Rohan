@@ -113,6 +113,9 @@ public class CardTypeServlet extends HttpServlet {
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        
+        
     }
 
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -121,7 +124,7 @@ public class CardTypeServlet extends HttpServlet {
     private TblCard doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblCard tblCard = new TblCard();
         tblCard.setCardName(request.getParameter("card_name"));
-//        tblCard.setIsActive(request.getParameter("is_active"));
+        tblCard.setIsActive(new Character('Y'));
         return tblCard;
     }
 

@@ -4,6 +4,7 @@ import com.main.pojo.TblGsm;
 import com.main.service.GsmService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -125,8 +126,8 @@ public class GsmsizeServlet extends HttpServlet {
         TblGsm tblGsm = new TblGsm();
         
         tblGsm.setGsmName(request.getParameter("gsm_name"));
-//        tblGsm.setGsmAddedDate(request.getParameter("gsm_added_date"));
-//        tblGsm.setIsActive(request.getParameter("is_active"));
+       tblGsm.setGsmAddedDate(new Date());
+        tblGsm.setIsActive(new Character('Y'));
         return tblGsm;
     }
 }

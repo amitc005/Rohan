@@ -4,6 +4,7 @@ import com.main.pojo.TblQty;
 import com.main.service.QtyService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -125,8 +126,8 @@ public class QtyServlet extends HttpServlet {
          TblQty  tblQty = new TblQty();
         
         tblQty.setQtyName(request.getParameter("qty_name"));
-//        tblQty.setQtyAddedDate(request.getParameter("qty_added_date"));
-//        tblQty.setIsActive(request.getParameter("is_active"));
+        tblQty.setQtyAddedDate(new Date());
+        tblQty.setIsActive(new Character('Y'));
         return tblQty;
     }
 }

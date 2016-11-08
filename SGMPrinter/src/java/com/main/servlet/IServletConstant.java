@@ -3,7 +3,7 @@ package com.main.servlet;
 public interface IServletConstant {
 
     public static final String PAGE_TITLE = "PAGE_TITLE";
-    public static final String SERVER_URL = "http://localhost:8080/WebMatrix/";
+    public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
     /*
      * PAGE LEVEL SETTING
      */
@@ -12,40 +12,38 @@ public interface IServletConstant {
     public static final String PAGE_FAILUER = "";
     public static final String PAGE_NOTFOUND = "";
 
-    public static final String PAGE_ADD_ACCOUNT = "account/add_account.jsp";
-    public static final String PAGE_VIEW_ACCOUNT = "account/view_account.jsp";
-    public static final String PAGE_ADD_CITY = "city/add_city.jsp";
-    public static final String PAGE_VIEW_CITY = "city/view_city.jsp";
-    public static final String PAGE_ADD_CLIENT = "client/add_client.jsp";
-    public static final String PAGE_VIEW_CLIENT = "client/view_client.jsp";
-    public static final String PAGE_ADD_DASHBOARD = "dashboard/add_dashboard.jsp";
-    public static final String PAGE_VIEW_DASHBOARD = "dashboard/view_dashboard.jsp";
-    public static final String PAGE_ADD_DISTRICT = "district/add_district.jsp";
-    public static final String PAGE_VIEW_DISTRICT = "district/view_district.jsp";
-    public static final String PAGE_ADD_EMPLOYEE = "employee/add_employee.jsp";
-    public static final String PAGE_VIEW_EMPLOYEE = "employee/view_employee.jsp";
-    public static final String PAGE_ADD_GSMSIZE = "gsmsize/add_gsmsize.jsp";
-    public static final String PAGE_VIEW_GSMSIZE = "gsmsize/view_gsmsize.jsp";
-    public static final String PAGE_ADD_LAMINATION = "lamination/add_lamination.jsp";
-    public static final String PAGE_VIEW_LAMINATION = "lamination/view_lamination.jsp";
-    public static final String PAGE_ADD_ORDER = "order/add_order.jsp";
-    public static final String PAGE_VIEW_ORDER = "order/view_order.jsp";
-    public static final String PAGE_ADD_ORDERHISTORY = "orderhistory/add_orderhistory.jsp";
-    public static final String PAGE_VIEW_ORDERHISTORY = "orderhistory/view_orderhistory.jsp";
-    public static final String PAGE_ADD_PAPER = "paper/add_paper.jsp";
-    public static final String PAGE_VIEW_PAPER = "paper/view_paper.jsp";
-    public static final String PAGE_ADD_POSTPRESS = "postpress/add_postpress.jsp";
-    public static final String PAGE_VIEW_POSTPRESS = "postpress/view_postpress.jsp";
-    public static final String PAGE_ADD_PRINTTYPE = "printtype/add_printtype.jsp";
-    public static final String PAGE_VIEW_PRINTTYPE = "printtype/view_printtype.jsp";
-    public static final String PAGE_ADD_QUANTITY = "quantity/add_quantity.jsp";
-    public static final String PAGE_VIEW_QUANTITY = "quantity/view_quantity.jsp";
-    public static final String PAGE_ADD_QUOTATION = "quotation/add_quotation.jsp";
-    public static final String PAGE_VIEW_QUOTATION = "quotation/view_quotation.jsp";
-    public static final String PAGE_ADD_SIDE = "side/add_side.jsp";
-    public static final String PAGE_VIEW_SIDE = "side/view_side.jsp";
-    public static final String PAGE_ADD_STATE = "state/add_state.jsp";
-    public static final String PAGE_VIEW_STATE = "state/view_state.jsp";
+    public static final String PAGE_ADD_ACCOUNT = "manager/index.jsp?requestPage=add_account";
+    public static final String PAGE_VIEW_ACCOUNT = "manager/index.jsp?requestPage=view_account";
+    public static final String PAGE_ADD_CITY = "manager/index.jsp?requestPage=add_city";
+    public static final String PAGE_VIEW_CITY = "manager/index.jsp?requestPage=view_city";
+    public static final String PAGE_ADD_CLIENT = "manager/index.jsp?requestPage=add_client";
+    public static final String PAGE_VIEW_CLIENT = "manager/index.jsp?requestPage=view_client";
+    public static final String PAGE_ADD_DISTRICT = "manager/index.jsp?requestPage=add_district";
+    public static final String PAGE_VIEW_DISTRICT = "manager/index.jsp?requestPage=view_district";
+    public static final String PAGE_ADD_EMPLOYEE = "manager/index.jsp?requestPage=add_employee";
+    public static final String PAGE_VIEW_EMPLOYEE = "manager/index.jsp?requestPage=view_employee";
+    public static final String PAGE_ADD_GSMSIZE = "manager/index.jsp?requestPage=add_gsmsize";
+    public static final String PAGE_VIEW_GSMSIZE = "manager/index.jsp?requestPage=view_gsmsize";
+    public static final String PAGE_ADD_LAMINATION = "manager/index.jsp?requestPage=add_lamination";
+    public static final String PAGE_VIEW_LAMINATION = "manager/index.jsp?requestPage=view_lamination";
+    public static final String PAGE_ADD_ORDER = "manager/index.jsp?requestPage=add_order";
+    public static final String PAGE_VIEW_ORDER = "manager/index.jsp?requestPage=view_order";
+    public static final String PAGE_ADD_ORDERHISTORY = "manager/index.jsp?requestPage=add_orderhistory";
+    public static final String PAGE_VIEW_ORDERHISTORY = "manager/index.jsp?requestPage=view_orderhistory";
+    public static final String PAGE_ADD_PAPER = "manager/index.jsp?requestPage=add_paper";
+    public static final String PAGE_VIEW_PAPER = "manager/index.jsp?requestPage=view_paper";
+    public static final String PAGE_ADD_POSTPRESS = "manager/index.jsp?requestPage=add_postpress";
+    public static final String PAGE_VIEW_POSTPRESS = "manager/index.jsp?requestPage=view_postpress";
+    public static final String PAGE_ADD_PRINTTYPE = "manager/index.jsp?requestPage=add_printtype";
+    public static final String PAGE_VIEW_PRINTTYPE = "manager/index.jsp?requestPage=view_printtype";
+    public static final String PAGE_ADD_QUANTITY = "manager/index.jsp?requestPage=add_quantity";
+    public static final String PAGE_VIEW_QUANTITY = "manager/index.jsp?requestPage=view_quantity";
+    public static final String PAGE_ADD_QUOTATION = "manager/index.jsp?requestPage=add_quotation";
+    public static final String PAGE_VIEW_QUOTATION = "manager/index.jsp?requestPage=view_quotation";
+    public static final String PAGE_ADD_SIDE = "manager/index.jsp?requestPage=add_side";
+    public static final String PAGE_VIEW_SIDE = "manager/index.jsp?requestPage=view_side";
+    public static final String PAGE_ADD_STATE = "manager/index.jsp?requestPage=add_state";
+    public static final String PAGE_VIEW_STATE = "manager/index.jsp?requestPage=view_state";
 
     /*
      * ACTION LEVEL SETTING

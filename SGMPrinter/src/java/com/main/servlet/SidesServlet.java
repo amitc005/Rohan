@@ -4,6 +4,7 @@ import com.main.pojo.TblSides;
 import com.main.service.SidesService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -78,8 +79,8 @@ public class SidesServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-         try {
-             TblSides tblSides = doMapping(request, response);
+        try {
+            TblSides tblSides = doMapping(request, response);
             boolean saveTblSides = SidesService.saveTblSides(tblSides);
             if (saveTblSides) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_SIDE);
@@ -93,9 +94,9 @@ public class SidesServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblSides tblSides = doMapping(request, response);
+
+        try {
+            TblSides tblSides = doMapping(request, response);
             boolean updateTblSides = SidesService.updateTblSides(tblSides);
             if (updateTblSides) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_SIDE);
@@ -106,7 +107,7 @@ public class SidesServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -119,12 +120,11 @@ public class SidesServlet extends HttpServlet {
     }
 
     private TblSides doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblSides  tblSides = new TblSides();
-        
+        TblSides tblSides = new TblSides();
         tblSides.setSideName(request.getParameter("side_name"));
-//         tblSides.setSideAddedDate(request.getParameter("side_added_date"));
-//         tblSides.setIsActive(request.getParameter("is_active"));
+        tblSides.setSideAddedDate(new Date());
+        tblSides.setIsActive(new Character('Y'));
         return tblSides;
     }
-    
+
 }

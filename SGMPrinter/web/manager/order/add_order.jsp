@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -6,7 +7,7 @@
                     <h5>Form validation</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="./OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">QUOTATION ID :</label>
                             <div class="controls">
@@ -78,6 +79,7 @@
                             </div>
                             <center>
                                 <div class="form-actions right">
+                                    <input type="hidden" name="<%= IServletConstant.ACTION %>" value="<%= IServletConstant.ACTION_ADD %>" />
                                     <button type="submit" class="btn btn-success">Save</button>
                                     <button type="submit" class="btn btn-primary">Reset</button>
                                     <button type="submit" class="btn btn-info">Edit</button>

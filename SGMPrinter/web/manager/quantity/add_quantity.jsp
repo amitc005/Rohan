@@ -6,7 +6,7 @@
                         <h5>Form validation</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form class="form-horizontal" method="post" action="./QtyServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <form class="form-horizontal" method="post" action="../QtyServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
                                <label class="control-label ">QTY NAME :</label>
 <div class="controls">
@@ -30,6 +30,7 @@
                                     <button type="submit" class="btn btn-danger">Cancel</button>
                                 </div>
                             </center>
+                            </div>
                         </form>
                     </div>
                 </div>

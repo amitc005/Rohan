@@ -10,24 +10,24 @@
                         <form class="form-horizontal" method="post" action="../LaminationTypeServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
                                <label class="control-label ">LAMINATION NAME :</label>
-<div class="controls">
-<input type="text" name="lamination_name" maxlength="100" class="span11"  required="" placeholder="LAMINATION NAME" />
-</div>
+                            <div class="controls">
+                                <input type="text" name="lamination_name" maxlength="100" class="span11"  required="" placeholder="LAMINATION NAME" />
+                            </div>
 
-<label class="control-label ">LAMINATION DESC :</label>
-<div class="controls">
-<input type="text" name="lamination_desc" maxlength="250" class="span11"  required="" placeholder="LAMINATION DESC" />
-</div>
+                                <label class="control-label ">LAMINATION DESC :</label>
+                            <div class="controls">
+                                <input type="text" name="lamination_desc" maxlength="250" class="span11"  required="" placeholder="LAMINATION DESC" />
+                            </div>
 
-<label class="control-label ">LAMINATION ADDED DATE :</label>
-<div class="controls">
-<input type="text" name="lamination_added_date" maxlength="10" class="span11"  required="" placeholder="LAMINATION ADDED DATE" />
-</div>
+                                <label class="control-label ">LAMINATION ADDED DATE :</label>
+                            <div class="controls">
+                            <input type="text" name="lamination_added_date" maxlength="10" class="span11"  required="" placeholder="LAMINATION ADDED DATE" />
+                            </div>
 
-<label class="control-label ">IS ACTIVE :</label>
-<div class="controls">
-<input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
-</div>
+                            <label class="control-label ">IS ACTIVE :</label>
+                            <div class="controls">
+                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                            </div>
 
                             <center>
                                 <div class="form-actions right">

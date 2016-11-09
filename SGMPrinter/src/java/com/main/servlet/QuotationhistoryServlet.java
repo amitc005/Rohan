@@ -84,7 +84,7 @@ public class QuotationhistoryServlet extends HttpServlet {
              TblQuotationhistory tblQuotationhistory = doMapping(request, response);
             boolean saveTblQuotationhistory = QuotationhistoryService.saveTblQuotationhistory(tblQuotationhistory);
             if (saveTblQuotationhistory) {
-                response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
+                response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);

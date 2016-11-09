@@ -83,7 +83,7 @@ public class DistrictServlet extends HttpServlet {
              TblDistrict tblDistrict = doMapping(request, response);
             boolean saveTblDistrictlist = DistrictService.saveTblDistrict(tblDistrict);
             if (saveTblDistrictlist) {
-                response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
+                response.sendRedirect(IServletConstant.PAGE_VIEW_DISTRICT);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);

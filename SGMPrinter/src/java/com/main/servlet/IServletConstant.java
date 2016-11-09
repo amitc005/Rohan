@@ -3,7 +3,7 @@ package com.main.servlet;
 public interface IServletConstant {
 
     public static final String PAGE_TITLE = "PAGE_TITLE";
-    public static final String SERVER_URL = "http://localhost:8084/WebMatrix/";
+    public static final String SERVER_URL = "http://localhost:8080/WebMatrix/";
     /*
      * PAGE LEVEL SETTING
      */

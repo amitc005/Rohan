@@ -23,7 +23,6 @@
 <div class="controls">
 <input type="text" name="postpress_added_date" maxlength="10" class="span11"  required="" placeholder="POSTPRESS ADDED DATE" />
 </div>
-
 <label class="control-label ">IS ACTIVE :</label>
 <div class="controls">
 <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
@@ -39,9 +38,12 @@
                                 </div>
                             </center>
                             </div>
-                        </form>
+                            </form> 
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+                                      
+                                    

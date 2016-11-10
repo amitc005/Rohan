@@ -28,14 +28,14 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>Form validation</h5>
+                    <h5>ADD GSM SIZE TABLE</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../GsmsizeServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">DISTRICT NAME :</label>
                             <div class="controls">
-                                <input type="text" name="district_name" maxlength="100" class="span11"  required="" placeholder="DISTRICT NAME" />
+                                <input type="text" name="district_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="DISTRICT NAME" />
                             </div>
 
                             <label class="control-label ">LATITUDE :</label>

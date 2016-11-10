@@ -37,7 +37,7 @@
         </ul>
     </li>
     
-    <li class="submenu"> <a href="index.jsp?requestPage=view_gsmsize"><i class="icon icon-th-list"></i> <span>Gsmsize</span></a>
+    <li class="submenu"> <a href="index.jsp?requestPage=view_gsmsize"><i class="icon icon-th-list"></i> <span>Gsm Size</span></a>
         <ul>
             <li><a href="index.jsp?requestPage=add_gsmsize">Add gsmsize</a></li>
             <li><a href="index.jsp?requestPage=view_gsmsize">View gsmsize</a></li>
@@ -56,10 +56,10 @@
             <li><a href="index.jsp?requestPage=view_order">View order</a></li>
         </ul>
     </li>
-    <li class="submenu"> <a href="index.jsp?requestPage=view_orderhistory"><i class="icon icon-th-list"></i> <span>Orderhistory</span></a>
+    <li class="submenu"> <a href="index.jsp?requestPage=view_orderhistory"><i class="icon icon-th-list"></i> <span>Order History</span></a>
         <ul>
-            <li><a href="index.jsp?requestPage=add_orderhistory">Add orderhistory</a></li>
-            <li><a href="index.jsp?requestPage=view_orderhistory">View orderhistory</a></li>
+            <li><a href="index.jsp?requestPage=add_orderhistory">Add order history</a></li>
+            <li><a href="index.jsp?requestPage=view_orderhistory">View order history</a></li>
         </ul>
     </li>
     <li class="submenu"> <a href="index.jsp?requestPage=view_paper"><i class="icon icon-th-list"></i> <span>Paper</span></a>
@@ -68,10 +68,10 @@
             <li><a href="index.jsp?requestPage=view_paper">View paper</a></li>
         </ul>
     </li>
-    <li class="submenu"> <a href="index.jsp?requestPage=view_postpress"><i class="icon icon-th-list"></i> <span>Postpress</span></a>
+    <li class="submenu"> <a href="index.jsp?requestPage=view_postpress"><i class="icon icon-th-list"></i> <span>Post Press</span></a>
         <ul>
-            <li><a href="index.jsp?requestPage=add_postpress">Add postpress</a></li>
-            <li><a href="index.jsp?requestPage=view_postpress">View postpress</a></li>
+            <li><a href="index.jsp?requestPage=add_postpress">Add post press</a></li>
+            <li><a href="index.jsp?requestPage=view_postpress">View post press</a></li>
         </ul>
     </li>
     

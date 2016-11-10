@@ -28,14 +28,14 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>Form validation</h5>
+                    <h5>ADD POSTPRESS TABLE</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../PostpressServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">POSTPRESS NAME :</label>
                             <div class="controls">
-                                <input type="text" name="postpress_name" maxlength="100" class="span11"  required="" placeholder="POSTPRESS NAME" />
+                                <input type="text" name="postpress_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="POSTPRESS NAME" />
                             </div>
 
                             <label class="control-label ">POSTPRESS DESC :</label>

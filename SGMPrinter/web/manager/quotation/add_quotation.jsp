@@ -4,14 +4,14 @@
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                        <h5>Form validation</h5>
+                        <h5>ADD QUOTATION TABLE</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <form class="form-horizontal" method="post" action="../QuotationServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                             <div class="control-group">
                               <label class="control-label ">CLIENT ID :</label>
 <div class="controls">
-<input type="text" name="client_id" maxlength="11" class="span11"  required="" placeholder="CLIENT ID" />
+<input type="text" name="client_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="CLIENT ID" />
 </div>
 
 <label class="control-label ">QUOTATION DESC :</label>

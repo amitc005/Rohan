@@ -29,14 +29,14 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>Form validation</h5>
+                    <h5>ADD CLIENT TABLE</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../ClientServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                                <input type="text" name="client_name" maxlength="30" class="span11"  required="" placeholder="CLIENT NAME" />
+                                <input type="text" name="client_name" autofocus="" maxlength="30" class="span11"  required="" placeholder="CLIENT NAME" />
                             </div>
                             <label class="control-label ">CLIENT ADDRESS :</label>
                             <div class="controls">

@@ -12,7 +12,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-                    <h5>Static table</h5>
+                    <h5>View State Table</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <table class="table table-bordered table-striped">

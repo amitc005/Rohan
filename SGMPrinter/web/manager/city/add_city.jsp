@@ -34,7 +34,7 @@
                             </div>
                             <center>
                                 <div class="form-actions right">
-                                    <input type="hidden" name="<%= IServletConstant.ACTION %>" value="<%= IServletConstant.ACTION_ADD %>" />
+                                    <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_ADD%>" />
                                     <button type="submit" class="btn btn-success">Save</button>
                                     <button type="submit" class="btn btn-primary">Reset</button>
                                     <button type="submit" class="btn btn-info">Edit</button>
@@ -44,7 +44,7 @@
                         </div>
                     </form>
                 </div>
-                </div>
             </div>
         </div>
     </div>
+</div>

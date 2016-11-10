@@ -14,7 +14,7 @@
                 <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
                     <h5>Static table</h5>
                 </div>
-                <div class="widget-content nopadding">
+                <div id="countTable" class="widget-content nopadding">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>

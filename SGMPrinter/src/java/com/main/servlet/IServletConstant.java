@@ -2,8 +2,11 @@ package com.main.servlet;
 
 public interface IServletConstant {
 
-    public static final String PAGE_TITLE = "PAGE_TITLE";
-    public static final String SERVER_URL = "http://localhost:8080/WebMatrix/";
+ 
+    public static final String PAGE_TITLE = "SGM Offset Printer";
+    public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
+    public static final String LOGO_URL = "http://localhost:8080/SGMPrinter/img";
+ 
     /*
      * PAGE LEVEL SETTING
      */
@@ -49,6 +52,7 @@ public interface IServletConstant {
      * ACTION LEVEL SETTING
      */
     public static final String ACTION = "action";
+    public static final String HIDDEN_ID = "updateId";
     public static final String ACTION_LOGIN = "loginaction";
     public static final String ACTION_RECOVER = "recoveraction";
     public static final String ACTION_ADD = "addaction";

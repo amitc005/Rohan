@@ -15,12 +15,7 @@
 <link rel="stylesheet" href="<%=IServletConstant.SERVER_URL%>css/datepicker.css" />
 <link rel="stylesheet" href="<%=IServletConstant.SERVER_URL%>css/bootstrap-wysihtml5.css" />
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-
-
-<script src="<%=IServletConstant.SERVER_URL%>js/excanvas.min.js"></script> 
+<script type="text/javascript" src="<%=IServletConstant.SERVER_URL%>js/excanvas.min.js"></script> 
 <script src="<%=IServletConstant.SERVER_URL%>js/jquery.min.js"></script> 
 <script src="<%=IServletConstant.SERVER_URL%>js/jquery.ui.custom.js"></script> 
 <script src="<%=IServletConstant.SERVER_URL%>js/bootstrap.min.js"></script> 

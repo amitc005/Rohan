@@ -2,7 +2,7 @@
 <%@page import="com.main.pojo.TblCitylist"%>
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.CitylistService"%>
- 
+
 <%
     List<TblCitylist> citylists = CitylistService.getTblCitylistList();
     pageContext.setAttribute("citylists", citylists);

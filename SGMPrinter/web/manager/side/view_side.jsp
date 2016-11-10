@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="java.util.List"%>
@@ -18,6 +19,8 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
                                 <th>Name</th>
                                 <th>Date</th>
                                 <th></th>
@@ -26,6 +29,8 @@
                         <tbody>
                             <c:forEach var="side" items="${pageScope.tblSidesList}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_SIDE %>&id=${side.sideId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${side.sideName}"/> </td>
                                     <td><c:out value="${side.sideAddedDate}"/> </td>
                                     <td><c:out value="${side.isActive}"/> </td>

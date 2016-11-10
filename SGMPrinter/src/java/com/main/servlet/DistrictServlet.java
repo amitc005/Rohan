@@ -78,9 +78,9 @@ public class DistrictServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblDistrict tblDistrict = doMapping(request, response);
+
+        try {
+            TblDistrict tblDistrict = doMapping(request, response);
             boolean saveTblDistrictlist = DistrictService.saveTblDistrict(tblDistrict);
             if (saveTblDistrictlist) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_DISTRICT);
@@ -91,12 +91,12 @@ public class DistrictServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-             TblDistrict tblDistrict = doMapping(request, response);
+            TblDistrict tblDistrict = doMapping(request, response);
             boolean updateTblDistrictlist = DistrictService.updateTblDistrict(tblDistrict);
             if (updateTblDistrictlist) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_DISTRICT);
@@ -120,13 +120,17 @@ public class DistrictServlet extends HttpServlet {
 
     private TblDistrict doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblDistrict tblDistrict = new TblDistrict();
-        
+
         tblDistrict.setDistrictName(request.getParameter("district_name"));
         tblDistrict.setLatitude(request.getParameter("latitude"));
         tblDistrict.setLongitude(request.getParameter("longitude"));
         tblDistrict.setStateId(request.getParameter("state_id"));
-        tblDistrict.setIsActive(new Character('Y'));
+        tblDistrict.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblDistrict.setDistrictId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblDistrict;
     }
-    
+
 }

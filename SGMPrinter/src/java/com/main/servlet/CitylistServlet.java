@@ -78,7 +78,7 @@ public class CitylistServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             TblCitylist tblCitylist = doMapping(request, response);
             boolean saveTblCitylist = CitylistService.saveTblCitylist(tblCitylist);
@@ -94,7 +94,7 @@ public class CitylistServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-   
+
         try {
             TblCitylist tblCitylist = doMapping(request, response);
             boolean updateTblCitylist = CitylistService.updateTblCitylist(tblCitylist);
@@ -107,7 +107,7 @@ public class CitylistServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -119,14 +119,19 @@ public class CitylistServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-     private TblCitylist doMapping(HttpServletRequest request, HttpServletResponse response) {
+    private TblCitylist doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblCitylist tblCitylist = new TblCitylist();
-        
+
         tblCitylist.setCityName(request.getParameter("city_name"));
         tblCitylist.setLatitude(request.getParameter("latitude"));
         tblCitylist.setLongitude(request.getParameter("longitude"));
         tblCitylist.setStateId(request.getParameter("state_id"));
-        tblCitylist.setIsActive(new Character('Y'));
+        tblCitylist.setIsActive('Y');
+
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblCitylist.setCityId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblCitylist;
     }
 }

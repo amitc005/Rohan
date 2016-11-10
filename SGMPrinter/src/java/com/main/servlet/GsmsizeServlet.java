@@ -79,9 +79,9 @@ public class GsmsizeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblGsm tblGsm = doMapping(request, response);
+            TblGsm tblGsm = doMapping(request, response);
             boolean saveGsmsize = GsmService.saveGsmsize(tblGsm);
             if (saveGsmsize) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_GSMSIZE);
@@ -92,14 +92,13 @@ public class GsmsizeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblGsm tblGsm = doMapping(request, response);
+            TblGsm tblGsm = doMapping(request, response);
             boolean updateGsmsize = GsmService.updateGsmsize(tblGsm);
             if (updateGsmsize) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_GSMSIZE);
@@ -110,7 +109,7 @@ public class GsmsizeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -124,10 +123,14 @@ public class GsmsizeServlet extends HttpServlet {
 
     private TblGsm doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblGsm tblGsm = new TblGsm();
-        
+
         tblGsm.setGsmName(request.getParameter("gsm_name"));
-       tblGsm.setGsmAddedDate(new Date());
-        tblGsm.setIsActive(new Character('Y'));
+        tblGsm.setGsmAddedDate(new Date());
+        tblGsm.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblGsm.setGsmId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblGsm;
     }
 }

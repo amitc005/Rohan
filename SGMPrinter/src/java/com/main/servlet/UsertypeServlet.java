@@ -79,9 +79,9 @@ public class UsertypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblUsertype tblUsertype = doMapping(request, response);
+            TblUsertype tblUsertype = doMapping(request, response);
             boolean saveTblUsertype = UsertypeService.saveTblUsertype(tblUsertype);
             if (saveTblUsertype) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
@@ -92,14 +92,13 @@ public class UsertypeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblUsertype tblUsertype = doMapping(request, response);
+
+        try {
+            TblUsertype tblUsertype = doMapping(request, response);
             boolean updateTblUsertype = UsertypeService.updateTblUsertype(tblUsertype);
             if (updateTblUsertype) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
@@ -110,7 +109,7 @@ public class UsertypeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -122,14 +121,16 @@ public class UsertypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-     private TblUsertype doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblUsertype  tblUsertype = new TblUsertype();
-        
+    private TblUsertype doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblUsertype tblUsertype = new TblUsertype();
         tblUsertype.setUsertype(request.getParameter("usertype"));
         tblUsertype.setUsertypeAddedDate(new Date());
-        tblUsertype.setIsActive(new Character('Y'));
-        
+        tblUsertype.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblUsertype.setUsertypeId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblUsertype;
     }
-    
+
 }

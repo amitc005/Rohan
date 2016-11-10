@@ -79,10 +79,9 @@ public class QtyServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-        
+
         try {
-             TblQty tblQty = doMapping(request, response);
+            TblQty tblQty = doMapping(request, response);
             boolean saveTblQty = QtyService.saveTblQty(tblQty);
             if (saveTblQty) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
@@ -93,13 +92,13 @@ public class QtyServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblQty tblQty = doMapping(request, response);
+
+        try {
+            TblQty tblQty = doMapping(request, response);
             boolean updateTblQty = QtyService.updateTblQty(tblQty);
             if (updateTblQty) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
@@ -110,7 +109,7 @@ public class QtyServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -122,12 +121,16 @@ public class QtyServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-     private TblQty doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblQty  tblQty = new TblQty();
-        
+    private TblQty doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblQty tblQty = new TblQty();
+
         tblQty.setQtyName(request.getParameter("qty_name"));
         tblQty.setQtyAddedDate(new Date());
-        tblQty.setIsActive(new Character('Y'));
+        tblQty.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblQty.setQtyId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblQty;
     }
 }

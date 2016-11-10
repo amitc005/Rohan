@@ -79,9 +79,9 @@ public class QuotationhistoryServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblQuotationhistory tblQuotationhistory = doMapping(request, response);
+            TblQuotationhistory tblQuotationhistory = doMapping(request, response);
             boolean saveTblQuotationhistory = QuotationhistoryService.saveTblQuotationhistory(tblQuotationhistory);
             if (saveTblQuotationhistory) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
@@ -92,13 +92,13 @@ public class QuotationhistoryServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblQuotationhistory tblQuotationhistory = doMapping(request, response);
+            TblQuotationhistory tblQuotationhistory = doMapping(request, response);
             boolean updateTblQuotationhistory = QuotationhistoryService.updateTblQuotationhistory(tblQuotationhistory);
             if (updateTblQuotationhistory) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
@@ -109,7 +109,7 @@ public class QuotationhistoryServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -121,20 +121,22 @@ public class QuotationhistoryServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    
-     private TblQuotationhistory doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblQuotationhistory  tblQuotationhistory = new TblQuotationhistory();
-        
+    private TblQuotationhistory doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblQuotationhistory tblQuotationhistory = new TblQuotationhistory();
+
         tblQuotationhistory.setId(Integer.parseInt(request.getParameter("quotation_id")));
         tblQuotationhistory.setRequestquery(request.getParameter("requestquery"));
         tblQuotationhistory.setReplyanswer(request.getParameter("replyanswer"));
         tblQuotationhistory.setRequestdate(new Date());
         tblQuotationhistory.setReplydate(new Date());
         tblQuotationhistory.setHisstatus(request.getParameter("hisstatus"));
-        tblQuotationhistory.setIsactive(new Character('Y'));
-                
-                
-                
+        tblQuotationhistory.setIsactive('Y');
+
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblQuotationhistory.setId(Integer.parseInt(request.getParameter("updateId")));
+        }
+
         return tblQuotationhistory;
     }
 }

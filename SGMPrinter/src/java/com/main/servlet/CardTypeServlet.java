@@ -93,7 +93,7 @@ public class CardTypeServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             TblCard tblCard = doMapping(request, response);
             boolean updateTblCard = CardTypeService.updateTblCard(tblCard);
@@ -106,16 +106,14 @@ public class CardTypeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-        
-        
+
     }
 
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -124,7 +122,12 @@ public class CardTypeServlet extends HttpServlet {
     private TblCard doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblCard tblCard = new TblCard();
         tblCard.setCardName(request.getParameter("card_name"));
-        tblCard.setIsActive(new Character('Y'));
+        tblCard.setIsActive('Y');
+
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblCard.setCardId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblCard;
     }
 

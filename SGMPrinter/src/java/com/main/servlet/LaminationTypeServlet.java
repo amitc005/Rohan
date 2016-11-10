@@ -79,9 +79,9 @@ public class LaminationTypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblLamination tblLamination = doMapping(request, response);
+            TblLamination tblLamination = doMapping(request, response);
             boolean saveTblLamination = LaminationService.saveTblLamination(tblLamination);
             if (saveTblLamination) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
@@ -92,13 +92,13 @@ public class LaminationTypeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblLamination tblLamination = doMapping(request, response);
+            TblLamination tblLamination = doMapping(request, response);
             boolean updateTblLamination = LaminationService.updateTblLamination(tblLamination);
             if (updateTblLamination) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
@@ -120,14 +120,19 @@ public class LaminationTypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-     private TblLamination doMapping(HttpServletRequest request, HttpServletResponse response) {
+    private TblLamination doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblLamination tblLamination = new TblLamination();
-        
+
         tblLamination.setLaminationName(request.getParameter("lamination_name"));
         tblLamination.setLaminationDesc(request.getParameter("lamination_desc"));
         tblLamination.setLaminationAddedDate(new Date());
-        tblLamination.setIsActive(new Character('Y'));
+        tblLamination.setIsActive('Y');
+        
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblLamination.setLaminationId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblLamination;
     }
-    
+
 }

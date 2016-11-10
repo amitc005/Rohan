@@ -124,10 +124,9 @@ public class SidesServlet extends HttpServlet {
         tblSides.setSideName(request.getParameter("side_name"));
         tblSides.setSideAddedDate(new Date());
         tblSides.setIsActive('Y');
-        
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblSides.setSideId(Integer.parseInt(request.getParameter("updateId").toString()));
+            tblSides.setSideId(Integer.parseInt(request.getParameter("updateId")));
         }
         return tblSides;
         

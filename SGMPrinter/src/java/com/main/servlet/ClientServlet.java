@@ -79,7 +79,7 @@ public class ClientServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             TblClient tblClient = doMapping(request, response);
             boolean saveTblClientlist = ClientService.saveClient(tblClient);
@@ -95,7 +95,7 @@ public class ClientServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             TblClient tblClient = doMapping(request, response);
             boolean updateTblClientlist = ClientService.updateClient(tblClient);
@@ -108,7 +108,7 @@ public class ClientServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -120,10 +120,9 @@ public class ClientServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    
     private TblClient doMapping(HttpServletRequest request, HttpServletResponse response) {
         TblClient tblClient = new TblClient();
-        
+
         tblClient.setClientName(request.getParameter("client_name"));
         tblClient.setClientAddress(request.getParameter("client_address"));
         tblClient.setPropriterName(request.getParameter("propriter_name"));
@@ -135,7 +134,11 @@ public class ClientServlet extends HttpServlet {
         tblClient.setPhoneNo2(request.getParameter("phone_no_2"));
         tblClient.setClientAddedDate(new Date());
         tblClient.setClientUpdateDate(new Date());
-        tblClient.setIsActive(new Character('Y'));
+        tblClient.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblClient.setClientId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblClient;
     }
 }

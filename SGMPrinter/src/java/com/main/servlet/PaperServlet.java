@@ -79,9 +79,9 @@ public class PaperServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblPaper tblPaper = doMapping(request, response);
+            TblPaper tblPaper = doMapping(request, response);
             boolean saveTblPaper = TblPaperService.saveTblPaper(tblPaper);
             if (saveTblPaper) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
@@ -92,13 +92,13 @@ public class PaperServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblPaper tblPaper = doMapping(request, response);
+            TblPaper tblPaper = doMapping(request, response);
             boolean updateTblPaper = TblPaperService.updateTblPaper(tblPaper);
             if (updateTblPaper) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
@@ -109,7 +109,7 @@ public class PaperServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -122,11 +122,15 @@ public class PaperServlet extends HttpServlet {
     }
 
     private TblPaper doMapping(HttpServletRequest request, HttpServletResponse response) {
-        TblPaper  tblPaper = new TblPaper();
-        
+        TblPaper tblPaper = new TblPaper();
+
         tblPaper.setPaperName(request.getParameter("paper_name"));
         tblPaper.setPAddedDate(new Date());
-        tblPaper.setIsActive(new Character('Y'));
+        tblPaper.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblPaper.setPaperId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblPaper;
     }
 }

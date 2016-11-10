@@ -78,9 +78,9 @@ public class OffsetuserServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             Offsetuser offsetuser = doMapping(request, response);
+            Offsetuser offsetuser = doMapping(request, response);
             boolean saveOffsetuser = OffsetuserService.saveOffsetuser(offsetuser);
             if (saveOffsetuser) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
@@ -94,9 +94,9 @@ public class OffsetuserServlet extends HttpServlet {
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             Offsetuser offsetuser = doMapping(request, response);
+
+        try {
+            Offsetuser offsetuser = doMapping(request, response);
             boolean updateOffsetuser = OffsetuserService.updateOffsetuser(offsetuser);
             if (updateOffsetuser) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
@@ -119,8 +119,8 @@ public class OffsetuserServlet extends HttpServlet {
     }
 
     private Offsetuser doMapping(HttpServletRequest request, HttpServletResponse response) {
-        Offsetuser  offsetuser = new Offsetuser();
-        
+        Offsetuser offsetuser = new Offsetuser();
+
         offsetuser.setUserTypeId(Integer.parseInt(request.getParameter("user_type_id")));
         offsetuser.setUsername(request.getParameter("username"));
         offsetuser.setPassword(request.getParameter("password"));
@@ -133,8 +133,8 @@ public class OffsetuserServlet extends HttpServlet {
         offsetuser.setIntime(request.getParameter("intime"));
         offsetuser.setOuttime(request.getParameter("outtime"));
         offsetuser.setMacid(request.getParameter("macid"));
-        offsetuser.setIsActive(new Character('Y'));
-        
+        offsetuser.setIsActive('Y');
+
         return offsetuser;
     }
 }

@@ -78,9 +78,9 @@ public class StateServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblState tblState = doMapping(request, response);
+            TblState tblState = doMapping(request, response);
             boolean saveTblState = StateService.saveTblState(tblState);
             if (saveTblState) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
@@ -91,13 +91,13 @@ public class StateServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblState tblState = doMapping(request, response);
+            TblState tblState = doMapping(request, response);
             boolean updateTblState = StateService.updateTblState(tblState);
             if (updateTblState) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
@@ -108,7 +108,7 @@ public class StateServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -121,13 +121,14 @@ public class StateServlet extends HttpServlet {
     }
 
     private TblState doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblState  tblState = new TblState();
-        
+        TblState tblState = new TblState();
         tblState.setStateName(request.getParameter("state_name"));
-      tblState.setIsActive(new Character('Y'));
-        
+        tblState.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblState.setStateId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblState;
     }
-    
-    
+
 }

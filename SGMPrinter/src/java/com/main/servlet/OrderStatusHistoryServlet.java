@@ -80,9 +80,9 @@ public class OrderStatusHistoryServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
+
+        try {
+            TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
             boolean saveTblOrderStatusHistory = OrderStatusHistoryService.saveTblOrderStatusHistory(orderStatusHistory);
             if (saveTblOrderStatusHistory) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_ORDERHISTORY);
@@ -93,14 +93,13 @@ public class OrderStatusHistoryServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
+            TblOrderStatusHistory orderStatusHistory = doMapping(request, response);
             boolean updateTblOrderStatusHistory = OrderStatusHistoryService.updateTblOrderStatusHistory(orderStatusHistory);
             if (updateTblOrderStatusHistory) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_ORDERHISTORY);
@@ -111,7 +110,7 @@ public class OrderStatusHistoryServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -124,13 +123,16 @@ public class OrderStatusHistoryServlet extends HttpServlet {
     }
 
     private TblOrderStatusHistory doMapping(HttpServletRequest request, HttpServletResponse response) {
-        TblOrderStatusHistory  orderStatusHistory = new TblOrderStatusHistory();
-        
+        TblOrderStatusHistory orderStatusHistory = new TblOrderStatusHistory();
+
         orderStatusHistory.setId(Integer.parseInt(request.getParameter("order_id")));
         orderStatusHistory.setOrderstatus(request.getParameter("orderstatus"));
         orderStatusHistory.setCreatedate(new Date());
         orderStatusHistory.setModifydate(new Date());
-                
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            orderStatusHistory.setId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return orderStatusHistory;
     }
 }

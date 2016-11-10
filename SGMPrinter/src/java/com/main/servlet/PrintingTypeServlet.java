@@ -79,9 +79,9 @@ public class PrintingTypeServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblPrinting tblPrinting = doMapping(request, response);
+            TblPrinting tblPrinting = doMapping(request, response);
             boolean saveTblPrinting = PrintingService.saveTblPrinting(tblPrinting);
             if (saveTblPrinting) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
@@ -92,13 +92,13 @@ public class PrintingTypeServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblPrinting tblPrinting = doMapping(request, response);
+
+        try {
+            TblPrinting tblPrinting = doMapping(request, response);
             boolean updateTblPrinting = PrintingService.updateTblPrinting(tblPrinting);
             if (updateTblPrinting) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
@@ -121,11 +121,15 @@ public class PrintingTypeServlet extends HttpServlet {
     }
 
     private TblPrinting doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblPrinting  tblPrinting = new TblPrinting();
-        
+        TblPrinting tblPrinting = new TblPrinting();
+
         tblPrinting.setPrintingName(request.getParameter("printing_name"));
         tblPrinting.setPtAddedDate(new Date());
-        tblPrinting.setIsActive(new Character('Y'));
+        tblPrinting.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblPrinting.setPrintingId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblPrinting;
     }
 }

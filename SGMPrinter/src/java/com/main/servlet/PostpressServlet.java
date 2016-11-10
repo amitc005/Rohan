@@ -79,9 +79,9 @@ public class PostpressServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblPostpress tblPostpress = doMapping(request, response);
+            TblPostpress tblPostpress = doMapping(request, response);
             boolean saveTblPostpress = PostpressService.saveTblPostpress(tblPostpress);
             if (saveTblPostpress) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_POSTPRESS);
@@ -92,13 +92,13 @@ public class PostpressServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblPostpress tblPostpress = doMapping(request, response);
+            TblPostpress tblPostpress = doMapping(request, response);
             boolean updateTblPostpress = PostpressService.updateTblPostpress(tblPostpress);
             if (updateTblPostpress) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_POSTPRESS);
@@ -109,7 +109,7 @@ public class PostpressServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -121,15 +121,18 @@ public class PostpressServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-     private TblPostpress doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblPostpress  tblPostpress = new TblPostpress();
-        
+    private TblPostpress doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblPostpress tblPostpress = new TblPostpress();
+
         tblPostpress.setPostpressName(request.getParameter("postpress_name"));
         tblPostpress.setPostpressDesc(request.getParameter("postpress_desc"));
         tblPostpress.setPostpressAddedDate(new Date());
-        tblPostpress.setIsActive(new Character('Y'));
-        
+        tblPostpress.setIsActive('Y');
+        Object updateId = request.getParameter("updateId");
+        if (updateId != null) {
+            tblPostpress.setPostpressId(Integer.parseInt(request.getParameter("updateId")));
+        }
         return tblPostpress;
     }
-    
+
 }

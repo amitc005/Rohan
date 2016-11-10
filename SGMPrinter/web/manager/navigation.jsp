@@ -109,6 +109,4 @@
             <li><a href="index.jsp?requestPage=view_state">View state</a></li>
         </ul>
     </li>
-    
-    <li class="active"><a href="logout.jsp"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
 </ul>

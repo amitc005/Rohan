@@ -130,7 +130,9 @@ public class CitylistServlet extends HttpServlet {
 
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblCitylist.setCityId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblCitylist.setCityId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblCitylist;
     }

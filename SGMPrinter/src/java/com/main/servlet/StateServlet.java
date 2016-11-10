@@ -126,7 +126,9 @@ public class StateServlet extends HttpServlet {
         tblState.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblState.setStateId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblState.setStateId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblState;
     }

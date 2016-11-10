@@ -33,6 +33,7 @@ public class SidesServlet extends HttpServlet {
                 autoCompletRequest(request, response);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
         }
@@ -126,10 +127,14 @@ public class SidesServlet extends HttpServlet {
         tblSides.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblSides.setSideId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                if (updateId.toString().trim().length() != 0) {
+                    tblSides.setSideId(Integer.parseInt(request.getParameter("updateId")));
+                }
+            }
         }
         return tblSides;
-        
+
     }
 
 }

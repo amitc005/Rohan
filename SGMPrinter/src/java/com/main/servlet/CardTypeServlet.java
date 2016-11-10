@@ -126,7 +126,9 @@ public class CardTypeServlet extends HttpServlet {
 
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblCard.setCardId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblCard.setCardId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblCard;
     }

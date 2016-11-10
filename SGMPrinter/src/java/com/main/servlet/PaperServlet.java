@@ -129,7 +129,9 @@ public class PaperServlet extends HttpServlet {
         tblPaper.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblPaper.setPaperId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblPaper.setPaperId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblPaper;
     }

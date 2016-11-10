@@ -134,7 +134,9 @@ public class QuotationhistoryServlet extends HttpServlet {
 
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblQuotationhistory.setId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblQuotationhistory.setId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
 
         return tblQuotationhistory;

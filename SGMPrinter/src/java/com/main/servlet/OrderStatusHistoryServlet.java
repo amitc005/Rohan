@@ -131,7 +131,9 @@ public class OrderStatusHistoryServlet extends HttpServlet {
         orderStatusHistory.setModifydate(new Date());
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            orderStatusHistory.setId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                orderStatusHistory.setId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return orderStatusHistory;
     }

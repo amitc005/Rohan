@@ -130,7 +130,9 @@ public class PostpressServlet extends HttpServlet {
         tblPostpress.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblPostpress.setPostpressId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblPostpress.setPostpressId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblPostpress;
     }

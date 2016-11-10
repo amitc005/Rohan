@@ -129,7 +129,9 @@ public class GsmsizeServlet extends HttpServlet {
         tblGsm.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblGsm.setGsmId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblGsm.setGsmId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblGsm;
     }

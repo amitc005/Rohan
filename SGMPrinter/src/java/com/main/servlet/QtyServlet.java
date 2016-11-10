@@ -129,7 +129,9 @@ public class QtyServlet extends HttpServlet {
         tblQty.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblQty.setQtyId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblQty.setQtyId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblQty;
     }

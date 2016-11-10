@@ -128,7 +128,9 @@ public class PrintingTypeServlet extends HttpServlet {
         tblPrinting.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblPrinting.setPrintingId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblPrinting.setPrintingId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblPrinting;
     }

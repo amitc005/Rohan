@@ -128,7 +128,9 @@ public class UsertypeServlet extends HttpServlet {
         tblUsertype.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblUsertype.setUsertypeId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblUsertype.setUsertypeId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblUsertype;
     }

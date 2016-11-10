@@ -127,10 +127,12 @@ public class LaminationTypeServlet extends HttpServlet {
         tblLamination.setLaminationDesc(request.getParameter("lamination_desc"));
         tblLamination.setLaminationAddedDate(new Date());
         tblLamination.setIsActive('Y');
-        
+
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblLamination.setLaminationId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblLamination.setLaminationId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblLamination;
     }

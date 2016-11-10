@@ -137,7 +137,9 @@ public class ClientServlet extends HttpServlet {
         tblClient.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblClient.setClientId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblClient.setClientId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblClient;
     }

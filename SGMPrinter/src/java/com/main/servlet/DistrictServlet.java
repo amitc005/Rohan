@@ -128,7 +128,9 @@ public class DistrictServlet extends HttpServlet {
         tblDistrict.setIsActive('Y');
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
-            tblDistrict.setDistrictId(Integer.parseInt(request.getParameter("updateId")));
+            if (updateId.toString().trim().length() != 0) {
+                tblDistrict.setDistrictId(Integer.parseInt(request.getParameter("updateId")));
+            }
         }
         return tblDistrict;
     }

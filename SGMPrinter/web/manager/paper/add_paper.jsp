@@ -1,4 +1,6 @@
 
+<%@page import="com.main.service.TblPaperService"%>
+<%@page import="com.main.pojo.TblPaper"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="com.main.service.SidesService"%>
@@ -8,9 +10,9 @@
 //
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
-        /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+        /// change only this 
+        TblPaper tblPaper = TblPaperService.getTblPaperById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblPaper", tblPaper);
         /// change only this 
 
 	
@@ -37,17 +39,17 @@
                         <div class="control-group">
                             <label class="control-label ">PAPER NAME :</label>
                             <div class="controls">
-                                <input type="text" name="paper_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="PAPER NAME" />
+                                <input type="text" name="paper_name" autofocus="" maxlength="100" value="${tblPaper.paperName}" class="span11"  required="" placeholder="PAPER NAME" />
                             </div>
 
                             <label class="control-label ">P ADDED DATE :</label>
                             <div class="controls">
-                                <input type="text" name="p_added_date" maxlength="10" class="span11"  required="" placeholder="P ADDED DATE" />
+                                <input type="text" name="p_added_date" maxlength="10" value="${tblPaper.PAddedDate}" class="span11"  required="" placeholder="P ADDED DATE" />
                             </div>
 
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" maxlength="1" value="${tblPaper.isActive}" class="span11"  required="" placeholder="IS ACTIVE" />
                             </div>
                             <center>
                                 <div class="form-actions right">

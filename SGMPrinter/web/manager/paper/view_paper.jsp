@@ -1,6 +1,12 @@
+<%@page import="com.main.service.TblPaperService"%>
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblPaper"%>
 <%@page import="java.util.List"%>
+<%
+    List<TblPaper>  tblPaperList = TblPaperService.getTblPaperList();
+    pageContext.setAttribute("tblPaperList", tblPaperList);
+%>
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -22,6 +28,8 @@
                         <tbody>
                             <c:forEach var="lamination" items="${pageScope.tblLaminationList}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_PAPER %>&id=${paper.paperId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${lamination.laminationName}"/> </td>
                                     <td><c:out value="${lamination.laminationDesc}"/> </td>
                                     <td><c:out value="${lamination.laminationAddedDate}"/> </td>

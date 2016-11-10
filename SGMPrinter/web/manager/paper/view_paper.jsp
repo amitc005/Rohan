@@ -19,21 +19,21 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>#</th>
+                                <th>#</th>
                                 <th>Name</th>
-                                <th>Description</th>
                                 <th>Date</th>
                                 <th>Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="lamination" items="${pageScope.tblLaminationList}"> 
+                            <c:forEach var="paper" items="${pageScope.tblPaperList}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_PAPER %>&id=${paper.paperId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>
-                                    <td><c:out value="${lamination.laminationName}"/> </td>
-                                    <td><c:out value="${lamination.laminationDesc}"/> </td>
-                                    <td><c:out value="${lamination.laminationAddedDate}"/> </td>
-                                    <td><c:out value="${lamination.isActive}"/> </td>
+                                    <td><c:out value="${paper.paperName}"/> </td>
+                                    <td><c:out value="${paper.PAddedDate}"/> </td>
+                                    <td><c:out value="${paper.isActive}"/> </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

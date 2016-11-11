@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblPrinting"%>
 <%@page import="java.util.List"%>
@@ -18,8 +19,10 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                
                                 <th>Date</th>
                                 <th></th>
                             </tr>
@@ -27,7 +30,8 @@
                         <tbody>
                             <c:forEach var="printing" items="${pageScope.tblPrintings}"> 
                                 <tr>
-                                    <td><c:out value="${printing.printingName}"/> </td>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_PRINTTYPE %>&id=${printing.printingId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${printing.printingName}"/> </td>
                                     <td><c:out value="${printing.ptAddedDate}"/> </td>
                                     <td><c:out value="${printing.isActive}"/> </td>

@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblCitylist"%>
 <%@page import="java.util.List"%>
@@ -18,6 +19,10 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
                                 <th>City Name</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -28,6 +33,8 @@
                         <tbody>
                             <c:forEach var="city" items="${pageScope.citylists}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_CITY %>&id=${city.cityId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${city.cityName}"/> </td>
                                     <td><c:out value="${city.latitude}"/> </td>
                                     <td><c:out value="${city.longitude}"/> </td>

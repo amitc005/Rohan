@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblDistrict"%>
 <%@page import="java.util.List"%>
@@ -18,6 +19,11 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                 <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                
                                 <th>District Name</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -28,6 +34,8 @@
                         <tbody>
                             <c:forEach var="district" items="${pageScope.tblDistricts}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_DISTRICT %>&id=${district.districtId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${district.districtName}"/> </td>
                                     <td><c:out value="${district.latitude}"/> </td>
                                     <td><c:out value="${district.longitude}"/> </td>

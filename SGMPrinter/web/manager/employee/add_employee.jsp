@@ -1,3 +1,5 @@
+<%@page import="com.main.service.OffsetuserService"%>
+<%@page import="com.main.pojo.Offsetuser"%>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="com.main.service.SidesService"%>
 <%@page import="com.main.servlet.IServletConstant"%>
@@ -7,8 +9,8 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+         Offsetuser offsetuser = OffsetuserService.getTblOffsetuserlistById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("offsetuser", offsetuser);
         /// change only this 
 
 	
@@ -34,75 +36,75 @@
                         <div class="control-group">
                             <label class="control-label ">USER TYPE ID :</label>
                             <div class="controls">
-                                <input type="text" name="user_type_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="USER TYPE ID" />
+                                <input type="text" name="user_type_id" value="${offsetuser.userTypeId}" autofocus="" maxlength="11" class="span11"  required="" placeholder="USER TYPE ID" />
                             </div>
 
                             <label class="control-label ">USERNAME :</label>
                             <div class="controls">
-                                <input type="text" name="username" maxlength="50" class="span11"  required="" placeholder="USERNAME" />
+                                <input type="text" name="username" value="${offsetuser.username}" maxlength="50" class="span11"  required="" placeholder="USERNAME" />
                             </div>
 
                             <label class="control-label ">PASSWORD :</label>
                             <div class="controls">
-                                <input type="text" name="password" maxlength="50" class="span11"  required="" placeholder="PASSWORD" />
+                                <input type="text" name="password" value="${offsetuser.password}" maxlength="50" class="span11"  required="" placeholder="PASSWORD" />
                             </div>
 
                             <label class="control-label ">FIRST NAME :</label>
                             <div class="controls">
-                                <input type="text" name="first_name" maxlength="50" class="span11"  required="" placeholder="FIRST NAME" />
+                                <input type="text" name="first_name" value="${offsetuser.firstName}" maxlength="50" class="span11"  required="" placeholder="FIRST NAME" />
                             </div>
 
                             <label class="control-label ">LAST NAME :</label>
                             <div class="controls">
-                                <input type="text" name="last_name" maxlength="50" class="span11"  required="" placeholder="LAST NAME" />
+                                <input type="text" name="last_name" value="${offsetuser.lastName}" maxlength="50" class="span11"  required="" placeholder="LAST NAME" />
                             </div>
 
                             <label class="control-label ">EMAIL ID :</label>
                             <div class="controls">
-                                <input type="text" name="email_id" maxlength="100" class="span11"  required="" placeholder="EMAIL ID" />
+                                <input type="text" name="email_id" value="${offsetuser.emailId}" maxlength="100" class="span11"  required="" placeholder="EMAIL ID" />
                             </div>
 
                             <label class="control-label ">LAST LOGIN :</label>
                             <div class="controls">
-                                <input type="text" name="last_login" maxlength="50" class="span11"  required="" placeholder="LAST LOGIN" />
+                                <input type="text" name="last_login" value="${offsetuser.lastLogin}" maxlength="50" class="span11"  required="" placeholder="LAST LOGIN" />
                             </div>
 
                             <label class="control-label ">ACTION PERMISSION :</label>
                             <div class="controls">
-                                <input type="text" name="action_permission" maxlength="100" class="span11"  required="" placeholder="ACTION PERMISSION" />
+                                <input type="text" name="action_permission"  value="${offsetuser.actionPermission}" maxlength="100" class="span11"  required="" placeholder="ACTION PERMISSION" />
                             </div>
 
                             <label class="control-label ">PAGE PERMISSION :</label>
                             <div class="controls">
-                                <input type="text" name="page_permission" maxlength="21845" class="span11"  required="" placeholder="PAGE PERMISSION" />
+                                <input type="text" name="page_permission" value="${offsetuser.pagePermission}" maxlength="21845" class="span11"  required="" placeholder="PAGE PERMISSION" />
                             </div>
 
                             <label class="control-label ">INTIME :</label>
                             <div class="controls">
-                                <input type="text" name="intime" maxlength="10" class="span11"  required="" placeholder="INTIME" />
+                                <input type="text" name="intime" value="${offsetuser.intime}" maxlength="10" class="span11"  required="" placeholder="INTIME" />
                             </div>
 
                             <label class="control-label ">OUTTIME :</label>
                             <div class="controls">
-                                <input type="text" name="outtime" maxlength="10" class="span11"  required="" placeholder="OUTTIME" />
+                                <input type="text" name="outtime" value="${offsetuser.outtime}" maxlength="10" class="span11"  required="" placeholder="OUTTIME" />
                             </div>
 
                             <label class="control-label ">MACID :</label>
                             <div class="controls">
-                                <input type="text" name="macid" maxlength="50" class="span11"  required="" placeholder="MACID" />
+                                <input type="text" name="macid" value="${offsetuser.macid}" maxlength="50" class="span11"  required="" placeholder="MACID" />
                             </div>
 
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" value="${offsetuser.isActive}"  maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
                             </div>
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
-                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblSides.sideId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${offsetuser.adminId}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
-                                    <a href="../<%=IServletConstant.PAGE_VIEW_SIDE%>">
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_EMPLOYEE%>">
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </a>
                                 </div>

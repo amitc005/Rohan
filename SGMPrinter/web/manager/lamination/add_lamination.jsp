@@ -1,3 +1,5 @@
+<%@page import="com.main.service.LaminationService"%>
+<%@page import="com.main.pojo.TblLamination"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="com.main.service.SidesService"%>
@@ -8,8 +10,8 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+         TblLamination tblLamination = LaminationService.getTblLaminationlistById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblLamination", tblLamination);
         /// change only this 
 
         pageContext.setAttribute("btnValue", "Edit");
@@ -34,31 +36,31 @@
                         <div class="control-group">
                             <label class="control-label ">LAMINATION NAME :</label>
                             <div class="controls">
-                                <input type="text" name="lamination_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="LAMINATION NAME" />
+                                <input type="text" name="lamination_name" value="${tblLamination.laminationName}" autofocus="" maxlength="100" class="span11"  required="" placeholder="LAMINATION NAME" />
                             </div>
 
                             <label class="control-label ">LAMINATION DESC :</label>
                             <div class="controls">
-                                <input type="text" name="lamination_desc" maxlength="250" class="span11"  required="" placeholder="LAMINATION DESC" />
+                                <input type="text" name="lamination_desc" value="${tblLamination.laminationDesc}" maxlength="250" class="span11"  required="" placeholder="LAMINATION DESC" />
                             </div>
 
                             <label class="control-label ">LAMINATION ADDED DATE :</label>
                             <div class="controls">
-                                <input type="text" name="lamination_added_date" maxlength="10" class="span11"  required="" placeholder="LAMINATION ADDED DATE" />
+                                <input type="text" name="lamination_added_date" value="${tblLamination.laminationAddedDate}" maxlength="10" class="span11"  required="" placeholder="LAMINATION ADDED DATE" />
                             </div>
 
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" value="${tblLamination.isActive}" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
                             </div>
 
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
-                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblSides.sideId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblLamination.laminationId}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
-                                    <a href="../<%=IServletConstant.PAGE_VIEW_SIDE%>">
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_LAMINATION%>">
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </a>
                                 </div>

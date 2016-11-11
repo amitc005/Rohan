@@ -1,3 +1,5 @@
+<%@page import="com.main.service.OrderStatusHistoryService"%>
+<%@page import="com.main.pojo.TblOrderStatusHistory"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="com.main.service.SidesService"%>
@@ -8,8 +10,8 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+        TblOrderStatusHistory orderStatusHistory = OrderStatusHistoryService.getTblOrderStatusHistorylistById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("orderStatusHistory", orderStatusHistory);
         /// change only this 
 
 	
@@ -35,31 +37,31 @@
                         <div class="control-group">
                             <label class="control-label ">ORDER ID :</label>
                             <div class="controls">
-                                <input type="text" name="order_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="ORDER ID" />
+                                <input type="text" name="order_id" value="${orderStatusHistory.tblOrder}" autofocus="" maxlength="11" class="span11"  required="" placeholder="ORDER ID" />
                             </div>
 
                             <label class="control-label ">ORDER STATUS :</label>
                             <div class="controls">
-                                <input type="text" name="orderstatus" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
+                                <input type="text" name="orderstatus" value="${orderStatusHistory.orderstatus}" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
                             </div>
 
                             <label class="control-label ">CREATE DATE :</label>
                             <div class="controls">
-                                <input type="text" name="createdate" maxlength="10" class="span11"  required="" placeholder="CREATEDATE" />
+                                <input type="text" name="createdate" value="${orderStatusHistory.createdate}" maxlength="10" class="span11"  required="" placeholder="CREATEDATE" />
                             </div>
 
                             <label class="control-label ">MODIFY DATE :</label>
                             <div class="controls">
-                                <input type="text" name="modifydate" maxlength="10" class="span11"  required="" placeholder="MODIFYDATE" />
+                                <input type="text" name="modifydate" value="${orderStatusHistory.modifydate}" maxlength="10" class="span11"  required="" placeholder="MODIFYDATE" />
                             </div>
 
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
-                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblSides.sideId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${orderStatusHistory.id}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
-                                    <a href="../<%=IServletConstant.PAGE_VIEW_SIDE%>">
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_ORDERHISTORY%>">
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </a>
                                 </div>

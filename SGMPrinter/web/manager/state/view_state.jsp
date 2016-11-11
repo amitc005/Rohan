@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblState"%>
 <%@page import="java.util.List"%>
@@ -18,6 +19,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
                                 <th>Name</th>
                                 <th></th>
                             </tr>
@@ -25,6 +27,8 @@
                         <tbody>
                             <c:forEach var="state" items="${pageScope.tblStateList}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_STATE %>&id=${state.stateId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${state.stateName}"/> </td>
                                     <td><c:out value="${state.isActive}"/> </td>
                                 </tr>

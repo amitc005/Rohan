@@ -1,7 +1,7 @@
 
-<%@page import="com.main.servlet.IServletConstant"%>
-<%@page import="com.main.pojo.TblSides"%>
-<%@page import="com.main.service.SidesService"%>
+
+<%@page import="com.main.pojo.TblPrinting"%>
+<%@page import="com.main.service.PrintingService"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 
 <%
@@ -9,8 +9,8 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+        TblPrinting tblPrinting = PrintingService.getTblPrintingById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblPrinting", tblPrinting);
         /// change only this 
 
         pageContext.setAttribute("btnValue", "Edit");
@@ -34,26 +34,26 @@
                         <div class="control-group">
                             <label class="control-label ">PRINTING NAME :</label>
                             <div class="controls">
-                                <input type="text" name="printing_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="PRINTING NAME" />
+                                <input type="text" name="printing_name" autofocus="" maxlength="100" class="span11"  value="${tblPrinting.printingName}" required="" placeholder="PRINTING NAME" />
                             </div>
 
                             <label class="control-label ">PT ADDED DATE :</label>
                             <div class="controls">
-                                <input type="text" name="pt_added_date" maxlength="10" class="span11"  required="" placeholder="PT ADDED DATE" />
+                                <input type="text" name="pt_added_date" maxlength="10" class="span11" value="${tblPrinting.ptAddedDate}"  required="" placeholder="PT ADDED DATE" />
                             </div>
 
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" maxlength="1" class="span11" value="${tblPrinting.isActive}" required="" placeholder="IS ACTIVE" />
                             </div>
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
-                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblSides.sideId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblPrinting.printingId}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
                                    
-                                    <a href="../<%=IServletConstant.PAGE_VIEW_SIDE%>">
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_PRINTTYPE%>">
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </a>
                                 </div>

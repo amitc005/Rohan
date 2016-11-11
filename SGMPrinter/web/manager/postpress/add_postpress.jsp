@@ -1,6 +1,6 @@
 <%@page import="com.main.servlet.IServletConstant"%>
-<%@page import="com.main.pojo.TblSides"%>
-<%@page import="com.main.service.SidesService"%>
+<%@page import="com.main.pojo.TblPostpress"%>
+<%@page import="com.main.service.PostpressService"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 
 <%
@@ -8,8 +8,8 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         /// change only this 	
-        TblSides tblSides = SidesService.getTblSlidesById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblSides", tblSides);
+        TblPostpress tblPostpress = PostpressService.getTblPostpressById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblPostpress", tblPostpress);
         /// change only this 
 
 	
@@ -35,30 +35,30 @@
                         <div class="control-group">
                             <label class="control-label ">POSTPRESS NAME :</label>
                             <div class="controls">
-                                <input type="text" name="postpress_name" autofocus="" maxlength="100" class="span11"  required="" placeholder="POSTPRESS NAME" />
+                                <input type="text" name="postpress_name" autofocus="" maxlength="100" class="span11" value="${tblPostpress.postpressName}" required="" placeholder="POSTPRESS NAME" />
                             </div>
 
                             <label class="control-label ">POSTPRESS DESC :</label>
                             <div class="controls">
-                                <input type="text" name="postpress_desc" maxlength="21845" class="span11"  required="" placeholder="POSTPRESS DESC" />
+                                <input type="text" name="postpress_desc" maxlength="21845" class="span11" value="${tblPostpress.postpressDesc}" required="" placeholder="POSTPRESS DESC" />
                             </div>
 
                             <label class="control-label ">POSTPRESS ADDED DATE :</label>
                             <div class="controls">
-                                <input type="text" name="postpress_added_date" maxlength="10" class="span11"  required="" placeholder="POSTPRESS ADDED DATE" />
+                                <input type="text" name="postpress_added_date" maxlength="10" class="span11"value="${tblPostpress.postpressAddedDate}"  required="" placeholder="POSTPRESS ADDED DATE" />
                             </div>
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" maxlength="1" class="span11" value="${tblPostpress.isActive}"  required="" placeholder="IS ACTIVE" />
                             </div>
 
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
-                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblSides.sideId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblPostpress.postpressId}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
-                                    <a href="../<%=IServletConstant.PAGE_VIEW_SIDE%>">
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_POSTPRESS%>">
                                         <button type="button" class="btn btn-danger">Cancel</button>
                                     </a>
                                 </div>

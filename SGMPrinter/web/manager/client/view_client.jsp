@@ -1,3 +1,4 @@
+<%@page import="com.main.servlet.IServletConstant"%>
 <%@page import="com.main.service.CitylistService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblClient"%>
@@ -19,6 +20,10 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
                                 <th>clientName</th>
                                 <th>propriterName</th>
                                 <th>firmName</th>
@@ -29,6 +34,8 @@
                         <tbody>
                             <c:forEach var="client" items="${pageScope.tblClients}"> 
                                 <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT %>&id=${client.clientId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${client.clientName}"/> </td>
                                     <td><c:out value="${client.propriterName}"/> </td>
                                     <td><c:out value="${client.firmName}"/> </td>

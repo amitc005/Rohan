@@ -49,7 +49,7 @@ public class DistrictService {
              System.out.println("District=" + district.getDistrictName());
         }
         
-       TblDistrict districtById = getTblDistrictById(2);
+       TblDistrict districtById = getTblDistrictById(3);
         System.out.println("DistrictByID= "+ districtById.getDistrictName());
     }
     

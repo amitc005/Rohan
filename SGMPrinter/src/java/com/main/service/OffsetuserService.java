@@ -22,7 +22,7 @@ public class OffsetuserService {
         offsetuser.setLastName("sadasd");
         saveOffsetuser(offsetuser);
         
-      Offsetuser OffsetUserById = getTblLaminationlistById(1);
+      Offsetuser OffsetUserById = getTblOffsetuserlistById(1);
         System.out.println("OffsetUserById =" +OffsetUserById.getFirstName());
     }
     
@@ -65,7 +65,7 @@ public class OffsetuserService {
         return null;
     }
 
-    public static Offsetuser getTblLaminationlistById(Integer id){
+    public static Offsetuser getTblOffsetuserlistById(Integer id){
      try {
             Object object = SuperConnection.getEntityById(new Offsetuser(), id);
             return (Offsetuser) object;

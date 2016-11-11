@@ -14,7 +14,12 @@ import java.util.logging.Logger;
 public class OrderStatusHistoryService {
 
     public static void main(String[] args) {
-        TblOrderStatusHistory orderStatusHistoryById = getTblOrderStatusHistorylistById(2);
+        TblOrderStatusHistory orderStatusHistory = new TblOrderStatusHistory();
+        orderStatusHistory.setId(1);
+        orderStatusHistory.setOrderstatus("hello");
+        saveTblOrderStatusHistory(orderStatusHistory);
+        
+        TblOrderStatusHistory orderStatusHistoryById = getTblOrderStatusHistorylistById(1);
         System.out.println("orderStatusHistoryById="+orderStatusHistoryById.getCreatedate());
     }
     

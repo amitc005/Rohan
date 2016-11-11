@@ -19,8 +19,8 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>#</th>
+                               <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
                                 <th>Name</th>
                                 <th>Date</th>
                                 <th>Active</th>

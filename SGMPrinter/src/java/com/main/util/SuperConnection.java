@@ -3,18 +3,22 @@ package com.main.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 public class SuperConnection {
 
     public static void main(String[] args) {
-        
+
     }
-    
+
     public static Session session = null;
     public static Transaction transaction = null;
 
@@ -57,6 +61,17 @@ public class SuperConnection {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
+        return criteria.list();
+    }
+
+    public static <T> List<T> searchEntity(T entity, HashMap<String, String> searchMap) throws Exception {
+        session = DatabaseUnility.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(entity.getClass());
+        Set<String> keySet = searchMap.keySet();
+        for (String columnName : keySet) {
+            criteria.add(Restrictions.like(columnName, searchMap.get(columnName)+"%",MatchMode.ANYWHERE));
+        }
         return criteria.list();
     }
 

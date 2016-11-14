@@ -60,6 +60,7 @@ public interface IServletConstant {
     public static final String ACTION_DELETE = "deleteaction";
     public static final String ACTION_VIEW = "viewaction";
     public static final String ACTION_AUTOCOMPLET = "autocompletaction";
+    public static final String ACTION_SEARCH = "search";
 
     /*
      * ARRIBUTE LEVEL SETTING

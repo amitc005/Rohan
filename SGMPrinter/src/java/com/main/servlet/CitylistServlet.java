@@ -4,6 +4,8 @@ import com.main.pojo.TblCitylist;
 import com.main.service.CitylistService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,6 +32,8 @@ public class CitylistServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
             }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
@@ -135,5 +139,26 @@ public class CitylistServlet extends HttpServlet {
             }
         }
         return tblCitylist;
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter("city_name"); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+            /// set multiple search critera
+            hashMap.put("cityName", city_name);
+            
+            List<TblCitylist> searchCity = CitylistService.searchCity(hashMap);
+            
+            request.getSession().setAttribute("listscity", searchCity);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
+        } catch (IOException ex) {
+            Logger.getLogger(CitylistServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

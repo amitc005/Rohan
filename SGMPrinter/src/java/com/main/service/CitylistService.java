@@ -1,30 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.main.service;
 
 import com.main.pojo.TblCitylist;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CitylistService {
 
-      public static void main(String[] args) {
-        
-        List<TblCitylist> citylists = getTblCitylistList();
-        for (TblCitylist citylist : citylists) {
-            System.out.println("cityList="+citylist.getCityName() +citylist.getLatitude());
-        }
-          
-          
-        TblCitylist tblCardById = getTblCitylistById(2);
-        System.out.println("tblCardById = " + tblCardById.getCityName());
+    public static void main(String[] args) {
+        HashMap<String, String> hashMap = new HashMap<String, String>();
+        hashMap.put("cityName", "nagp");
+        List<TblCitylist> searchCity = searchCity(hashMap);
+        System.out.println("searchCity = " + searchCity.size());
     }
-    
+
     public static boolean saveTblCitylist(TblCitylist tblTblCitylist) {
         try {
             SuperConnection.saveEntity(tblTblCitylist);
@@ -68,6 +59,15 @@ public class CitylistService {
         try {
             Object object = SuperConnection.getEntityById(new TblCitylist(), id);
             return (TblCitylist) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public static List<TblCitylist> searchCity(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblCitylist(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
         }

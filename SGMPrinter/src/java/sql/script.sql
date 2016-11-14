@@ -214,3 +214,14 @@ CREATE TABLE `tbl_order_status_history` (
   foreign key(`order_id`) references `tbl_order`(`order_id`)  ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `tbl_account` (
+`account_id` int(11)  primary key auto_increment,
+`client_id` int(11) ,
+`order_id` int(11) ,
+`credited` int(8),
+`debited` int(8),
+`account_added_date` date NOT NULL,
+`is_active` char(1) NOT NULL default 'Y' ,
+foreign key(`client_id`) references `tbl_client`(`client_id`)   ON DELETE CASCADE ON UPDATE CASCADE,
+foreign key(`order_id`) references `tbl_order`(`order_id`)  ON DELETE CASCADE ON UPDATE CASCADE
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

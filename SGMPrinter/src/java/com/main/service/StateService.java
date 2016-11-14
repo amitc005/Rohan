@@ -62,7 +62,7 @@ public class StateService {
             Object object = SuperConnection.getEntityById(new StateService(), id);
             return (TblState) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StateService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

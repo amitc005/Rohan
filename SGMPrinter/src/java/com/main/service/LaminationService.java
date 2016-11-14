@@ -62,7 +62,7 @@ public class LaminationService {
             Object object = SuperConnection.getEntityById(new TblLamination(), id);
             return (TblLamination) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaminationService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

@@ -95,7 +95,7 @@ public class TblOrderService {
             Object object = SuperConnection.getEntityById(new TblOrder(), id);
             return (TblOrder) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TblOrderService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

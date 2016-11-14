@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated 4 Nov, 2016 4:39:20 PM by Hibernate Tools 4.3.1
+// Generated Nov 14, 2016 5:08:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -44,6 +44,7 @@ public class TblOrder  implements java.io.Serializable {
      private String orderstatus;
      private Character isactive;
      private Set<TblOrderStatusHistory> tblOrderStatusHistories = new HashSet<TblOrderStatusHistory>(0);
+     private Set<TblAccount> tblAccounts = new HashSet<TblAccount>(0);
 
     public TblOrder() {
     }
@@ -52,7 +53,7 @@ public class TblOrder  implements java.io.Serializable {
     public TblOrder(Date requestdate) {
         this.requestdate = requestdate;
     }
-    public TblOrder(TblCard tblCard, TblClient tblClient, TblGsm tblGsm, TblLamination tblLamination, TblPaper tblPaper, TblPostpress tblPostpress, TblPrinting tblPrinting, TblQty tblQty, TblQuotation tblQuotation, TblSides tblSides, String comment, Date requestdate, String orderstatus, Character isactive, Set<TblOrderStatusHistory> tblOrderStatusHistories) {
+    public TblOrder(TblCard tblCard, TblClient tblClient, TblGsm tblGsm, TblLamination tblLamination, TblPaper tblPaper, TblPostpress tblPostpress, TblPrinting tblPrinting, TblQty tblQty, TblQuotation tblQuotation, TblSides tblSides, String comment, Date requestdate, String orderstatus, Character isactive, Set<TblOrderStatusHistory> tblOrderStatusHistories, Set<TblAccount> tblAccounts) {
        this.tblCard = tblCard;
        this.tblClient = tblClient;
        this.tblGsm = tblGsm;
@@ -68,6 +69,7 @@ public class TblOrder  implements java.io.Serializable {
        this.orderstatus = orderstatus;
        this.isactive = isactive;
        this.tblOrderStatusHistories = tblOrderStatusHistories;
+       this.tblAccounts = tblAccounts;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -229,6 +231,15 @@ public class TblOrder  implements java.io.Serializable {
     
     public void setTblOrderStatusHistories(Set<TblOrderStatusHistory> tblOrderStatusHistories) {
         this.tblOrderStatusHistories = tblOrderStatusHistories;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="tblOrder")
+    public Set<TblAccount> getTblAccounts() {
+        return this.tblAccounts;
+    }
+    
+    public void setTblAccounts(Set<TblAccount> tblAccounts) {
+        this.tblAccounts = tblAccounts;
     }
 
 

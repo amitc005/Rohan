@@ -62,7 +62,7 @@ public class UsertypeService {
             Object object = SuperConnection.getEntityById(new TblUsertype(), id);
             return (TblUsertype) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsertypeService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

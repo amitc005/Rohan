@@ -71,7 +71,7 @@ public class ClientService {
             Object object = SuperConnection.getEntityById(new TblClient(), id);
             return (TblClient) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

@@ -62,7 +62,7 @@ public class QuotationhistoryService {
             Object object = SuperConnection.getEntityById(new TblQuotationhistory(), id);
             return (TblQuotationhistory) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuotationhistoryService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

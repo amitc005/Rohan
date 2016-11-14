@@ -60,7 +60,7 @@ public class CitylistService {
             Object object = SuperConnection.getEntityById(new TblCitylist(), id);
             return (TblCitylist) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CitylistService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -69,7 +69,7 @@ public class CitylistService {
         try {
             return SuperConnection.searchEntity(new TblCitylist(), searchMap);
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CitylistService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

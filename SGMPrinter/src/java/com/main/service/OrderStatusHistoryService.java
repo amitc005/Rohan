@@ -67,7 +67,7 @@ public class OrderStatusHistoryService {
             Object object = SuperConnection.getEntityById(new TblOrderStatusHistory(), id);
             return (TblOrderStatusHistory) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderStatusHistoryService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="offsetmanager"/>
-  <table-filter match-name="tbl_printing"/>
-  <table-filter match-name="tbl_paper"/>
-  <table-filter match-name="offsetuser"/>
+  <table-filter match-name="tbl_postpress"/>
+  <table-filter match-name="tbl_citylist"/>
   <table-filter match-name="tbl_card"/>
+  <table-filter match-name="tbl_account"/>
+  <table-filter match-name="tbl_sides"/>
   <table-filter match-name="tbl_gsm"/>
   <table-filter match-name="tbl_quotationhistory"/>
-  <table-filter match-name="tbl_sides"/>
-  <table-filter match-name="tbl_qty"/>
-  <table-filter match-name="tbl_postpress"/>
+  <table-filter match-name="tbl_paper"/>
+  <table-filter match-name="tbl_quotation"/>
   <table-filter match-name="tbl_district"/>
   <table-filter match-name="tbl_usertype"/>
+  <table-filter match-name="tbl_state"/>
   <table-filter match-name="tbl_order_status_history"/>
-  <table-filter match-name="tbl_citylist"/>
   <table-filter match-name="tbl_order"/>
+  <table-filter match-name="offsetuser"/>
+  <table-filter match-name="tbl_qty"/>
+  <table-filter match-name="tbl_printing"/>
   <table-filter match-name="tbl_client"/>
   <table-filter match-name="tbl_lamination"/>
-  <table-filter match-name="tbl_quotation"/>
-  <table-filter match-name="tbl_state"/>
 </hibernate-reverse-engineering>

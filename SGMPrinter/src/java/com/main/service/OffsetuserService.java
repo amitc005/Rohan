@@ -70,7 +70,7 @@ public class OffsetuserService {
             Object object = SuperConnection.getEntityById(new Offsetuser(), id);
             return (Offsetuser) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }   

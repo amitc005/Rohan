@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 14, 2016 5:08:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.main.pojo.TblAccount" table="tbl_account" catalog="offsetmanager" optimistic-lock="version">
+        <id name="accountId" type="java.lang.Integer">
+            <column name="account_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
+            <column name="client_id" />
+        </many-to-one>
+        <many-to-one name="tblOrder" class="com.main.pojo.TblOrder" fetch="select">
+            <column name="order_id" />
+        </many-to-one>
+        <property name="credited" type="java.lang.Integer">
+            <column name="credited" />
+        </property>
+        <property name="debited" type="java.lang.Integer">
+            <column name="debited" />
+        </property>
+        <property name="accountAddedDate" type="date">
+            <column name="account_added_date" length="10" not-null="true" />
+        </property>
+        <property name="isActive" type="char">
+            <column name="is_active" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

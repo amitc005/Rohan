@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated 4 Nov, 2016 4:39:20 PM by Hibernate Tools 4.3.1
+// Generated Nov 14, 2016 5:08:08 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -46,6 +46,7 @@ public class TblClient  implements java.io.Serializable {
      private char isActive;
      private Set<TblQuotation> tblQuotations = new HashSet<TblQuotation>(0);
      private Set<TblOrder> tblOrders = new HashSet<TblOrder>(0);
+     private Set<TblAccount> tblAccounts = new HashSet<TblAccount>(0);
 
     public TblClient() {
     }
@@ -65,7 +66,7 @@ public class TblClient  implements java.io.Serializable {
         this.clientUpdateDate = clientUpdateDate;
         this.isActive = isActive;
     }
-    public TblClient(TblCitylist tblCitylist, TblDistrict tblDistrict, TblState tblState, String clientName, String clientAddress, String propriterName, String propriterImage, String firmName, String mobileNo, String phoneNo1, String postalAddress, String phoneNo2, Date clientAddedDate, Date clientUpdateDate, char isActive, Set<TblQuotation> tblQuotations, Set<TblOrder> tblOrders) {
+    public TblClient(TblCitylist tblCitylist, TblDistrict tblDistrict, TblState tblState, String clientName, String clientAddress, String propriterName, String propriterImage, String firmName, String mobileNo, String phoneNo1, String postalAddress, String phoneNo2, Date clientAddedDate, Date clientUpdateDate, char isActive, Set<TblQuotation> tblQuotations, Set<TblOrder> tblOrders, Set<TblAccount> tblAccounts) {
        this.tblCitylist = tblCitylist;
        this.tblDistrict = tblDistrict;
        this.tblState = tblState;
@@ -83,6 +84,7 @@ public class TblClient  implements java.io.Serializable {
        this.isActive = isActive;
        this.tblQuotations = tblQuotations;
        this.tblOrders = tblOrders;
+       this.tblAccounts = tblAccounts;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -263,6 +265,15 @@ public class TblClient  implements java.io.Serializable {
     
     public void setTblOrders(Set<TblOrder> tblOrders) {
         this.tblOrders = tblOrders;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="tblClient")
+    public Set<TblAccount> getTblAccounts() {
+        return this.tblAccounts;
+    }
+    
+    public void setTblAccounts(Set<TblAccount> tblAccounts) {
+        this.tblAccounts = tblAccounts;
     }
 
 

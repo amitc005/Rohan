@@ -73,7 +73,7 @@ public class GsmService {
             Object object = SuperConnection.getEntityById(new TblGsm(), id);
             return (TblGsm) object;
         } catch (Exception ex) {
-            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GsmService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

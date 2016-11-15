@@ -1,3 +1,5 @@
+<%@page import="com.main.service.AccountService"%>
+<%@page import="com.main.pojo.TblAccount"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblCitylist"%>
@@ -5,8 +7,16 @@
 <%@page import="com.main.service.CitylistService"%>
 
 <%
-    List<TblCitylist> citylists = CitylistService.getTblCitylistList();
-    pageContext.setAttribute("citylists", citylists);
+
+    Object accountsearch = request.getSession().getAttribute("accountsearch");
+    if (accountsearch == null) {
+        List<TblAccount> tblAccounts = AccountService.getTblAccountList();
+        pageContext.setAttribute("tblAccounts", tblAccounts);
+    } else {
+        pageContext.setAttribute("tblAccounts", accountsearch);
+        request.getSession().setAttribute("accountsearch",null);
+    }
+
 %>
 
 <div class="container-fluid">
@@ -14,14 +24,14 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH ACCOUNT FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">ACCOUNT ID :</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="account_id"   autofocus="" maxlength="100" class="span11"    placeholder="ACCOUNT ID" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
@@ -47,21 +57,28 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>City Name</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
-                                <th>State Id</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                <th>Client Id</th>
+                                <th>Order Id</th>
+                                <th>Credit </th>
+                                <th>Debit</th>
+                                <th>Added date</th>
+                                <th>IS Active</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="city" items="${pageScope.citylists}"> 
+                            <c:forEach var="account" items="${pageScope.citylists}"> 
                                 <tr>
-                                    <td><c:out value="${city.cityName}"/> </td>
-                                    <td><c:out value="${city.latitude}"/> </td>
-                                    <td><c:out value="${city.longitude}"/> </td>
-                                    <td><c:out value="${city.stateId}"/> </td>
-                                    <td><c:out value="${city.isActive}"/> </td>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
+                                    <td><c:out value="${account.tblClient}"/> </td>
+                                    <td><c:out value="${account.tblOrder}"/> </td>
+                                    <td><c:out value="${account.credited}"/> </td>
+                                    <td><c:out value="${account.debited}"/> </td>
+                                    <td><c:out value="${account.accountAddedDate}"/> </td>
+                                    <td><c:out value="${account.isActive}"/> </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

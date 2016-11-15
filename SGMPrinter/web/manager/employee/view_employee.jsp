@@ -1,3 +1,15 @@
+
+<%@page import="com.main.service.OffsetuserService"%>
+<%@page import="com.main.pojo.Offsetuser"%>
+<%@page import="com.main.servlet.IServletConstant"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.List"%>
+
+<%
+    List<Offsetuser>  offsetusers = OffsetuserService.getOffsetuserList();
+    pageContext.setAttribute("offsetusers", offsetusers);
+%>
+
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">

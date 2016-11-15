@@ -5,23 +5,32 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.ClientService"%>
 <%
-    List<TblClient> tblClients = ClientService.getClientList();
-    pageContext.setAttribute("tblClients", tblClients);
+
+    Object clientsearch = request.getSession().getAttribute("clientsearch");
+    if (clientsearch == null) {
+        List<TblClient> tblClients = ClientService.getClientList();
+        pageContext.setAttribute("tblClients", tblClients);
+    } else {
+        pageContext.setAttribute("tblClients", clientsearch);
+        request.getSession().setAttribute("clientsearch",null);
+    }
+
 %>
+
 
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH CLIENT FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../ClientServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="client_name"   autofocus="" maxlength="100" class="span11"    placeholder="CLIENT NAME" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
@@ -49,8 +58,7 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
-                                <th style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
+                               
                                 <th>clientName</th>
                                 <th>propriterName</th>
                                 <th>firmName</th>

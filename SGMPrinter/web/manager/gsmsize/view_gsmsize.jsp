@@ -4,9 +4,45 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.GsmService"%>
 <%
-    List<TblGsm> gsmsizeList = GsmService.getGsmsizeList();
-    pageContext.setAttribute("gsmsizeList", gsmsizeList);
+
+    Object gsmsearch = request.getSession().getAttribute("gsmsearch");
+    if (gsmsearch == null) {
+        List<TblGsm> tblGsms = GsmService.getGsmsizeList();
+        pageContext.setAttribute("tblGsms", tblGsms);
+    } else {
+        pageContext.setAttribute("tblGsms", gsmsearch);
+        request.getSession().setAttribute("gsmsearch",null);
+    }
+
 %>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
+                    <h5>SEARCH GSM FORM</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <form class="form-horizontal" method="post" action="../GsmServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <div class="control-group">
+                            <label class="control-label ">GSM NAME :</label>
+                            <div class="controls">
+                                <input type="text" name="gsm_name"   autofocus="" maxlength="100" class="span11"    placeholder="CLIENT NAME" />
+                            </div>
+                            <div class="controls">
+                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
+                                <button type="submit" class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
     <div class="row-fluid">

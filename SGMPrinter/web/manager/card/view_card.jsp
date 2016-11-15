@@ -5,9 +5,45 @@
 <%@page import="java.util.List"%>
 
 <%
-    List<TblCard> tblCard = CardTypeService.getTblCardList();
-    pageContext.setAttribute("tblCard", tblCard);
+
+    Object cardsearch = request.getSession().getAttribute("cardsearch");
+    if (cardsearch == null) {
+        List<TblCard> tblCards = CardTypeService.getTblCardList();
+        pageContext.setAttribute("tblCards", tblCards);
+    } else {
+        pageContext.setAttribute("tblCards", cardsearch);
+        request.getSession().setAttribute("cardsearch",null);
+    }
+
 %>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
+                    <h5>SEARCH CARD FORM</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <form class="form-horizontal" method="post" action="../ClientServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <div class="control-group">
+                            <label class="control-label ">CARD NAME :</label>
+                            <div class="controls">
+                                <input type="text" name="card_name"   autofocus="" maxlength="100" class="span11"    placeholder="CLIENT NAME" />
+                            </div>
+                            <div class="controls">
+                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
+                                <button type="submit" class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -20,6 +56,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1%">#</th>
                                 <th style="width: 1%">#</th>
                                 
                                 

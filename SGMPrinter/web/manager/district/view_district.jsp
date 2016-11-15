@@ -4,9 +4,45 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.DistrictService"%>
 <%
-    List<TblDistrict> tblDistricts = DistrictService.getTblDistrictList();
-    pageContext.setAttribute("tblDistricts", tblDistricts);
+
+    Object districtsearch = request.getSession().getAttribute("districtsearch");
+    if (districtsearch == null) {
+        List<TblDistrict> tblDistricts = DistrictService.getTblDistrictList();
+        pageContext.setAttribute("tblDistricts", tblDistricts);
+    } else {
+        pageContext.setAttribute("tblDistricts", districtsearch);
+        request.getSession().setAttribute("districtsearch",null);
+    }
+
 %>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
+                    <h5>SEARCH DISTRICT FORM</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <form class="form-horizontal" method="post" action="../DistrictServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <div class="control-group">
+                            <label class="control-label ">DISTRICT NAME :</label>
+                            <div class="controls">
+                                <input type="text" name="district_name"   autofocus="" maxlength="100" class="span11"    placeholder="DISTRICT NAME" />
+                            </div>
+                            <div class="controls">
+                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
+                                <button type="submit" class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
     <div class="row-fluid">
@@ -48,8 +84,7 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
-                                 <th style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
+                                 
                                 
                                 <th>District Name</th>
                                 <th>Latitude</th>

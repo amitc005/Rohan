@@ -2,9 +2,12 @@ package com.main.servlet;
 
 import com.main.pojo.TblPrinting;
 import com.main.service.PrintingService;
+import static com.main.service.PrintingService.searchPrinting;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -31,6 +34,8 @@ public class PrintingTypeServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
             }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
@@ -133,5 +138,24 @@ public class PrintingTypeServlet extends HttpServlet {
             }
         }
         return tblPrinting;
+    }
+       private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter(""); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+           
+            
+            List<TblPrinting> searchPrinting = PrintingService.searchPrinting(hashMap);
+            
+            request.getSession().setAttribute("printingsearch", searchPrinting);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
+        } catch (IOException ex) {
+            Logger.getLogger(PrintingTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

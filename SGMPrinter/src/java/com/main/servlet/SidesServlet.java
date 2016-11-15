@@ -5,6 +5,8 @@ import com.main.service.SidesService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -31,7 +33,9 @@ public class SidesServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+           }
         } catch (Exception e) {
             e.printStackTrace();
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
@@ -136,5 +140,25 @@ public class SidesServlet extends HttpServlet {
         return tblSides;
 
     }
-
+     private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter(""); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+           
+            
+            List<TblSides> searchSides = SidesService.searchSides(hashMap);
+            
+            request.getSession().setAttribute("sidessearch", searchSides);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_SIDE);
+        } catch (IOException ex) {
+            Logger.getLogger(SidesServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+     
 }

@@ -4,6 +4,8 @@ import com.main.pojo.TblState;
 import com.main.service.StateService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,7 +32,9 @@ public class StateServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+           }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -132,5 +136,23 @@ public class StateServlet extends HttpServlet {
         }
         return tblState;
     }
-
+ private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter(""); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+           
+            
+            List<TblState > searchState = StateService.searchState(hashMap);
+            
+            request.getSession().setAttribute("statesearch", searchState);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_STATE );
+        } catch (IOException ex) {
+            Logger.getLogger(StateServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

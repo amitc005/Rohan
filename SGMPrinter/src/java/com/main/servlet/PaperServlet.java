@@ -5,6 +5,8 @@ import com.main.service.TblPaperService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static jdk.nashorn.internal.objects.NativeString.search;
 
 @WebServlet(name = "PaperServlet", urlPatterns = {"/PaperServlet"})
 public class PaperServlet extends HttpServlet {
@@ -31,7 +34,9 @@ public class PaperServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+           }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -134,5 +139,24 @@ public class PaperServlet extends HttpServlet {
             }
         }
         return tblPaper;
+    }
+      private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter(""); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+           
+            
+            List<TblPaper> searchPaper = TblPaperService.searchPaper(hashMap);
+            
+            request.getSession().setAttribute("papersearch", searchPaper);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
+        } catch (IOException ex) {
+            Logger.getLogger(PaperServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

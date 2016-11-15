@@ -5,6 +5,8 @@ import com.main.service.UsertypeService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -31,7 +33,9 @@ public class UsertypeServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+           }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -133,6 +137,25 @@ public class UsertypeServlet extends HttpServlet {
             }
         }
         return tblUsertype;
+    }
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter(""); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+           
+            
+            List<TblUsertype> searchUsertype = UsertypeService.searchUsertype(hashMap);
+            
+            request.getSession().setAttribute("usertypesearch", searchUsertype);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
+        } catch (IOException ex) {
+            Logger.getLogger(UsertypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

@@ -145,12 +145,12 @@ public class OffsetuserServlet extends HttpServlet {
      private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter("city_name"); 
+            String username = request.getParameter("username"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
-            
+            hashMap.put("username", username);
             List<Offsetuser> searchOffsetuser = OffsetuserService.searchOffsetuser(hashMap);
             
             request.getSession().setAttribute("offsetsearch", searchOffsetuser);

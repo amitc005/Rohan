@@ -154,7 +154,7 @@ public class ClientServlet extends HttpServlet {
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();  
-            
+            hashMap.put("clientName", client_name);
             List<TblClient> searchClient = ClientService.searchClient(hashMap);
             
             request.getSession().setAttribute("clientsearch", searchClient);

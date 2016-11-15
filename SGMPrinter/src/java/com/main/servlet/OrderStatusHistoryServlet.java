@@ -144,11 +144,11 @@ public class OrderStatusHistoryServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter("city_name"); 
+            String order_id = request.getParameter("order_id"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+            hashMap.put("tblOrder", order_id);
             List<TblOrderStatusHistory> searchOrderhistory = OrderStatusHistoryService.searchOrderhistory(hashMap);
             
             request.getSession().setAttribute("orderhistorysearch", searchOrderhistory);

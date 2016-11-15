@@ -146,7 +146,7 @@ public class CardTypeServlet extends HttpServlet {
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
-            
+            hashMap.put("cardName", card_name);
             List<TblCard> searchCard = CardTypeService.searchCard(hashMap);
             
             request.getSession().setAttribute("cardsearch", searchCard);

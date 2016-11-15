@@ -147,7 +147,7 @@ public class LaminationTypeServlet extends HttpServlet {
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+            hashMap.put("laminationName", lamination_name);
             List<TblLamination> searchLamination = LaminationService.searchLamination(hashMap);
             
             request.getSession().setAttribute("laminationsearch", searchLamination);

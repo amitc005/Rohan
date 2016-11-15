@@ -147,6 +147,7 @@ public class DistrictServlet extends HttpServlet {
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
+            hashMap.put("districtName", district_name);
            
             List<TblDistrict> searchDistrict = DistrictService.searchDistrict(hashMap);
             

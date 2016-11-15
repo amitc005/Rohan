@@ -147,7 +147,7 @@ public class GsmsizeServlet extends HttpServlet {
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+            hashMap.put("gsmName", gsm_name);
             List<TblGsm> searchGsm = GsmService.searchGsm(hashMap);
             
             request.getSession().setAttribute("gsmsearch", searchGsm);

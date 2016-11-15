@@ -170,7 +170,7 @@ public class AccountServlet extends HttpServlet {
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
-           
+           hashMap.put("accountId", account_id);
             
             List<TblAccount> searchAccount = AccountService.searchAccount(hashMap);
             

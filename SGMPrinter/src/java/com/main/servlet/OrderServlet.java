@@ -4,6 +4,8 @@ import com.main.pojo.TblOrder;
 import com.main.service.TblOrderService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,6 +32,8 @@ public class OrderServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
             }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
@@ -128,5 +132,21 @@ public class OrderServlet extends HttpServlet {
         
         return tblOrder;
     }
-    
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter("city_name"); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+ 
+            List<TblOrder> searchOrder = TblOrderService.searchOrder(hashMap);
+            
+            request.getSession().setAttribute("ordersearch", searchOrder);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_ORDER);
+        } catch (IOException ex) {
+            Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

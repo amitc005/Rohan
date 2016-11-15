@@ -4,6 +4,8 @@ import com.main.pojo.TblCard;
 import com.main.service.CardTypeService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,7 +32,10 @@ public class CardTypeServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
             }
+            
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -133,4 +138,22 @@ public class CardTypeServlet extends HttpServlet {
         return tblCard;
     }
 
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter("city_name"); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+            
+            List<TblCard> searchCard = CardTypeService.searchCard(hashMap);
+            
+            request.getSession().setAttribute("cardsearch", searchCard);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_CARD);
+        } catch (IOException ex) {
+            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

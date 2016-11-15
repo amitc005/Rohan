@@ -4,8 +4,8 @@ public interface IServletConstant {
 
  
     public static final String PAGE_TITLE = "SGM Offset Printer";
-    public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
-    public static final String LOGO_URL = "http://localhost:8080/SGMPrinter/img";
+    public static final String SERVER_URL = "http://localhost:8084/SGMPrinter/";
+    public static final String LOGO_URL = "http://localhost:8084/SGMPrinter/img";
  
     /*
      * PAGE LEVEL SETTING
@@ -47,7 +47,9 @@ public interface IServletConstant {
     public static final String PAGE_VIEW_SIDE = "manager/index.jsp?requestPage=view_side";
     public static final String PAGE_ADD_STATE = "manager/index.jsp?requestPage=add_state";
     public static final String PAGE_VIEW_STATE = "manager/index.jsp?requestPage=view_state";
-
+    public static final String PAGE_ADD_CARD = "manager/index.jsp?requestPage=add_card";
+    public static final String PAGE_VIEW_CARD = "manager/index.jsp?requestPage=view_card";
+    
     /*
      * ACTION LEVEL SETTING
      */

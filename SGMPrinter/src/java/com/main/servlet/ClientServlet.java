@@ -161,7 +161,7 @@ public class ClientServlet extends HttpServlet {
             
             response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
         } catch (IOException ex) {
-            Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

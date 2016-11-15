@@ -6,6 +6,8 @@ import com.main.service.TblOrderService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -32,7 +34,9 @@ public class OrderStatusHistoryServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+            } 
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -137,4 +141,22 @@ public class OrderStatusHistoryServlet extends HttpServlet {
         }
         return orderStatusHistory;
     }
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter("city_name"); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+            List<TblOrderStatusHistory> searchOrderhistory = OrderStatusHistoryService.searchOrderhistory(hashMap);
+            
+            request.getSession().setAttribute("orderhistorysearch", searchOrderhistory);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
+        } catch (IOException ex) {
+            Logger.getLogger(OrderStatusHistoryServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

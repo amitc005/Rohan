@@ -4,6 +4,8 @@ import com.main.pojo.Offsetuser;
 import com.main.service.OffsetuserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,7 +32,9 @@ public class OffsetuserServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }
+            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+                search(request, response);
+            } 
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -137,4 +141,24 @@ public class OffsetuserServlet extends HttpServlet {
 
         return offsetuser;
     }
+    
+     private void search(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            //// get all search parameter 
+            String city_name = request.getParameter("city_name"); 
+            
+            /// create mapper pojo fields
+            HashMap<String, String> hashMap = new HashMap<>();
+            
+            
+            List<Offsetuser> searchOffsetuser = OffsetuserService.searchOffsetuser(hashMap);
+            
+            request.getSession().setAttribute("offsetsearch", searchOffsetuser);
+            
+            response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
+        } catch (IOException ex) {
+            Logger.getLogger(OffsetuserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

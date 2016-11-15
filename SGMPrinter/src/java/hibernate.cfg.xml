@@ -5,9 +5,9 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/offsetmanager</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql:127.11.104.2:3306/offsetmanager</property>
+    <property name="hibernate.connection.username">adminBkUYIFe</property>
+    <property name="hibernate.connection.password">xtaUe_gi4eA1</property>
     <mapping resource="com/main/pojo/TblPrinting.hbm.xml"/>
     <mapping resource="com/main/pojo/TblState.hbm.xml"/>
     <mapping resource="com/main/pojo/TblOrderStatusHistory.hbm.xml"/>

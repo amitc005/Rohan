@@ -4,8 +4,8 @@ public interface IServletConstant {
 
  
     public static final String PAGE_TITLE = "SGM Offset Printer";
-    public static final String SERVER_URL = "http://localhost:8084/SGMPrinter/";
-    public static final String LOGO_URL = "http://localhost:8084/SGMPrinter/img";
+    public static final String SERVER_URL = "http://sgmprinter-studentcloud.rhcloud.com/";
+    public static final String LOGO_URL = "http://sgmprinter-studentcloud.rhcloud.com/img";
  
     /*
      * PAGE LEVEL SETTING

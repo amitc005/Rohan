@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblPostpress;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,6 +61,15 @@ public class PostpressService {
         try {
             Object object = SuperConnection.getEntityById(new TblPostpress(), id);
             return (TblPostpress) object;
+        } catch (Exception ex) {
+            Logger.getLogger(PostpressService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     
+      public static List<TblPostpress> searchPostpress(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblPostpress(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(PostpressService.class.getName()).log(Level.SEVERE, null, ex);
         }

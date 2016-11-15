@@ -7,6 +7,8 @@ package com.main.service;
 
 import com.main.pojo.TblGsm;
 import com.main.util.SuperConnection;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,16 +17,24 @@ public class GsmService {
 
     public static void main(String[] args) {
         
-        
-        
+//         HashMap<String, String> hashMap = new HashMap<String, String>();
+//        hashMap.put("gsmName", "10 gsm");
+//        List<TblGsm> searchGsm = searchGsm(hashMap);
+//        System.out.println("searchGsm = " + searchGsm.size());
+//        
+        TblGsm tblGsm = new TblGsm();
+        tblGsm.setGsmName("Rohan");
+      
+        saveGsmsize(tblGsm);
+
         List<TblGsm> gsmsizeList = getGsmsizeList();
         for (TblGsm gsmsizeList1 : gsmsizeList) {
             System.out.println("gsmsizeList1 = " + gsmsizeList1.getGsmName());
         }
         
         
-         TblGsm gsmById = getTblGsmlistById(2);
-        System.out.println("Gsm= "+ gsmById.getGsmName());
+//         TblGsm gsmById = getTblGsmlistById(2);
+//        System.out.println("Gsm= "+ gsmById.getGsmName());
         
         
     }
@@ -72,6 +82,15 @@ public class GsmService {
      try {
             Object object = SuperConnection.getEntityById(new TblGsm(), id);
             return (TblGsm) object;
+        } catch (Exception ex) {
+            Logger.getLogger(GsmService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+        
+         public static List<TblGsm> searchGsm(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblGsm(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(GsmService.class.getName()).log(Level.SEVERE, null, ex);
         }

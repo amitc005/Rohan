@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblCard;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,6 +68,15 @@ public class CardTypeService {
         try {
             Object object = SuperConnection.getEntityById(new TblCard(), id);
             return (TblCard) object;
+        } catch (Exception ex) {
+            Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public static List<TblCard> searchCard(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblCard(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(CardTypeService.class.getName()).log(Level.SEVERE, null, ex);
         }

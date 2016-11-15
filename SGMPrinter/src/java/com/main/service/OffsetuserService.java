@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.Offsetuser;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,4 +75,12 @@ public class OffsetuserService {
         }
         return null;
     }   
+    public static List<Offsetuser> searchOffsetuser(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new Offsetuser(), searchMap);
+        } catch (Exception ex) {
+            Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

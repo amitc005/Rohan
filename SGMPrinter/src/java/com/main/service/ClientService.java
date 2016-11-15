@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblClient;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,15 @@ public class ClientService {
         try {
             Object object = SuperConnection.getEntityById(new TblClient(), id);
             return (TblClient) object;
+        } catch (Exception ex) {
+            Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public static List<TblClient> searchClient(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblClient(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
         }

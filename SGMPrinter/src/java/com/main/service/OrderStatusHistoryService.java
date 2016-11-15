@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblOrderStatusHistory;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,6 +67,15 @@ public class OrderStatusHistoryService {
      try {
             Object object = SuperConnection.getEntityById(new TblOrderStatusHistory(), id);
             return (TblOrderStatusHistory) object;
+        } catch (Exception ex) {
+            Logger.getLogger(OrderStatusHistoryService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     
+     public static List<TblOrderStatusHistory> searchOrderhistory(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblOrderStatusHistory(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(OrderStatusHistoryService.class.getName()).log(Level.SEVERE, null, ex);
         }

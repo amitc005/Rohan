@@ -11,7 +11,7 @@
         pageContext.setAttribute("tblLaminations", tblLaminations);
     } else {
         pageContext.setAttribute("tblLaminations", laminationsearch);
-        request.getSession().setAttribute("districtsearch",null);
+        request.getSession().setAttribute("laminationsearch",null);
     }
 
 %>

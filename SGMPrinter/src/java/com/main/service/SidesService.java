@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblSides;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +62,14 @@ public class SidesService {
         try {
             Object object = SuperConnection.getEntityById(new TblSides(), id);
             return (TblSides) object;
+        } catch (Exception ex) {
+            Logger.getLogger(SidesService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public static List<TblSides> searchSides(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblSides(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(SidesService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblQuotation;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +62,14 @@ public class QuotationService {
         try {
             Object object = SuperConnection.getEntityById(new TblQuotation(), id);
             return (TblQuotation) object;
+        } catch (Exception ex) {
+            Logger.getLogger(QuotationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public static List<TblQuotation> searchQuotation(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblQuotation(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(QuotationService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblQty;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,4 +68,13 @@ public class QtyService {
         }
         return null;
     }
+    public static List<TblQty> searchQty(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblQty(), searchMap);
+        } catch (Exception ex) {
+            Logger.getLogger(QtyService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 }

@@ -8,6 +8,7 @@ package com.main.service;
 import com.main.pojo.TblCard;
 import com.main.pojo.TblOrder;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,6 +95,14 @@ public class TblOrderService {
      try {
             Object object = SuperConnection.getEntityById(new TblOrder(), id);
             return (TblOrder) object;
+        } catch (Exception ex) {
+            Logger.getLogger(TblOrderService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+      public static List<TblOrder> searchOrder(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblOrder(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(TblOrderService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblUsertype;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +62,14 @@ public class UsertypeService {
         try {
             Object object = SuperConnection.getEntityById(new TblUsertype(), id);
             return (TblUsertype) object;
+        } catch (Exception ex) {
+            Logger.getLogger(UsertypeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public static List<TblUsertype> searchUsertype(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblUsertype(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(UsertypeService.class.getName()).log(Level.SEVERE, null, ex);
         }

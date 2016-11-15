@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblPaper;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +62,14 @@ public class TblPaperService {
         try {
             Object object = SuperConnection.getEntityById(new TblPaper(), id);
             return (TblPaper) object;
+        } catch (Exception ex) {
+            Logger.getLogger(TblPaperService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public static List<TblPaper> searchPaper(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblPaper(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(TblPaperService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,6 +7,7 @@ package com.main.service;
 
 import com.main.pojo.TblState;
 import com.main.util.SuperConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +62,14 @@ public class StateService {
         try {
             Object object = SuperConnection.getEntityById(new StateService(), id);
             return (TblState) object;
+        } catch (Exception ex) {
+            Logger.getLogger(StateService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public static List<TblState> searchState(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntity(new TblState(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(StateService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -150,7 +150,7 @@ public class ClientServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter("city_name"); 
+            String client_name = request.getParameter("client_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();  

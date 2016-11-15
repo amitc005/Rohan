@@ -141,7 +141,7 @@ public class CardTypeServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter("city_name"); 
+            String card_name = request.getParameter("card_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();

@@ -165,7 +165,7 @@ public class AccountServlet extends HttpServlet {
         private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String account_id = request.getParameter("account_id"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();

@@ -4,8 +4,14 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.PrintingService"%>
 <%
-    List<TblPrinting>  tblPrintings = PrintingService.getTblPrintingList();
-    pageContext.setAttribute("tblPrintings", tblPrintings);
+   Object printingsearch = request.getSession().getAttribute("printingsearch");
+    if (printingsearch == null) {
+        List<TblPrinting> tblPrinting = PrintingService.getTblPrintingList();
+        pageContext.setAttribute("tblPrinting", tblPrinting);
+    } else {
+        pageContext.setAttribute("tblPrinting", printingsearch);
+        request.getSession().setAttribute("printingsearch",null);
+    }
 %>
 
 <div class="container-fluid">
@@ -16,11 +22,11 @@
                     <h5>SEARCH CITY FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../PrintingTypeServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">PRINTING NAME:</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="printing_name"   autofocus="" maxlength="100" class="span11"    placeholder="PRINTING NAME" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />

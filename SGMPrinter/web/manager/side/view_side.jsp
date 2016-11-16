@@ -4,8 +4,14 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.SidesService"%>
 <%
-    List<TblSides>  tblSidesList = SidesService.getTblSidesList();
-    pageContext.setAttribute("tblSidesList", tblSidesList);
+    Object sidessearch = request.getSession().getAttribute("sidessearch");
+    if (sidessearch == null) {
+        List<TblSides> tblSides = SidesService.getTblSidesList();
+        pageContext.setAttribute("tblSides", tblSides);
+    } else {
+        pageContext.setAttribute("tblSides", sidessearch);
+        request.getSession().setAttribute("papersearch",null);
+    }
 %>
 
 <div class="container-fluid">
@@ -16,11 +22,11 @@
                     <h5>SEARCH CITY FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="..//SidesServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">SIDE NAME :</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="side_name"   autofocus="" maxlength="100" class="span11"    placeholder="SIDE NAME" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />

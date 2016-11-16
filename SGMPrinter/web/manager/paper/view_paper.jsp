@@ -4,8 +4,14 @@
 <%@page import="com.main.pojo.TblPaper"%>
 <%@page import="java.util.List"%>
 <%
-    List<TblPaper>  tblPaperList = TblPaperService.getTblPaperList();
-    pageContext.setAttribute("tblPaperList", tblPaperList);
+    Object papersearch = request.getSession().getAttribute("laminationsearch");
+    if (papersearch == null) {
+        List<TblPaper> tblPaper = TblPaperService.getTblPaperList();
+        pageContext.setAttribute("tblPaper", tblPaper);
+    } else {
+        pageContext.setAttribute("tblPaper", papersearch);
+        request.getSession().setAttribute("papersearch",null);
+    }
 %>
 
 <div class="container-fluid">

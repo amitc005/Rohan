@@ -4,8 +4,14 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.StateService"%>
 <%
-    List<TblState>  tblStateList = StateService.getTblStateList();
-    pageContext.setAttribute("tblStateList", tblStateList);
+   Object statesearch = request.getSession().getAttribute("statesearch");
+    if (statesearch == null) {
+        List<TblState> tblState = StateService.getTblStateList();
+        pageContext.setAttribute("tblState", tblState);
+    } else {
+        pageContext.setAttribute("tblState", statesearch);
+        request.getSession().setAttribute("statesearch",null);
+    }
 %>
 
 <div class="container-fluid">
@@ -16,11 +22,11 @@
                     <h5>SEARCH CITY FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../StateServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">STATE NAME  :</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="state_name"   autofocus="" maxlength="100" class="span11"    placeholder="STATE NAME " />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />

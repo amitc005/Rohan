@@ -4,8 +4,14 @@
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.QtyService"%>
 <%
-    List<TblQty>  tblQtyList = QtyService.getTblQtyList();
-    pageContext.setAttribute("tblQtyList", tblQtyList);
+   Object qtysearch = request.getSession().getAttribute("qtysearch");
+    if (qtysearch == null) {
+        List<TblQty> tblQty = QtyService.getTblQtyList();
+        pageContext.setAttribute("tblQty", tblQty);
+    } else {
+        pageContext.setAttribute("tblQty", qtysearch);
+        request.getSession().setAttribute("qtysearch",null);
+    }
 %>
 
 <div class="container-fluid">
@@ -16,11 +22,11 @@
                     <h5>SEARCH CITY FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../QtyServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">CITY NAME :</label>
+                            <label class="control-label ">QTY NAME:</label>
                             <div class="controls">
-                                <input type="text" name="city_name"   autofocus="" maxlength="100" class="span11"    placeholder="CITY NAME" />
+                                <input type="text" name="qty_name"   autofocus="" maxlength="100" class="span11"    placeholder="QTY NAME" />
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />

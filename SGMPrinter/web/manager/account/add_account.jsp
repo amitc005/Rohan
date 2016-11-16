@@ -7,46 +7,41 @@
                     <h5>ADD ACCOUNT FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../AccountServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
 
-                            <label class="control-label ">USER TYPE ID :</label>
+                            <label class="control-label "> ACCOUNT ID :</label>
                             <div class="controls">
-                                <input type="text" name="user_type_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="USER TYPE ID" />
+                                <input type="text" name="account_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="ACCOUNT ID" />
                             </div>
-                            <label class="control-label ">USERNAME :</label>
+                            <label class="control-label ">CLIENT ID: :</label>
                             <div class="controls">
-                                <input type="text" name="username" maxlength="50" class="span11"  required="" placeholder="USERNAME" />
-                            </div>
-
-                            <label class="control-label ">PASSWORD :</label>
-                            <div class="controls">
-                                <input type="text" name="password" maxlength="50" class="span11"  required="" placeholder="PASSWORD" />
+                                <input type="text" name="client_id" maxlength="50" class="span11"  required="" placeholder="CLIENT ID" />
                             </div>
 
-                            <label class="control-label ">FIRST NAME :</label>
+                            <label class="control-label ">ORDER ID :</label>
                             <div class="controls">
-                                <input type="text" name="first_name" maxlength="50" class="span11"  required="" placeholder="FIRST NAME" />
+                                <input type="text" name="order_id" maxlength="50" class="span11"  required="" placeholder="ORDER ID" />
                             </div>
 
-                            <label class="control-label ">LAST NAME :</label>
+                            <label class="control-label ">CREDIT AMOUNT :</label>
                             <div class="controls">
-                                <input type="text" name="last_name" maxlength="50" class="span11"  required="" placeholder="LAST NAME" />
+                                <input type="text" name="credited" maxlength="50" class="span11"  required="" placeholder="CREDIT AMOUNT" />
                             </div>
 
-                            <label class="control-label ">EMAIL ID :</label>
+                            <label class="control-label ">DEBIT AMOUNT :</label>
                             <div class="controls">
-                                <input type="text" name="email_id" maxlength="100" class="span11"  required="" placeholder="EMAIL ID" />
+                                <input type="text" name="debited" maxlength="50" class="span11"  required="" placeholder="DEBIT AMOUNT" />
                             </div>
 
-                            <label class="control-label ">LAST LOGIN :</label>
+                            <label class="control-label ">ACCOUNT ADDED DATE :</label>
                             <div class="controls">
-                                <input type="text" name="last_login" maxlength="50" class="span11"  required="" placeholder="LAST LOGIN" />
+                                <input type="text" name="account_added_date" maxlength="100" class="span11"  required="" placeholder="ACCOUNT ADDED DATE" />
                             </div>
 
-                            <label class="control-label ">ACTION PERMISSION :</label>
+                            <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="action_permission" maxlength="100" class="span11"  required="" placeholder="ACTION PERMISSION" />
+                                <input type="text" name="is_active" maxlength="50" class="span11"  required="" placeholder="IS ACTIVE" />
                             </div>
                             <center>       
                                 <div class="form-actions right">

@@ -53,7 +53,7 @@
 
                             <label class="control-label ">PRO-PRITER IMAGE :</label>
                             <div class="controls">
-                                <input type="image" name="propriter_image" value="${tblClient.propriterImage}" maxlength="21845" class="span11"  required="" placeholder="PROPRITER IMAGE" />
+                                <input type="image" name="propriter_image" value="${tblClient.propriterImage}" maxlength="21845" class="span11"   placeholder="PROPRITER IMAGE" />
                             </div>
                         </div>
                         <div class="control-group">
@@ -70,7 +70,7 @@
                         <div class="control-group">
                             <label class="control-label ">PHONE NO 1 :</label>
                             <div class="controls">
-                                <input type="text" name="phone_no_1" value="${tblClient.phoneNo1}" maxlength="30" class="span11"  required="" placeholder="PHONE NO 1" />
+                                <input type="text" name="phone_no_1" value="${tblClient.phoneNo1}" maxlength="30" class="span11"   placeholder="PHONE NO 1" />
                             </div>
 
                             <label class="control-label ">POSTAL ADDRESS :</label>
@@ -81,7 +81,7 @@
                         <div class="control-group">
                             <label class="control-label ">PHONE NO 2 :</label>
                             <div class="controls">
-                                <input type="text" name="phone_no_2" value="${tblClient.phoneNo2}" maxlength="30" class="span11"  required="" placeholder="PHONE NO 2" />
+                                <input type="text" name="phone_no_2" value="${tblClient.phoneNo2}" maxlength="30" class="span11"   placeholder="PHONE NO 2" />
                             </div>
 
                             <label class="control-label ">CITY ID :</label>

@@ -1,4 +1,25 @@
+<%@page import="com.main.service.AccountService"%>
+<%@page import="com.main.pojo.TblAccount"%>
 <%@page import="com.main.servlet.IServletConstant"%>
+
+<%
+//
+    Object idrequest = request.getParameter("id");
+    if (idrequest != null) {
+        /// change only this 	
+        TblAccount tblAccount = AccountService.getTblAccountById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblAccount", tblAccount);
+        /// change only this 
+
+        pageContext.setAttribute("btnValue", "Edit");
+        pageContext.setAttribute("btnClass", "btn btn-info");
+        pageContext.setAttribute("actionvalue", IServletConstant.ACTION_UPDATE);
+    } else {
+        pageContext.setAttribute("btnValue", "Save");
+        pageContext.setAttribute("btnClass", "btn btn-success");
+        pageContext.setAttribute("actionvalue", IServletConstant.ACTION_ADD);
+    }
+%>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -45,11 +66,13 @@
                             </div>
                             <center>       
                                 <div class="form-actions right">
-                                    <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_ADD%>" />
-                                    <button type="submit" class="btn btn-success">Save</button>
-                                    <button type="submit" class="btn btn-primary">Reset</button>
-                                    <button type="submit" class="btn btn-info">Edit</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblAccount.accountId}" />
+                                    <button type="submit" class="${btnClass}">${btnValue}</button>
+                                    <button type="reset" class="btn btn-primary">Reset</button>
+                                    <a href="../<%=IServletConstant.PAGE_VIEW_ACCOUNT%>">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </a>
                                 </div>
                             </center>
                         </div>       

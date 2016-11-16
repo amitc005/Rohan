@@ -63,6 +63,16 @@
                                 <th>propriterName</th>
                                 <th>firmName</th>
                                 <th>mobileNo</th>
+                                <th>Phone No 1</th>
+                                <th>Postal Address</th>
+                                <th>Phone No 2</th>
+                                <th>City Id</th>
+                                <th>District Id</th>
+                                <th>State Id</th>
+                                <th>Client Added Date</th>
+                                <th>Client Updated Date</th>
+                                <th>Is Active</th>
+                                
                                 <th></th>
                             </tr>
                         </thead>
@@ -75,6 +85,14 @@
                                     <td><c:out value="${client.propriterName}"/> </td>
                                     <td><c:out value="${client.firmName}"/> </td>
                                     <td><c:out value="${client.mobileNo}"/> </td>
+                                    <td><c:out value="${client.phoneNo1}"/> </td>
+                                    <td><c:out value="${client.postalAddress}"/> </td>
+                                    <td><c:out value="${client.phoneNo2}"/> </td>
+                                    <td><c:out value="${client.tblCitylist}"/> </td>
+                                    <td><c:out value="${client.tblDistrict}"/> </td>
+                                    <td><c:out value="${client.tblState}"/> </td>
+                                    <td><c:out value="${client.clientAddedDate}"/> </td>
+                                    <td><c:out value="${client.clientUpdateDate}"/> </td>
                                     <td><c:out value="${client.isActive}"/> </td>
                                 </tr>
                             </c:forEach>

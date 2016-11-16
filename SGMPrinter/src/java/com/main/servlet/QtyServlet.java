@@ -143,10 +143,11 @@ public class QtyServlet extends HttpServlet {
      private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String qty_name = request.getParameter("qty_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("qtyName", qty_name);
             
            
             

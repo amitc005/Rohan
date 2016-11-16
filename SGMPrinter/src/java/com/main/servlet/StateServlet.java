@@ -139,11 +139,12 @@ public class StateServlet extends HttpServlet {
  private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String state_name = request.getParameter("state_name"); 
+          
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+           hashMap.put("stateName", state_name);
            
             
             List<TblState > searchState = StateService.searchState(hashMap);

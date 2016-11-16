@@ -143,10 +143,11 @@ public class PostpressServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String postpress_name = request.getParameter("postpress_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
+             hashMap.put("postpressName", postpress_name);
             
            
             

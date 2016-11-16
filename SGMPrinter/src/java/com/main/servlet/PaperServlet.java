@@ -143,12 +143,12 @@ public class PaperServlet extends HttpServlet {
       private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String paper_name = request.getParameter("paper_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
-           
+           hashMap.put("paperName", paper_name);
             
             List<TblPaper> searchPaper = TblPaperService.searchPaper(hashMap);
             

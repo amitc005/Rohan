@@ -142,11 +142,11 @@ public class PrintingTypeServlet extends HttpServlet {
        private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String printing_name = request.getParameter("printing_name"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+            hashMap.put("printingName", printing_name);
            
             
             List<TblPrinting> searchPrinting = PrintingService.searchPrinting(hashMap);

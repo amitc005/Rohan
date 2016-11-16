@@ -153,7 +153,7 @@ public class OrderStatusHistoryServlet extends HttpServlet {
             
             request.getSession().setAttribute("orderhistorysearch", searchOrderhistory);
             
-            response.sendRedirect(IServletConstant.PAGE_VIEW_LAMINATION);
+            response.sendRedirect(IServletConstant.PAGE_VIEW_ORDERHISTORY);
         } catch (IOException ex) {
             Logger.getLogger(OrderStatusHistoryServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

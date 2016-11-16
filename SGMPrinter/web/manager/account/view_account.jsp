@@ -27,7 +27,7 @@
                     <h5>SEARCH ACCOUNT FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <form class="form-horizontal" method="post" action="../CitylistServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../AccountServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">ACCOUNT ID :</label>
                             <div class="controls">
@@ -69,7 +69,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="account" items="${pageScope.citylists}"> 
+                            <c:forEach var="account" items="${pageScope.tblAccounts}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

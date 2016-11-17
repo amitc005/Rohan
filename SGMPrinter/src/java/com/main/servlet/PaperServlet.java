@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static jdk.nashorn.internal.objects.NativeString.search;
+
 
 @WebServlet(name = "PaperServlet", urlPatterns = {"/PaperServlet"})
 public class PaperServlet extends HttpServlet {

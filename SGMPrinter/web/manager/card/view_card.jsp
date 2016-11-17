@@ -61,11 +61,11 @@
                                 
                                 
                                 <th>Card Name</th>
-                               
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="card" items="${pageScope.tblCard}"> 
+                            <c:forEach var="card" items="${pageScope.tblCards}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_CITY %>&id=${card.cardId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

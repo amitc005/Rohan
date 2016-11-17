@@ -19,7 +19,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH STATE FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../StateServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
@@ -53,12 +53,13 @@
                         <thead>
                             <tr>
                                 <th style="width: 1%">#</th>
+                                <th style="width: 1%">#</th>
                                 <th>Name</th>
-                                <th></th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="state" items="${pageScope.tblStateList}"> 
+                            <c:forEach var="state" items="${pageScope.tblState}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_STATE %>&id=${state.stateId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

@@ -73,7 +73,7 @@
                                 <th>Client Updated Date</th>
                                 <th>Is Active</th>
                                 
-                                <th></th>
+                               
                             </tr>
                         </thead>
                         <tbody>

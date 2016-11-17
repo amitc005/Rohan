@@ -63,7 +63,7 @@
                                 <th>Latitude</th>
                                 <th>Longitude</th>
                                 <th>State Id</th>
-                                <th></th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>

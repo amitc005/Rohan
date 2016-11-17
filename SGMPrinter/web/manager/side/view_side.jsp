@@ -19,7 +19,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH SIDE FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="..//SidesServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
@@ -56,11 +56,11 @@
                                 <th  style="width: 1%">#</th>
                                 <th>Name</th>
                                 <th>Date</th>
-                                <th></th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="side" items="${pageScope.tblSidesList}"> 
+                            <c:forEach var="side" items="${pageScope.tblSides}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_SIDE %>&id=${side.sideId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

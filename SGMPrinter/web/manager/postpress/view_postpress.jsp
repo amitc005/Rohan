@@ -20,7 +20,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH POSTPRESS FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../PostpressServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
@@ -55,15 +55,15 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
+                                
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Date</th>
-                                <th></th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="postpress" items="${pageScope.tblPostpressList}"> 
+                            <c:forEach var="postpress" items="${pageScope.tblPostpress}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_POSTPRESS %>&id=${postpress.postpressId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

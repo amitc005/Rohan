@@ -19,7 +19,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH CITY FORM</h5>
+                    <h5>SEARCH PRINTING FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../PrintingTypeServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
@@ -55,13 +55,13 @@
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
                                 <th>Name</th>
-                                
+                                <th>Added Date</th>
                                 <th>Date</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="printing" items="${pageScope.tblPrintings}"> 
+                            <c:forEach var="printing" items="${pageScope.tblPrinting}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_PRINTTYPE %>&id=${printing.printingId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

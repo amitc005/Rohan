@@ -4,7 +4,7 @@
 <%@page import="com.main.pojo.TblPaper"%>
 <%@page import="java.util.List"%>
 <%
-    Object papersearch = request.getSession().getAttribute("laminationsearch");
+    Object papersearch = request.getSession().getAttribute("papersearch");
     if (papersearch == null) {
         List<TblPaper> tblPaper = TblPaperService.getTblPaperList();
         pageContext.setAttribute("tblPaper", tblPaper);
@@ -56,11 +56,11 @@
                                 <th  style="width: 1%">#</th>
                                 <th>Name</th>
                                 <th>Date</th>
-                                <th>Active</th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="paper" items="${pageScope.tblPaperList}"> 
+                            <c:forEach var="paper" items="${pageScope.tblPaper}"> 
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_PAPER %>&id=${paper.paperId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>

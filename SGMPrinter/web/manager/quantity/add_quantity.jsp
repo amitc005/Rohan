@@ -42,7 +42,7 @@
 
                             <label class="control-label ">IS ACTIVE :</label>
                             <div class="controls">
-                                <input type="text" name="is_active" maxlength="1" class="span11"value="${tblQty.isActive}"  required="" placeholder="IS ACTIVE" />
+                                <input type="text" name="is_active" maxlength="1" class="span11" value="${tblQty.isActive}"  required="" placeholder="IS ACTIVE" />
                             </div>
                             <center>
                                 <div class="form-actions right">

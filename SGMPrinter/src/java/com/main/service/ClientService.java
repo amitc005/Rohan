@@ -5,9 +5,15 @@
  */
 package com.main.service;
 
+import com.main.pojo.TblCitylist;
 import com.main.pojo.TblClient;
+import com.main.pojo.TblDistrict;
+import com.main.pojo.TblQuotation;
+import com.main.pojo.TblState;
 import com.main.util.SuperConnection;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,16 +22,43 @@ public class ClientService {
 
     public static void main(String[] args) {
         
+        TblCitylist cs= CitylistService.getTblCitylistById(1);
+        TblDistrict district= DistrictService.getTblDistrictById(1);
+        TblState ts = StateService.getTblStateById(1);
         
         
-       List<TblClient> clients = getClientList();
-        for (TblClient client : clients) {
-            System.out.println("Client="+client.getClientName());
-        }
- 
+        TblClient tblClient = new TblClient();
+        
        
-        TblClient tblClientById = getTblClientById(2);
-        System.out.println("tblClientById =" +tblClientById.getClientName());
+        tblClient.setTblCitylist(cs);
+        tblClient.setTblDistrict(district);
+        tblClient.setTblState(ts);
+        tblClient.setClientName("Rohan");
+        tblClient.setClientAddress("anand nagar");
+        tblClient.setPropriterName("Raj");
+        tblClient.setPropriterImage("airuaise");
+        tblClient.setFirmName("rag");
+        tblClient.setMobileNo("1212121212");
+        tblClient.setPhoneNo1("12123123");
+        tblClient.setPostalAddress("riruash");
+        tblClient.setPhoneNo2("2121323");
+        
+        tblClient.setTblQuotations(null);
+       
+        
+        tblClient.setClientAddedDate(new Date());
+        tblClient.setClientUpdateDate(new Date());
+        tblClient.setIsActive(new Character('Y'));
+        
+        saveClient(tblClient);
+//       List<TblClient> clients = getClientList();
+//        for (TblClient client : clients) {
+//            System.out.println("Client="+client.getClientName());
+//        }
+// 
+//       
+//        TblClient tblClientById = getTblClientById(2);
+//        System.out.println("tblClientById =" +tblClientById.getClientName());
     }
     
     

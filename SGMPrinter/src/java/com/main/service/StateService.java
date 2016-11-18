@@ -60,7 +60,7 @@ public class StateService {
     
     public static TblState getTblStateById(Integer id) {
         try {
-            Object object = SuperConnection.getEntityById(new StateService(), id);
+            Object object = SuperConnection.getEntityById(new TblState(), id);
             return (TblState) object;
         } catch (Exception ex) {
             Logger.getLogger(StateService.class.getName()).log(Level.SEVERE, null, ex);

@@ -4,15 +4,15 @@ public interface IServletConstant {
 
  
     public static final String PAGE_TITLE = "SGM Offset Printer";
-    public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
-    public static final String LOGO_URL = "http://localhost:8080/SGMPrinter/img";
+    public static final String SERVER_URL = "http://localhost:8084/SGMPrinter/";
+    public static final String LOGO_URL = "http://localhost:8084/SGMPrinter/img";
  
     /*
      * PAGE LEVEL SETTING
      */
     public static final String PAGE_INDEX = "";
     public static final String PAGE_SUCCESS = "";
-    public static final String PAGE_FAILUER = "";
+    public static final String PAGE_FAILUER = "manager/index.jsp?requestPage=add_failure";
     public static final String PAGE_NOTFOUND = "";
 
     public static final String PAGE_ADD_ACCOUNT = "manager/index.jsp?requestPage=add_account";

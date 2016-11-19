@@ -6,9 +6,44 @@
 <%@page import="java.util.List"%>
 
 <%
-    List<Offsetuser>  offsetusers = OffsetuserService.getOffsetuserList();
-    pageContext.setAttribute("offsetusers", offsetusers);
+
+    Object offsetsearch = request.getSession().getAttribute("offsetsearch");
+    if (offsetsearch == null) {
+        List<Offsetuser> offsetusers = OffsetuserService.getOffsetuserList();
+        pageContext.setAttribute("offsetusers", offsetusers);
+    } else {
+        pageContext.setAttribute("offsetusers", offsetsearch);
+        request.getSession().setAttribute("offsetsearch",null);
+    }
+
 %>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
+                    <h5>SEARCH EMPLOYEE FORM</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <form class="form-horizontal" method="post" action="../OffsetuserServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                        <div class="control-group">
+                            <label class="control-label ">USERNAME :</label>
+                            <div class="controls">
+                                <input type="text" name="username"   autofocus="" maxlength="100" class="span11"    placeholder="USERNAME" />
+                            </div>
+                            <div class="controls">
+                                <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
+                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-danger">Clear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
     <hr>
@@ -16,52 +51,49 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-                    <h5>View Employee Table</h5>
+                    <h5>View Employee Table </h5>
                 </div>
-                <div class="widget-content nopadding">
+                <div id="countTable" class="widget-content nopadding">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                <th>User type id</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Email Id</th>
+                                <th>LastLogin</th>
+                                <th>Action Permission</th>
+                                <th>Page Permission</th>
+                                <th>Intime</th>
+                                <th>Outtime</th>
+                                <th>Mac Id</th>
+                                <th>Is Active</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td class="center"> 4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0</td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5</td>
-                                <td>Win 95+</td>
-                                <td class="center">5.5</td>
-                                <td class="center">A</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 6</td>
-                                <td>Win 98+</td>
-                                <td class="center">6</td>
-                                <td class="center">A</td>
-                            </tr>
+                            <c:forEach var="employee" items="${pageScope.offsetusers}"> 
+                                <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_EMPLOYEE%>&id=${employee.adminId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
+                                    <td><c:out value="${employee.userTypeId}"/> </td>
+                                    <td><c:out value="${employee.username}"/> </td>
+                                    <td><c:out value="${employee.password}"/> </td>
+                                    <td><c:out value="${employee.firstName}"/> </td>
+                                    <td><c:out value="${employee.lastName}"/> </td>
+                                    <td><c:out value="${employee.emailId}"/> </td>
+                                    <td><c:out value="${employee.lastLogin}"/> </td>
+                                    <td><c:out value="${employee.actionPermission}"/> </td>
+                                    <td><c:out value="${employee.pagePermission}"/> </td>
+                                    <td><c:out value="${employee.intime}"/> </td>
+                                    <td><c:out value="${employee.outtime}"/> </td>
+                                    <td><c:out value="${employee.macid}"/> </td>
+                                    <td><c:out value="${employee.isActive}"/> </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

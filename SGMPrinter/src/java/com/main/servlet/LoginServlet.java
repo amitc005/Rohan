@@ -5,8 +5,13 @@
  */
 package com.main.servlet;
 
+import com.main.pojo.Offsetuser;
+import com.main.service.LoginService;
+import com.main.service.OffsetuserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +23,22 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        String uname = request.getParameter("username");
+        String pass = request.getParameter("password");
         try {
-            response.sendRedirect("manager/index.jsp");
-        } finally {
+          HashMap<String,String> hashMap =  new HashMap<String,String>();
+          hashMap.put("username", uname);
+          hashMap.put("password", pass);
+          Offsetuser offsetuser = LoginService.loginService(hashMap);
+          
+          if(offsetuser != null){
+           response.sendRedirect("manager/index.jsp");
+          }
+          else{
+            response.sendRedirect("manager/login_failed.jsp");
+          }
+          } finally {
             out.close();
         }
     }

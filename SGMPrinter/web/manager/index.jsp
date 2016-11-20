@@ -1,5 +1,11 @@
 <%
 //
+    
+    Object loginEmail = request.getSession().getAttribute(IServletConstant.ATTRIBUTE_USER_EMAIL);
+    if(loginEmail == null){
+        
+    }
+    
     Object requestPage = request.getParameter("requestPage");
     String requestIncludePage = "";
     String requestTitlePage = "";

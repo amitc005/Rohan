@@ -74,6 +74,16 @@ public class SuperConnection {
         }
         return criteria.list();
     }
+    public static <T> List<T> searchEntityExactEqual(T entity, HashMap<String, String> searchMap) throws Exception {
+        session = DatabaseUnility.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(entity.getClass());
+        Set<String> keySet = searchMap.keySet();
+        for (String columnName : keySet) {
+            criteria.add(Restrictions.eq(columnName, searchMap.get(columnName)));
+        }
+        return criteria.list();
+    }
 
     public static Object getEntityById(Object entity, Integer id) {
         session = DatabaseUnility.getSessionFactory().openSession();

@@ -17,8 +17,11 @@
 
 %>
 
+<a href="../<%= IServletConstant.PAGE_ADD_CLIENT%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD CLIENT</button>
+</a>
 
-<div class="container-fluid">
+    <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
@@ -58,22 +61,11 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
-                               
-                                <th>clientName</th>
-                                <th>propriterName</th>
-                                <th>firmName</th>
-                                <th>mobileNo</th>
-                                <th>Phone No 1</th>
-                                <th>Postal Address</th>
-                                <th>Phone No 2</th>
-                                <th>City Id</th>
-                                <th>District Id</th>
-                                <th>State Id</th>
-                                <th>Client Added Date</th>
-                                <th>Client Updated Date</th>
-                                <th>Is Active</th>
-                                
-                               
+                                <th>CLIENT NAME</th>
+                                <th>FIRM NAME</th>
+                                <th>MOBILE NO</th>
+                                <th>CITY</th>
+                                <th>STATE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,18 +74,8 @@
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT %>&id=${client.clientId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>
                                     <td><c:out value="${client.clientName}"/> </td>
-                                    <td><c:out value="${client.propriterName}"/> </td>
                                     <td><c:out value="${client.firmName}"/> </td>
                                     <td><c:out value="${client.mobileNo}"/> </td>
-                                    <td><c:out value="${client.phoneNo1}"/> </td>
-                                    <td><c:out value="${client.postalAddress}"/> </td>
-                                    <td><c:out value="${client.phoneNo2}"/> </td>
-                                    <td><c:out value="${client.tblCitylist}"/> </td>
-                                    <td><c:out value="${client.tblDistrict}"/> </td>
-                                    <td><c:out value="${client.tblState}"/> </td>
-                                    <td><c:out value="${client.clientAddedDate}"/> </td>
-                                    <td><c:out value="${client.clientUpdateDate}"/> </td>
-                                    <td><c:out value="${client.isActive}"/> </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

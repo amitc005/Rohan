@@ -26,6 +26,10 @@
     }
 %>
 
+<a href="../<%= IServletConstant.PAGE_VIEW_CLIENT%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW CLIENT</button>
+</a>
+    
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

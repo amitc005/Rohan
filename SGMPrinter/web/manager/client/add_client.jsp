@@ -1,10 +1,23 @@
 
+<%@page import="com.main.pojo.TblState"%>
+<%@page import="com.main.service.StateService"%>
+<%@page import="com.main.pojo.TblDistrict"%>
+<%@page import="com.main.service.DistrictService"%>
+<%@page import="com.main.pojo.TblCitylist"%>
+<%@page import="com.main.service.CitylistService"%>
+<%@page import="java.util.List"%>
 <%@page import="com.main.service.ClientService"%>
 <%@page import="com.main.pojo.TblClient"%>
 <%@page import="com.main.servlet.IServletConstant"%>
 <%@page import="com.main.pojo.TblSides"%>
 <%@page import="com.main.service.SidesService"%>
 <%@page import="com.main.servlet.IServletConstant"%>
+
+<%
+   List<TblCitylist> list = CitylistService.getTblCitylistList();
+   List<TblDistrict> district = DistrictService.getTblDistrictList();
+   List<TblState> states= StateService.getTblStateList();
+%>
 
 <%
 //
@@ -88,20 +101,44 @@
                                 <input type="text" name="phone_no_2" value="${tblClient.phoneNo2}" maxlength="30" class="span11"   placeholder="PHONE NO 2" />
                             </div>
 
-                            <label class="control-label ">CITY ID :</label>
+                            <label class="control-label ">CITY NAME :</label>
                             <div class="controls">
-                                <input type="text" name="city_id" value="${tblClient.tblCitylist}"  maxlength="11" class="span11"  required="" placeholder="CITY ID" />
+                                <select>
+                                    <%  for (TblCitylist citylist : list) { %>
+                                    
+                                    
+                                    <option><%=citylist.getCityName() %></option>  
+                                    
+                                      <%  }
+                                    %>
+                                </select>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label ">DISTRICT ID :</label>
+                            <label class="control-label ">DISTRICT NAME :</label>
                             <div class="controls">
-                                <input type="text" name="district_id" value="${tblClient.tblDistrict}" maxlength="11" class="span11"  required="" placeholder="DISTRICT ID" />
+                                <select>
+                                    <%  for (TblDistrict district1 : district) { %>
+                                    
+                                    
+                                    <option><%=district1.getDistrictName() %></option>  
+                                    
+                                      <%  }
+                                    %>
+                                </select>
                             </div>
 
-                            <label class="control-label ">STATE ID :</label>
+                            <label class="control-label ">STATE NAME :</label>
                             <div class="controls">
-                                <input type="text" name="state_id" value="${tblClient.tblState}" maxlength="11" class="span11"  required="" placeholder="STATE ID" />
+                                <select>
+                                    <%  for (TblState states1 : states) { %>
+                                    
+                                    
+                                    <option><%=states1.getStateName() %></option>  
+                                    
+                                      <%  }
+                                    %>
+                                </select>
                             </div>
                         </div>
                         <div class="control-group">

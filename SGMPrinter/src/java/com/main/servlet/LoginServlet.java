@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
 
@@ -23,9 +24,10 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        HttpSession session = request.getSession();
         String uname = request.getParameter("username");
         String pass = request.getParameter("password");
+       
         try {
           HashMap<String,String> hashMap =  new HashMap<String,String>();
           hashMap.put("username", uname);
@@ -33,6 +35,7 @@ public class LoginServlet extends HttpServlet {
           Offsetuser offsetuser = LoginService.loginService(hashMap);
           
           if(offsetuser != null){
+              session.setAttribute("Username", uname);
            response.sendRedirect("manager/index.jsp");
           }
           else{

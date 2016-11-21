@@ -17,7 +17,9 @@
 
 %>
 
-
+<a href="../<%= IServletConstant.PAGE_ADD_CARD%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD CARD</button>
+</a>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

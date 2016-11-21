@@ -14,6 +14,11 @@
     }
 %>
 
+<a href="../<%= IServletConstant.PAGE_ADD_STATE%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD STATE</button>
+</a>
+
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

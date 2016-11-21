@@ -25,6 +25,10 @@
     }
 %>
 
+<a href="../<%= IServletConstant.PAGE_VIEW_ORDERHISTORY%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW ORDERHISTORY</button>
+</a>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

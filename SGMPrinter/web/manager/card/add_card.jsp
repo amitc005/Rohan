@@ -26,6 +26,11 @@
         pageContext.setAttribute("actionvalue", IServletConstant.ACTION_ADD);
     }
 %>
+
+<a href="../<%= IServletConstant.PAGE_VIEW_CARD%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW CARD</button>
+</a>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

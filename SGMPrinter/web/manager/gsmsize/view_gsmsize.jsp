@@ -16,6 +16,9 @@
 
 %>
 
+<a href="../<%= IServletConstant.PAGE_ADD_GSMSIZE%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD GSMSIZE</button>
+</a>
 
 <div class="container-fluid">
     <div class="row-fluid">

@@ -22,6 +22,10 @@
     }
 %>
 
+<a href="../<%= IServletConstant.PAGE_VIEW_STATE%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW STATE</button>
+</a>
+
 <%@page import="com.main.servlet.IServletConstant"%>
 <div class="container-fluid">
     <div class="row-fluid">

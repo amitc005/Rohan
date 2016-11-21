@@ -24,6 +24,11 @@
         pageContext.setAttribute("actionvalue", IServletConstant.ACTION_ADD);
     }
 %>
+
+<a href="../<%= IServletConstant.PAGE_VIEW_CITY%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW CITY</button>
+</a>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

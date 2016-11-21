@@ -23,6 +23,10 @@
     }
 %>
 
+<a href="../<%= IServletConstant.PAGE_VIEW_POSTPRESS%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">VIEW POSTPRESS</button>
+</a>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">

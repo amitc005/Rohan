@@ -15,7 +15,9 @@
     }
 
 %>
-
+<a href="../<%= IServletConstant.PAGE_ADD_CITY%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD CITY</button>
+</a>
 
 <div class="container-fluid">
     <div class="row-fluid">

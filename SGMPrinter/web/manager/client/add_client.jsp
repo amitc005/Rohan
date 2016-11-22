@@ -103,7 +103,7 @@
 
                             <label class="control-label ">CITY NAME :</label>
                             <div class="controls">
-                                <select>
+                                <select class="span11">
                                     <%  for (TblCitylist citylist : list) { %>
                                     
                                     
@@ -117,7 +117,7 @@
                         <div class="control-group">
                             <label class="control-label ">DISTRICT NAME :</label>
                             <div class="controls">
-                                <select>
+                                <select class="span11">
                                     <%  for (TblDistrict district1 : district) { %>
                                     
                                     
@@ -130,7 +130,7 @@
 
                             <label class="control-label ">STATE NAME :</label>
                             <div class="controls">
-                                <select>
+                                <select class="span11">
                                     <%  for (TblState states1 : states) { %>
                                     
                                     

@@ -9,6 +9,7 @@
     Object clientsearch = request.getSession().getAttribute("clientsearch");
     if (clientsearch == null) {
         List<TblClient> tblClients = ClientService.getClientList();
+        out.print(tblClients.size()+"====");
         pageContext.setAttribute("tblClients", tblClients);
     } else {
         pageContext.setAttribute("tblClients", clientsearch);

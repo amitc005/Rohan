@@ -1,4 +1,22 @@
-<div class="container-fluid">
+<%@page import="com.main.service.QuotationService"%>
+<%@page import="com.main.pojo.TblQuotation"%>
+<%@page import="java.util.List"%>
+<%@page import="com.main.servlet.IServletConstant"%>
+<%
+     Object quotationsearch = request.getSession().getAttribute("quotationsearch");
+    if (quotationsearch == null) {
+        List<TblQuotation> tblQuotation = QuotationService.getTblQuotationList();
+        pageContext.setAttribute("tblQuotation", tblQuotation);
+    } else {
+        pageContext.setAttribute("tblQuotation", quotationsearch);
+        request.getSession().setAttribute("quotationsearch",null);
+    }
+
+%>
+<a href="../<%= IServletConstant.PAGE_ADD_QUOTATION%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD QUOTATION</button>
+</a>
+    <div class="container-fluid">
     <hr>
     <div class="row-fluid">
         <div class="span12">
@@ -10,46 +28,28 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th style="width: 1%">#</th>
+                                <th  style="width: 1%">#</th>
+                                <th>CLIENT ID</th>
+                                <th>QUOTATION DESC</th>
+                                <th>QUOTATION ADDED DATE</th>
+                                <th>QUOTATION UPDATE DATE</th>
+                                <th>READ STATUS</th>
+                                <th>IS ACTIVE</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td class="center"> 4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0</td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5</td>
-                                <td>Win 95+</td>
-                                <td class="center">5.5</td>
-                                <td class="center">A</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 6</td>
-                                <td>Win 98+</td>
-                                <td class="center">6</td>
-                                <td class="center">A</td>
-                            </tr>
+                            <c:forEach var="quotation" items="${pageScope.tblQuotation}"> 
+                                <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_QUOTATION %>&id=${quotation.quotationId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
+                                    <td><c:out value="${quotation.quotationDesc}"/> </td>
+                                    <td><c:out value="${quotation.quotationAddedDate}"/> </td>
+                                    <td><c:out value="${quotation.quotationUpdateDate}"/> </td>
+                                    <td><c:out value="${quotation.readStatus}"/> </td>
+                                      <td><c:out value="${quotation.isActive}"/> </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

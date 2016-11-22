@@ -18,6 +18,12 @@ public class TblOrderService {
     public static void main(String[] args) {
         
         TblOrder tblOrder = new TblOrder();
+        
+        List<TblOrder> orders = getTblOrderByLimit(tblOrder, 2);
+            for (TblOrder order : orders) {
+                System.out.println("records="+order.getComment());
+        }
+        
         // get card type from card type service and set to order
         TblCard tblCardById = CardTypeService.getTblCardById(2);
         tblOrder.setTblCard(tblCardById);
@@ -109,4 +115,13 @@ public class TblOrderService {
         return null;
     }
      
+       public static List<TblOrder> getTblOrderByLimit(TblOrder tblOrder, Integer limit) {
+        try {
+            return SuperConnection.listEntityByLimiy(tblOrder, limit);
+        } catch (Exception ex) {
+            Logger.getLogger(TblOrderService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+      
 }

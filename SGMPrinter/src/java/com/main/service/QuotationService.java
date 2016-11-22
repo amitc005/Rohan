@@ -15,6 +15,13 @@ import java.util.logging.Logger;
 public class QuotationService {
 
     public static void main(String[] args) {
+        
+       TblQuotation tblQuotation = new TblQuotation();
+       List<TblQuotation> quotations= getTblQuotationByLimit(tblQuotation, 2);
+        for (TblQuotation quotation : quotations) {
+            System.out.println("recordname="+quotation.getReadStatus());
+        }
+       
       TblQuotation tblQuotationById = getTblQuotationById(2);
         System.out.println("tblQuotationById =" +tblQuotationById.getQuotationDesc());
     }
@@ -75,4 +82,14 @@ public class QuotationService {
         }
         return null;
     }
+     
+      public static List<TblQuotation> getTblQuotationByLimit(TblQuotation tblQuotation, Integer limit) {
+        try {
+            return SuperConnection.listEntityByLimiy(tblQuotation, limit);
+        } catch (Exception ex) {
+            Logger.getLogger(QuotationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     
 }

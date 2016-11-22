@@ -63,6 +63,14 @@ public class SuperConnection {
         Criteria criteria = session.createCriteria(entity.getClass());
         return criteria.list();
     }
+	
+	public static <T> List<T> listEntityByLimiy(T entity, int limit) throws Exception {
+        session = DatabaseUnility.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(entity.getClass());
+		criteria.setMaxResults(limit);
+        return criteria.list();
+    }
 
     public static <T> List<T> searchEntity(T entity, HashMap<String, String> searchMap) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();

@@ -1,3 +1,23 @@
+<%@page import="com.main.servlet.IServletConstant"%>
+<%@page import="com.main.service.TblOrderService"%>
+<%@page import="com.main.pojo.TblOrder"%>
+<%@page import="java.util.List"%>
+<%
+     Object ordersearch = request.getSession().getAttribute("ordersearch");
+    if (ordersearch == null) {
+        List<TblOrder> tblOrder = TblOrderService.getTblOrderList();
+        pageContext.setAttribute("tblOrder", tblOrder);
+    } else {
+        pageContext.setAttribute("tblOrder", ordersearch);
+        request.getSession().setAttribute("ordersearch",null);
+    }
+
+%>
+<a href="../<%= IServletConstant.PAGE_ADD_ORDER%>" style="padding-left: 20px;">
+    <button type="submit" class="btn btn-success">ADD ORDER</button>
+</a>
+
+
 <div class="container-fluid">
     <hr>
     <div class="row-fluid">
@@ -10,46 +30,41 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>QUOTATION ID</th>
+                                <th>CLIENT ID</th>
+                                <th>GSM ID</th>
+                                <th>LAMINATION ID</th>
+                                <th>PRINTING ID</th>
+                                <th>QTY ID</th>
+                              <th>SIDE ID</th>
+                              <th>PAPER ID</th>
+                                <th>CARD ID</th>
+                                <th>COMMENT</th>
+                                 <th>REQUESTDATE</th>
+                                  <th>ORDERSTATUS</th>
+                                   <th>ISACTIVE</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0</td>
-                                <td>Win 95+</td>
-                                <td class="center"> 4</td>
-                                <td class="center">X</td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0</td>
-                                <td>Win 95+</td>
-                                <td class="center">5</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="odd gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5</td>
-                                <td>Win 95+</td>
-                                <td class="center">5.5</td>
-                                <td class="center">A</td>
-                            </tr>
-                            <tr class="even gradeA">
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 6</td>
-                                <td>Win 98+</td>
-                                <td class="center">6</td>
-                                <td class="center">A</td>
-                            </tr>
+                            <c:forEach var="order" items="${pageScope.tblOrder}"> 
+                                <tr>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER%>&id=${order.orderId}"><i class="icon-edit"></i></a></td>
+                                    <td><i class="icon-"></i></td>
+                                    <td><c:out value="${order.tblQuotation}"/> </td>
+                                    <td><c:out value="${order.tblClient}"/> </td>
+                                    <td><c:out value="${order.tblGsm}"/> </td>
+                                    <td><c:out value="${order.tblLamination}"/> </td>
+                                      <td><c:out value="${order.tblPrinting}"/> </td>
+                                      <td><c:out value="${order.tblQty}"/> </td>
+                                    <td><c:out value="${order.tblSides}"/> </td>
+                                    <td><c:out value="${order.tblPaper}"/> </td>
+                                    <td><c:out value="${order.tblCard}"/> </td>
+                                      <td><c:out value="${order.comment}"/> </td>
+                                      <td><c:out value="${order.requestdate}"/> </td>
+                                     <td><c:out value="${order.orderstatus}"/> </td>
+                                     <td><c:out value="${order.isActive}"/> </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

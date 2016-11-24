@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.main.pojo.TblState"%>
 <%@page import="com.main.service.StateService"%>
 <%@page import="com.main.pojo.TblDistrict"%>
@@ -14,9 +15,12 @@
 <%@page import="com.main.servlet.IServletConstant"%>
 
 <%
-   List<TblCitylist> list = CitylistService.getTblCitylistList();
+   List<TblCitylist> citylists = CitylistService.getTblCitylistList();
+   pageContext.setAttribute("cities", citylists);
    List<TblDistrict> district = DistrictService.getTblDistrictList();
+   pageContext.setAttribute("tblDistrict", district);
    List<TblState> states= StateService.getTblStateList();
+   pageContext.setAttribute("tblStates", states);
 %>
 
 <%
@@ -104,13 +108,11 @@
                             <label class="control-label ">CITY NAME :</label>
                             <div class="controls">
                                 <select class="span11">
-                                    <%  for (TblCitylist citylist : list) { %>
                                     
-                                    
-                                    <option><%=citylist.getCityName() %></option>  
-                                    
-                                      <%  }
-                                    %>
+                                    <c:forEach var="city" items="${pageScope.cities}">
+                                        <option value="${city.cityName}">${city.cityName}</option>
+                                    </c:forEach>
+                                      
                                 </select>
                             </div>
                         </div>
@@ -118,26 +120,18 @@
                             <label class="control-label ">DISTRICT NAME :</label>
                             <div class="controls">
                                 <select class="span11">
-                                    <%  for (TblDistrict district1 : district) { %>
-                                    
-                                    
-                                    <option><%=district1.getDistrictName() %></option>  
-                                    
-                                      <%  }
-                                    %>
+                                    <c:forEach var="district" items="${pageScope.tblDistrict}">
+                                        <option value="${district.districtName}">${district.districtName}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
 
                             <label class="control-label ">STATE NAME :</label>
                             <div class="controls">
                                 <select class="span11">
-                                    <%  for (TblState states1 : states) { %>
-                                    
-                                    
-                                    <option><%=states1.getStateName() %></option>  
-                                    
-                                      <%  }
-                                    %>
+                                    <c:forEach var="state" items="${pageScope.tblStates}">
+                                        <option value="${state.stateName}">${state.stateName}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>

@@ -1318,4 +1318,9 @@ INSERT INTO `tbl_usertype` VALUES(3, 'Employee', '2012-07-05', 'Y');
 INSERT INTO `tbl_usertype` VALUES(4, 'Account', '2012-07-05', 'Y');
 
 
-INSERT INTO `offsetmanager`.`offsetuser` (`admin_id`, `user_type_id`, `username`, `password`, `first_name`, `last_name`, `email_id`, `last_login`, `action_permission`, `page_permission`, `intime`, `outtime`, `macid`, `is_active`) VALUES (NULL, '1', 'pravintumsare@gmail.com', 'james@007', 'Pravin', 'Tumsare', 'pravintumsare@gmail.com', NULL, '1', NULL, '1', '1', '1', 'Y'), (NULL, '1', 'eew.rohan@gmail.com ', 'rohan@123', 'Rohan', 'Gillurkar', 'eew.rohan@gmail.com ', '1', '1', '1', '1', '1', '1', 'Y');
+INSERT INTO `offsetmanager`.`offsetuser` 
+(`admin_id`, `user_type_id`, `username`, `password`, `first_name`, `last_name`, `email_id`, `last_login`, `action_permission`, `page_permission`, `intime`, `outtime`, `macid`, `is_active`) 
+VALUES (NULL, '1', 'pravintumsare@gmail.com', 'james@007', 'Pravin', 'Tumsare', 'pravintumsare@gmail.com', NULL, '1', NULL, '1', '1', '1', 'Y'), 
+(NULL, '1', 'eew.rohan@gmail.com ', 'rohan@123', 'Rohan', 'Gillurkar', 'eew.rohan@gmail.com ', '1', '1', '1', '1', '1', '1', 'Y');
+
+INSERT INTO `offsetmanager`.`tbl_quotation` (`quotation_id`, `client_id`, `quotation_desc`, `quotation_added_date`, `quotation_update_date`, `read_status`, `is_active`) VALUES (NULL, '1', 'Need no print visisting card with 250 GSM and all', '2016-11-22', '2016-11-23', 'N', 'N');

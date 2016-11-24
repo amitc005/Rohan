@@ -2,6 +2,7 @@
 <%@page import="com.main.pojo.TblQuotation"%>
 <%@page import="java.util.List"%>
 <%@page import="com.main.servlet.IServletConstant"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
      Object quotationsearch = request.getSession().getAttribute("quotationsearch");
     if (quotationsearch == null) {

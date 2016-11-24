@@ -1,3 +1,5 @@
+<%@page import="com.main.service.ClientService"%>
+<%@page import="com.main.pojo.TblClient"%>
 <%@page import="com.main.service.AccountService"%>
 <%@page import="com.main.pojo.TblAccount"%>
 <%@page import="com.main.servlet.IServletConstant"%>
@@ -5,6 +7,12 @@
 <%@page import="com.main.pojo.TblCitylist"%>
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.CitylistService"%>
+
+<%
+   List<TblClient> tblClients = ClientService.getClientList();
+    pageContext.setAttribute("Client", tblClients);
+
+%>
 
 <%
 
@@ -33,9 +41,17 @@
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../AccountServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">ACCOUNT ID :</label>
+                            <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                                <input type="text" name="account_id"   autofocus="" maxlength="100" class="span11"    placeholder="ACCOUNT ID" />
+                            
+                                <select class="span11" name="client_id">
+                                
+                                <c:forEach var="client" items="${pageScope.Client}">
+                                        <option value="${client.clientId}">${client.clientName}</option>
+                                </c:forEach>  
+                                        
+                                </select>
+                                
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />

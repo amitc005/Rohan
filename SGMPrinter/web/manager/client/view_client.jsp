@@ -9,11 +9,10 @@
     Object clientsearch = request.getSession().getAttribute("clientsearch");
     if (clientsearch == null) {
         List<TblClient> tblClients = ClientService.getClientList();
-        out.print(tblClients.size()+"====");
         pageContext.setAttribute("tblClients", tblClients);
     } else {
         pageContext.setAttribute("tblClients", clientsearch);
-        request.getSession().setAttribute("clientsearch",null);
+        request.getSession().setAttribute("clientsearch", null);
     }
 
 %>
@@ -22,7 +21,7 @@
     <button type="submit" class="btn btn-success">ADD CLIENT</button>
 </a>
 
-    <div class="container-fluid">
+<div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
@@ -61,19 +60,23 @@
                         <thead>
                             <tr>
                                 <th style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
+                                <th>#</th>
+                                <th>#</th>
+                                <th>#</th>
+                                <th>#</th>
                                 <th>CLIENT NAME</th>
                                 <th>FIRM NAME</th>
                                 <th>MOBILE NO</th>
-                                <th>CITY</th>
-                                <th>STATE</th>
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var="client" items="${pageScope.tblClients}"> 
                                 <tr>
-                                    <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT %>&id=${client.clientId}"><i class="icon-edit"></i></a></td>
+                                    <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT%>&id=${client.clientId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>
+                                    <td><a href="">Create Order</a> </td>
+                                    <td><a  href="">Add Quotation</a> </td>
+                                    <td><a  href="">View Account</a> </td>
                                     <td><c:out value="${client.clientName}"/> </td>
                                     <td><c:out value="${client.firmName}"/> </td>
                                     <td><c:out value="${client.mobileNo}"/> </td>

@@ -31,12 +31,11 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th  style="width: 1%">#</th>
-                                <th>CLIENT ID</th>
-                                <th>QUOTATION DESC</th>
-                                <th>QUOTATION ADDED DATE</th>
-                                <th>QUOTATION UPDATE DATE</th>
-                                <th>READ STATUS</th>
-                                <th>IS ACTIVE</th>
+                                <th>CLIENT</th>
+                                <th>DESCRIPTION</th>
+                                <th>DATE</th>
+                                <th>IS READ</th>
+                                <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,9 +43,9 @@
                                 <tr>
                                     <td><a href="../<%=IServletConstant.PAGE_ADD_QUOTATION %>&id=${quotation.quotationId}"><i class="icon-edit"></i></a></td>
                                     <td><i class="icon-"></i></td>
+                                    <td><i class="icon-"></i></td>
                                     <td><c:out value="${quotation.quotationDesc}"/> </td>
                                     <td><c:out value="${quotation.quotationAddedDate}"/> </td>
-                                    <td><c:out value="${quotation.quotationUpdateDate}"/> </td>
                                     <td><c:out value="${quotation.readStatus}"/> </td>
                                       <td><c:out value="${quotation.isActive}"/> </td>
                                 </tr>

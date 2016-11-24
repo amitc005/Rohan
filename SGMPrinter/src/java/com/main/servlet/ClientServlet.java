@@ -33,10 +33,10 @@ public class ClientServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+            } else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
                 search(request, response);
-            } 
-            } catch (Exception e) {
+            }
+        } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
         }
@@ -130,12 +130,12 @@ public class ClientServlet extends HttpServlet {
         tblClient.setClientName(request.getParameter("client_name"));
         tblClient.setClientAddress(request.getParameter("client_address"));
         tblClient.setPropriterName(request.getParameter("propriter_name"));
-        tblClient.setPropriterImage(request.getParameter("propriter_image"));
+        tblClient.setPropriterImage("");
         tblClient.setFirmName(request.getParameter("firm_name"));
         tblClient.setMobileNo(request.getParameter("mobile_no"));
-        tblClient.setPhoneNo1(request.getParameter("phone_no_1"));
+        tblClient.setPhoneNo1(request.getParameter("phone_no_1") == null ? "" : request.getParameter("phone_no_1"));
         tblClient.setPostalAddress(request.getParameter("postal_address"));
-        tblClient.setPhoneNo2(request.getParameter("phone_no_2"));
+        tblClient.setPhoneNo2(request.getParameter("phone_no_2") == null ? "" : request.getParameter("phone_no_2"));
         tblClient.setClientAddedDate(new Date());
         tblClient.setClientUpdateDate(new Date());
         tblClient.setIsActive('Y');
@@ -147,18 +147,19 @@ public class ClientServlet extends HttpServlet {
         }
         return tblClient;
     }
+
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String client_name = request.getParameter("client_name"); 
-            
+            String client_name = request.getParameter("client_name");
+
             /// create mapper pojo fields
-            HashMap<String, String> hashMap = new HashMap<>();  
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("clientName", client_name);
             List<TblClient> searchClient = ClientService.searchClient(hashMap);
-            
+
             request.getSession().setAttribute("clientsearch", searchClient);
-            
+
             response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
         } catch (IOException ex) {
             Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, ex);

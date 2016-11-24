@@ -15,7 +15,11 @@ import java.util.logging.Logger;
 public class AccountService {
 
     public static void main(String[] args) {
-        
+        List<TblAccount> tblAccountList = getTblAccountList();
+        for (TblAccount tblAccount : tblAccountList) {
+            System.out.println("tblAccount = " + tblAccount.getCredited());
+            System.out.println("tblAccount = " + tblAccount.getDebited());
+        }
     }
 
     public static boolean saveTblAccount(TblAccount tblAccount) {

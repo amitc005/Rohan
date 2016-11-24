@@ -21,44 +21,10 @@ import java.util.logging.Logger;
 public class ClientService {
 
     public static void main(String[] args) {
-        
-        TblCitylist cs= CitylistService.getTblCitylistById(1);
-        TblDistrict district= DistrictService.getTblDistrictById(1);
-        TblState ts = StateService.getTblStateById(1);
-        
-        
-        TblClient tblClient = new TblClient();
-        
-       
-        tblClient.setTblCitylist(cs);
-        tblClient.setTblDistrict(district);
-        tblClient.setTblState(ts);
-        tblClient.setClientName("Rohan");
-        tblClient.setClientAddress("anand nagar");
-        tblClient.setPropriterName("Raj");
-        tblClient.setPropriterImage("airuaise");
-        tblClient.setFirmName("rag");
-        tblClient.setMobileNo("1212121212");
-        tblClient.setPhoneNo1("12123123");
-        tblClient.setPostalAddress("riruash");
-        tblClient.setPhoneNo2("2121323");
-        
-        tblClient.setTblQuotations(null);
-       
-        
-        tblClient.setClientAddedDate(new Date());
-        tblClient.setClientUpdateDate(new Date());
-        tblClient.setIsActive(new Character('Y'));
-        
-        saveClient(tblClient);
-//       List<TblClient> clients = getClientList();
-//        for (TblClient client : clients) {
-//            System.out.println("Client="+client.getClientName());
-//        }
-// 
-//       
-//        TblClient tblClientById = getTblClientById(2);
-//        System.out.println("tblClientById =" +tblClientById.getClientName());
+        List<TblClient> clientList = getClientList();
+        for (TblClient tblClient : clientList) {
+            System.out.println("tblClient = " + tblClient);
+        }
     }
     
     
@@ -92,6 +58,8 @@ public class ClientService {
         }
     }
 
+   
+    
     public static List<TblClient> getClientList() {
         try {
             return SuperConnection.listEntity(new TblClient());

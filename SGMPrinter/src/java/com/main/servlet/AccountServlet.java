@@ -165,12 +165,12 @@ public class AccountServlet extends HttpServlet {
         private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String account_id = request.getParameter("account_id"); 
+            String client_id = request.getParameter("client_id"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
             
-           hashMap.put("accountId", account_id);
+           hashMap.put("tblClient", client_id);
             
             List<TblAccount> searchAccount = AccountService.searchAccount(hashMap);
             

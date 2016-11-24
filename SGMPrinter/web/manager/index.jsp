@@ -29,7 +29,6 @@
                     <a href="index.jsp?requestPage=" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Home</a> 
                     <a href="#" class="current"><%=requestTitlePage%></a> </div>
             </div>
-                <h3 style="padding-left: 20px;"><%=requestTitlePage%></h3>
             <jsp:include flush="true" page="<%=requestIncludePage%>"></jsp:include> 
          </div>
          <div class="row-fluid"><%@include file="../footer.jsp" %></div>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 14, 2016 5:08:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="com.main.pojo.TblQuotation" table="tbl_quotation" catalog="offsetmanager" optimistic-lock="version">
+    <class name="com.main.pojo.TblQuotation" table="tbl_quotation" catalog="offsetmanager">
         <id name="quotationId" type="java.lang.Integer">
             <column name="quotation_id" />
             <generator class="identity" />

@@ -16,12 +16,7 @@
     }
 
 %>
-
-<a href="../<%= IServletConstant.PAGE_ADD_CLIENT%>" style="padding-left: 20px;">
-    <button type="submit" class="btn btn-success">ADD CLIENT</button>
-</a>
-
-<div class="container-fluid">
+<div class="container-fluid" style="border: solid 0px;">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
@@ -37,53 +32,53 @@
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
-                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-info">SEARCH</button>
+                                <button type="submit" class="btn btn-danger">RELOAD</button>
+                                <a href="../<%= IServletConstant.PAGE_ADD_CLIENT%>">
+                                    <button type="button" class="btn btn-success">ADD CLIENT</button>
+                                </a>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <hr>
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-                    <h5>View Client Table</h5>
-                </div>
-                <div class="widget-content nopadding">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="width: 1%">#</th>
-                                <th>#</th>
-                                <th>#</th>
-                                <th>#</th>
-                                <th>#</th>
-                                <th>CLIENT NAME</th>
-                                <th>FIRM NAME</th>
-                                <th>MOBILE NO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach var="client" items="${pageScope.tblClients}"> 
-                                <tr>
-                                    <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT%>&id=${client.clientId}"><i class="icon-edit"></i></a></td>
-                                    <td><i class="icon-"></i></td>
-                                    <td><a href="">Create Order</a> </td>
-                                    <td><a  href="">Add Quotation</a> </td>
-                                    <td><a  href="">View Account</a> </td>
-                                    <td><c:out value="${client.clientName}"/> </td>
-                                    <td><c:out value="${client.firmName}"/> </td>
-                                    <td><c:out value="${client.mobileNo}"/> </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="widget-content nopadding">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 2%">#</th>
+                                        <th style="width: 2%">#</th>
+                                        <th style="width: 2%">#</th>
+                                        <th style="width: 2%">#</th>
+                                        <th style="width: 2%">#</th>
+                                        <th>CLIENT NAME</th>
+                                        <th>FIRM NAME</th>
+                                        <th>MOBILE NO</th>
+                                        <th>CREDITED</th>
+                                        <th>DEBITED</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="client" items="${pageScope.tblClients}"> 
+                                        <tr>
+                                            <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT%>&clientId=${client.clientId}"><i class="icon-edit"></i></a></td>
+                                            <td><a href="index.jsp?requestPage=add_client"><i class="icon-cut"></i></a></i></td>
+                                            <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER %>&clientId=${client.clientId}" title="ADD ORDER"><i class="icon-file"></i></a> </td>
+                                            <td><a  href="../<%=IServletConstant.PAGE_ADD_QUOTATION %>&clientId=${client.clientId}"  title="ADD QUOTATION"><i class="icon-beer"></i></a> </td>
+                                            <td><a  href="../<%=IServletConstant.PAGE_ADD_ACCOUNT %>&clientId=${client.clientId}" title="VIEW ACCOUNT"><i class="icon-book"></i></a> </td>
+                                            <td><c:out value="${client.clientName}"/> </td>
+                                            <td><c:out value="${client.firmName}"/> </td>
+                                            <td><c:out value="${client.mobileNo}"/> </td>
+                                            <td>1000/-</td>
+                                            <td>1000/-</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                                <thead><tr><th colspan="10" style="height: 18px;"></th></tr></thead>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,42 +1,42 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 14, 2016 5:08:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="com.main.pojo.TblOrder" table="tbl_order" catalog="offsetmanager" optimistic-lock="version">
+    <class name="com.main.pojo.TblOrder" table="tbl_order" catalog="offsetmanager">
         <id name="orderId" type="java.lang.Integer">
             <column name="order_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="tblCard" class="com.main.pojo.TblCard" fetch="select">
-            <column name="card_id" />
-        </many-to-one>
         <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
             <column name="client_id" />
         </many-to-one>
-        <many-to-one name="tblGsm" class="com.main.pojo.TblGsm" fetch="select">
-            <column name="gsm_id" />
-        </many-to-one>
-        <many-to-one name="tblLamination" class="com.main.pojo.TblLamination" fetch="select">
-            <column name="lamination_id" />
-        </many-to-one>
-        <many-to-one name="tblPaper" class="com.main.pojo.TblPaper" fetch="select">
-            <column name="paper_id" />
-        </many-to-one>
-        <many-to-one name="tblPostpress" class="com.main.pojo.TblPostpress" fetch="select">
-            <column name="postpress_id" />
+        <many-to-one name="tblCard" class="com.main.pojo.TblCard" fetch="select">
+            <column name="card_id" />
         </many-to-one>
         <many-to-one name="tblPrinting" class="com.main.pojo.TblPrinting" fetch="select">
             <column name="printing_id" />
         </many-to-one>
+        <many-to-one name="tblPostpress" class="com.main.pojo.TblPostpress" fetch="select">
+            <column name="postpress_id" />
+        </many-to-one>
+        <many-to-one name="tblPaper" class="com.main.pojo.TblPaper" fetch="select">
+            <column name="paper_id" />
+        </many-to-one>
         <many-to-one name="tblQty" class="com.main.pojo.TblQty" fetch="select">
             <column name="qty_id" />
+        </many-to-one>
+        <many-to-one name="tblGsm" class="com.main.pojo.TblGsm" fetch="select">
+            <column name="gsm_id" />
+        </many-to-one>
+        <many-to-one name="tblSides" class="com.main.pojo.TblSides" fetch="select">
+            <column name="side_id" />
         </many-to-one>
         <many-to-one name="tblQuotation" class="com.main.pojo.TblQuotation" fetch="select">
             <column name="quotation_id" />
         </many-to-one>
-        <many-to-one name="tblSides" class="com.main.pojo.TblSides" fetch="select">
-            <column name="side_id" />
+        <many-to-one name="tblLamination" class="com.main.pojo.TblLamination" fetch="select">
+            <column name="lamination_id" />
         </many-to-one>
         <property name="comment" type="string">
             <column name="comment" length="65535" />

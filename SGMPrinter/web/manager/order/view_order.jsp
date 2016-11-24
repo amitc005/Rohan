@@ -14,13 +14,7 @@
     }
 
 %>
-<a href="../<%= IServletConstant.PAGE_ADD_ORDER%>" style="padding-left: 20px;">
-    <button type="submit" class="btn btn-success">ADD ORDER</button>
-</a>
-
-
 <div class="container-fluid">
-    <hr>
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">

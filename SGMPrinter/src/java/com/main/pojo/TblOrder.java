@@ -1,5 +1,5 @@
 package com.main.pojo;
-// Generated Nov 14, 2016 5:08:08 PM by Hibernate Tools 4.3.1
+// Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -29,16 +29,16 @@ public class TblOrder  implements java.io.Serializable {
 
 
      private Integer orderId;
-     private TblCard tblCard;
      private TblClient tblClient;
-     private TblGsm tblGsm;
-     private TblLamination tblLamination;
-     private TblPaper tblPaper;
-     private TblPostpress tblPostpress;
+     private TblCard tblCard;
      private TblPrinting tblPrinting;
+     private TblPostpress tblPostpress;
+     private TblPaper tblPaper;
      private TblQty tblQty;
-     private TblQuotation tblQuotation;
+     private TblGsm tblGsm;
      private TblSides tblSides;
+     private TblQuotation tblQuotation;
+     private TblLamination tblLamination;
      private String comment;
      private Date requestdate;
      private String orderstatus;
@@ -53,17 +53,17 @@ public class TblOrder  implements java.io.Serializable {
     public TblOrder(Date requestdate) {
         this.requestdate = requestdate;
     }
-    public TblOrder(TblCard tblCard, TblClient tblClient, TblGsm tblGsm, TblLamination tblLamination, TblPaper tblPaper, TblPostpress tblPostpress, TblPrinting tblPrinting, TblQty tblQty, TblQuotation tblQuotation, TblSides tblSides, String comment, Date requestdate, String orderstatus, Character isactive, Set<TblOrderStatusHistory> tblOrderStatusHistories, Set<TblAccount> tblAccounts) {
-       this.tblCard = tblCard;
+    public TblOrder(TblClient tblClient, TblCard tblCard, TblPrinting tblPrinting, TblPostpress tblPostpress, TblPaper tblPaper, TblQty tblQty, TblGsm tblGsm, TblSides tblSides, TblQuotation tblQuotation, TblLamination tblLamination, String comment, Date requestdate, String orderstatus, Character isactive, Set<TblOrderStatusHistory> tblOrderStatusHistories, Set<TblAccount> tblAccounts) {
        this.tblClient = tblClient;
-       this.tblGsm = tblGsm;
-       this.tblLamination = tblLamination;
-       this.tblPaper = tblPaper;
-       this.tblPostpress = tblPostpress;
+       this.tblCard = tblCard;
        this.tblPrinting = tblPrinting;
+       this.tblPostpress = tblPostpress;
+       this.tblPaper = tblPaper;
        this.tblQty = tblQty;
-       this.tblQuotation = tblQuotation;
+       this.tblGsm = tblGsm;
        this.tblSides = tblSides;
+       this.tblQuotation = tblQuotation;
+       this.tblLamination = tblLamination;
        this.comment = comment;
        this.requestdate = requestdate;
        this.orderstatus = orderstatus;
@@ -85,16 +85,6 @@ public class TblOrder  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="card_id")
-    public TblCard getTblCard() {
-        return this.tblCard;
-    }
-    
-    public void setTblCard(TblCard tblCard) {
-        this.tblCard = tblCard;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="client_id")
     public TblClient getTblClient() {
         return this.tblClient;
@@ -105,43 +95,13 @@ public class TblOrder  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="gsm_id")
-    public TblGsm getTblGsm() {
-        return this.tblGsm;
+    @JoinColumn(name="card_id")
+    public TblCard getTblCard() {
+        return this.tblCard;
     }
     
-    public void setTblGsm(TblGsm tblGsm) {
-        this.tblGsm = tblGsm;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="lamination_id")
-    public TblLamination getTblLamination() {
-        return this.tblLamination;
-    }
-    
-    public void setTblLamination(TblLamination tblLamination) {
-        this.tblLamination = tblLamination;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="paper_id")
-    public TblPaper getTblPaper() {
-        return this.tblPaper;
-    }
-    
-    public void setTblPaper(TblPaper tblPaper) {
-        this.tblPaper = tblPaper;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="postpress_id")
-    public TblPostpress getTblPostpress() {
-        return this.tblPostpress;
-    }
-    
-    public void setTblPostpress(TblPostpress tblPostpress) {
-        this.tblPostpress = tblPostpress;
+    public void setTblCard(TblCard tblCard) {
+        this.tblCard = tblCard;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -155,6 +115,26 @@ public class TblOrder  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="postpress_id")
+    public TblPostpress getTblPostpress() {
+        return this.tblPostpress;
+    }
+    
+    public void setTblPostpress(TblPostpress tblPostpress) {
+        this.tblPostpress = tblPostpress;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="paper_id")
+    public TblPaper getTblPaper() {
+        return this.tblPaper;
+    }
+    
+    public void setTblPaper(TblPaper tblPaper) {
+        this.tblPaper = tblPaper;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="qty_id")
     public TblQty getTblQty() {
         return this.tblQty;
@@ -162,6 +142,26 @@ public class TblOrder  implements java.io.Serializable {
     
     public void setTblQty(TblQty tblQty) {
         this.tblQty = tblQty;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="gsm_id")
+    public TblGsm getTblGsm() {
+        return this.tblGsm;
+    }
+    
+    public void setTblGsm(TblGsm tblGsm) {
+        this.tblGsm = tblGsm;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="side_id")
+    public TblSides getTblSides() {
+        return this.tblSides;
+    }
+    
+    public void setTblSides(TblSides tblSides) {
+        this.tblSides = tblSides;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -175,13 +175,13 @@ public class TblOrder  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="side_id")
-    public TblSides getTblSides() {
-        return this.tblSides;
+    @JoinColumn(name="lamination_id")
+    public TblLamination getTblLamination() {
+        return this.tblLamination;
     }
     
-    public void setTblSides(TblSides tblSides) {
-        this.tblSides = tblSides;
+    public void setTblLamination(TblLamination tblLamination) {
+        this.tblLamination = tblLamination;
     }
 
     

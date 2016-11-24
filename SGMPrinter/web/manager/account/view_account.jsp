@@ -9,28 +9,21 @@
 <%@page import="com.main.service.CitylistService"%>
 
 <%
-   List<TblClient> tblClients = ClientService.getClientList();
+    List<TblClient> tblClients = ClientService.getClientList();
     pageContext.setAttribute("Client", tblClients);
 
 %>
 
-<%
-
-    Object accountsearch = request.getSession().getAttribute("accountsearch");
+<%    Object accountsearch = request.getSession().getAttribute("accountsearch");
     if (accountsearch == null) {
         List<TblAccount> tblAccounts = AccountService.getTblAccountList();
         pageContext.setAttribute("tblAccounts", tblAccounts);
     } else {
         pageContext.setAttribute("tblAccounts", accountsearch);
-        request.getSession().setAttribute("accountsearch",null);
+        request.getSession().setAttribute("accountsearch", null);
     }
 
 %>
-
-<a href="../<%= IServletConstant.PAGE_ADD_ACCOUNT%>" style="padding-left: 20px;">
-    <button type="submit" class="btn btn-success">ADD ACCOUNT</button>
-</a>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -43,15 +36,11 @@
                         <div class="control-group">
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                            
                                 <select class="span11" name="client_id">
-                                
-                                <c:forEach var="client" items="${pageScope.Client}">
+                                    <c:forEach var="client" items="${pageScope.Client}">
                                         <option value="${client.clientId}">${client.clientName}</option>
-                                </c:forEach>  
-                                        
+                                    </c:forEach>  
                                 </select>
-                                
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
@@ -59,52 +48,63 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <div class="container-fluid" style="margin-top: 0px;padding-top: 0px;">
+                        <div class="span12">
+                            <div class="widget-box">
+                                <div class="widget-content nopadding">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 1%">#</th>
+                                                <th style="width: 1%">#</th>
+                                                <th>CLIENT NAME</th>
+                                                <th>ORDER ID</th>
+                                                <th>CREDIT </th>
+                                                <th>DEBIT</th>
+                                                <th>DATE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="account" items="${pageScope.tblAccounts}"> 
+                                                <tr>
+                                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
+                                                    <td><i class="icon-"></i></td>
+                                                    <td><c:out value="${account.tblClient}"/> </td>
+                                                    <td><c:out value="${account.tblOrder}"/> </td>
+                                                    <td><c:out value="${account.credited}"/> </td>
+                                                    <td><c:out value="${account.debited}"/> </td>
+                                                    <td><c:out value="${account.accountAddedDate}"/> </td>
+                                                </tr>
+                                            </c:forEach>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                        <thead>
+                                            <tr>
+                                                <td ></td>
+                                                <td ></td>
+                                                <td></td>
+                                                <td></th>
+                                                <th>1000/-</th>
+                                                <th>1000/-</th>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <hr>
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-                    <h5>View Account Table</h5>
-                </div>
-                <div class="widget-content nopadding">
-                    <table id="myTable" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="width: 1%">#</th>
-                                <th  style="width: 1%">#</th>
-                                <th>Client Id</th>
-                                <th>Order Id</th>
-                                <th>Credit </th>
-                                <th>Debit</th>
-                                <th>Added date</th>
-                                <th>IS Active</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach var="account" items="${pageScope.tblAccounts}"> 
-                                <tr>
-                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
-                                    <td><i class="icon-"></i></td>
-                                    <td><c:out value="${account.tblClient}"/> </td>
-                                    <td><c:out value="${account.tblOrder}"/> </td>
-                                    <td><c:out value="${account.credited}"/> </td>
-                                    <td><c:out value="${account.debited}"/> </td>
-                                    <td><c:out value="${account.accountAddedDate}"/> </td>
-                                    <td><c:out value="${account.isActive}"/> </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>   
 </div>

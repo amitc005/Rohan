@@ -12,13 +12,13 @@
 
 <a href="index.jsp" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
 <ul>
-    <li class="<%=requestActive.equals("dashboard") ? "active" : ""%>"><a href="index.jsp?requestPage="><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-    <li class="<%=requestActive.equals("account") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_account"><i class="icon icon-th-list"></i> <span>Account Tally</span></a></li>
-    <li class="<%=requestActive.equals("client") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_client"><i class="icon icon-th-list"></i> <span>Client</span></a></li>
-    <li class="<%=requestActive.equals("quotation") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_quotation"><i class="icon icon-th-list"></i> <span>Client quotation</span></a></li>
-    <li class="<%=requestActive.equals("order") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_order"><i class="icon icon-th-list"></i> <span>Order</span></a></li>
-    <li class="submenu"  class="<%=requestActive.equals("setting") ? "active" : ""%>"> <a href=""><i class="icon icon-th-list"></i> <span>Setting</span></a>
-        <ul>
+    <li class="<%=requestActive.equals("dashboard") ? "active" : ""%>"><a href="index.jsp?requestPage="><i class="icon icon-home"></i> <span>DASHBOARD</span></a> </li>
+    <li class="<%=requestActive.equals("account") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_account"><i class="icon icon-magic"></i> <span>ACCOUNT TALLY</span></a></li>
+    <li class="<%=requestActive.equals("client") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_client"><i class="icon icon-user-md"></i> <span>CLIENT</span></a></li>
+    <li class="<%=requestActive.equals("quotation") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_quotation"><i class="icon icon-book"></i> <span>QUOTATION</span></a></li>
+    <li class="<%=requestActive.equals("order") ? "active" : ""%>"> <a href="index.jsp?requestPage=view_order"><i class="icon icon-file"></i> <span>ORDER</span></a></li>
+    <li class="submenu"  class="<%=requestActive.equals("setting") ? "active" : ""%>"> <a href=""><i class="icon icon-search"></i> <span>SETTING</span></a>
+<!--        <ul>
             <li><a href="index.jsp?requestPage=view_city">View City</a></li>
             <li><a href="index.jsp?requestPage=view_district">View District</a></li>
             <li><a href="index.jsp?requestPage=view_employee">View Employee</a></li>
@@ -30,6 +30,6 @@
             <li><a href="index.jsp?requestPage=view_printtype">View Print Type</a></li>
             <li><a href="index.jsp?requestPage=view_quantity">View Quantity</a></li>
             <li><a href="index.jsp?requestPage=view_quotation">View Quotation</a></li>
-        </ul>
+        </ul>-->
     </li>
 </ul>

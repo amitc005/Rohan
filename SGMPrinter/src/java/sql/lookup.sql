@@ -1322,9 +1322,3 @@ INSERT INTO `offsetmanager`.`offsetuser`
 (`admin_id`, `user_type_id`, `username`, `password`, `first_name`, `last_name`, `email_id`, `last_login`, `action_permission`, `page_permission`, `intime`, `outtime`, `macid`, `is_active`) 
 VALUES (NULL, '1', 'pravintumsare@gmail.com', 'james@007', 'Pravin', 'Tumsare', 'pravintumsare@gmail.com', NULL, '1', NULL, '1', '1', '1', 'Y'), 
 (NULL, '1', 'eew.rohan@gmail.com ', 'rohan@123', 'Rohan', 'Gillurkar', 'eew.rohan@gmail.com ', '1', '1', '1', '1', '1', '1', 'Y');
-
-INSERT INTO `offsetmanager`.`tbl_quotation` (`quotation_id`, `client_id`, `quotation_desc`, `quotation_added_date`, `quotation_update_date`, `read_status`, `is_active`) VALUES (NULL, '1', 'Need no print visisting card with 250 GSM and all', '2016-11-22', '2016-11-23', 'N', 'N');
-
-INSERT INTO `offsetmanager`.`tbl_order` (`order_id`, `quotation_id`, `client_id`, `gsm_id`, `lamination_id`, `postpress_id`, `printing_id`, `qty_id`, `side_id`, `paper_id`, `card_id`, `comment`, `requestdate`, `orderstatus`, `isactive`) VALUES (NULL, '1', '1', '27', '3', '8', '4', '7', '2', '9', '7', 'No comment ', '2016-11-22', NULL, 'Y'), (NULL, '1', '1', '20', '4', '9', '3', '7', '2', '9', '9', 'No Comment', '2016-11-22', NULL, 'Y');
-
-INSERT INTO `offsetmanager`.`tbl_account` (`account_id`, `client_id`, `order_id`, `credited`, `debited`, `account_added_date`, `is_active`) VALUES (NULL, '1', '2', '2000', '0', '2016-11-22', 'Y'), (NULL, '1', '2', '0', '1000', '2016-11-22', 'Y');

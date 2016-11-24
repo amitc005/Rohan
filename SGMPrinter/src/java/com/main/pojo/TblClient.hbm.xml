@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 14, 2016 5:08:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="com.main.pojo.TblClient" table="tbl_client" catalog="offsetmanager" optimistic-lock="version">
+    <class name="com.main.pojo.TblClient" table="tbl_client" catalog="offsetmanager">
         <id name="clientId" type="java.lang.Integer">
             <column name="client_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="tblCitylist" class="com.main.pojo.TblCitylist" fetch="select">
-            <column name="city_id" />
-        </many-to-one>
         <many-to-one name="tblDistrict" class="com.main.pojo.TblDistrict" fetch="select">
             <column name="district_id" />
         </many-to-one>
         <many-to-one name="tblState" class="com.main.pojo.TblState" fetch="select">
             <column name="state_id" />
+        </many-to-one>
+        <many-to-one name="tblCitylist" class="com.main.pojo.TblCitylist" fetch="select">
+            <column name="city_id" />
         </many-to-one>
         <property name="clientName" type="string">
             <column name="client_name" length="30" not-null="true" />
@@ -53,17 +53,17 @@
         <property name="isActive" type="char">
             <column name="is_active" length="1" not-null="true" />
         </property>
-        <set name="tblQuotations" table="tbl_quotation" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="client_id" />
-            </key>
-            <one-to-many class="com.main.pojo.TblQuotation" />
-        </set>
         <set name="tblOrders" table="tbl_order" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="client_id" />
             </key>
             <one-to-many class="com.main.pojo.TblOrder" />
+        </set>
+        <set name="tblQuotations" table="tbl_quotation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="client_id" />
+            </key>
+            <one-to-many class="com.main.pojo.TblQuotation" />
         </set>
         <set name="tblAccounts" table="tbl_account" inverse="true" lazy="true" fetch="select">
             <key>

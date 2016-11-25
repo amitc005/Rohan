@@ -135,10 +135,12 @@ public class OrderServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String city_name = request.getParameter(""); 
+            String client_id = request.getParameter("client_id"); 
             
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
+            
+             hashMap.put("tblClient", client_id);
             
             List<TblOrder> searchOrder = TblOrderService.searchOrder(hashMap);
             

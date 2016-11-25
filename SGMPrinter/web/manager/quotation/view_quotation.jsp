@@ -35,18 +35,16 @@
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
                                 <select class="span11" name="client_id">
-
                                     <c:forEach var="client" items="${pageScope.Client}">
                                         <option value="${client.clientId}">${client.clientName}</option>
                                     </c:forEach>  
-
                                 </select>
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
                                 <button type="submit" class="btn btn-info">SEARCH</button>
                                 <a href="../<%= IServletConstant.PAGE_ADD_QUOTATION%>"><button type="button" class="btn btn-warning">VIEW CLIENT</button></a>
-                                <a href="../<%= IServletConstant.PAGE_ADD_QUOTATION%>"><button type="button" class="btn btn-success">ADD QUOTATION</button></a>
+                                <a onclick="addQuotation('../<%= IServletConstant.PAGE_ADD_QUOTATION%>')" ><button type="button" class="btn btn-success">ADD QUOTATION</button></a>
                             </div>
                         </div>
                     </form>
@@ -58,7 +56,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 1%">#</th>
-                                        <th  style="width: 1%">#</th>
+                                        <th style="width: 1%">#</th>
                                         <th>CLIENT</th>
                                         <th>DESCRIPTION</th>
                                         <th>DATE</th>
@@ -91,3 +89,11 @@
         </div>
     </div>
 </div> 
+
+<script>
+    function addQuotation(url){
+        var clientId = document.getElementById("client_id").value();
+        alert(clientId);
+        //document.basic_validate.submit();
+    }
+</script>

@@ -20,6 +20,7 @@ public interface IServletConstant {
     public static final String PAGE_ADD_CITY = "manager/index.jsp?requestPage=add_city";
     public static final String PAGE_VIEW_CITY = "manager/index.jsp?requestPage=view_city";
     public static final String PAGE_ADD_CLIENT = "manager/index.jsp?requestPage=add_client";
+    public static final String PAGE_DELETE_CLIENT = "manager/index.jsp?requestPage=delete_client";
     public static final String PAGE_VIEW_CLIENT = "manager/index.jsp?requestPage=view_client";
     public static final String PAGE_ADD_DISTRICT = "manager/index.jsp?requestPage=add_district";
     public static final String PAGE_VIEW_DISTRICT = "manager/index.jsp?requestPage=view_district";

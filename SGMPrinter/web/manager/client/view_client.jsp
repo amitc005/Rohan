@@ -63,7 +63,7 @@
                                     <c:forEach var="client" items="${pageScope.tblClients}"> 
                                         <tr>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT%>&clientId=${client.clientId}"><i class="icon-edit"></i></a></td>
-                                            <td><a href="index.jsp?requestPage=add_client"><i class="icon-cut"></i></a></i></td>
+                                            <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></i></td>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER %>&clientId=${client.clientId}" title="ADD ORDER"><i class="icon-file"></i></a> </td>
                                             <td><a  href="../<%=IServletConstant.PAGE_ADD_QUOTATION %>&clientId=${client.clientId}"  title="ADD QUOTATION"><i class="icon-beer"></i></a> </td>
                                             <td><a  href="../<%=IServletConstant.PAGE_ADD_ACCOUNT %>&clientId=${client.clientId}" title="VIEW ACCOUNT"><i class="icon-book"></i></a> </td>

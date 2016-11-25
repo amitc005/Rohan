@@ -19,6 +19,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head><%@include file="../header.jsp" %></head>
+    <script>
+        $("#success-btn").click(function() {
+            $("div.success").fadeIn(300).delay(1500).fadeOut(400);
+        });
+
+        $("#failure-btn").click(function() {
+            $("div.failure").fadeIn(300).delay(1500).fadeOut(400);
+        });
+
+        $("#warning-btn").click(function() {
+            $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
+        });
+    </script>
     <body>
         <div id="header"><h1><a href="index.jsp?requestPage=">CUSTOM</a></h1></div>
         <div id="user-nav" class="navbar navbar-inverse"><%@include file="../topnavigation.jsp" %></div>
@@ -30,7 +43,11 @@
                     <a href="#" class="current"><%=requestTitlePage%></a> </div>
             </div>
             <jsp:include flush="true" page="<%=requestIncludePage%>"></jsp:include> 
-         </div>
-         <div class="row-fluid"><%@include file="../footer.jsp" %></div>
+            </div>
+            <div class="row-fluid"><%@include file="../footer.jsp" %></div>
     </body>
 </html>
+
+<!--<div class="alert-box success">Successful Alert !!!</div>
+<div class="alert-box failure">Failure Alert !!!</div>
+<div class="alert-box warning">Warning Alert !!!</div>-->

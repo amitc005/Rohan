@@ -10,9 +10,6 @@
     List<TblClient> tblClients = ClientService.getClientList();
     pageContext.setAttribute("Client", tblClients);
 
-%>
-
-<%
     Object ordersearch = request.getSession().getAttribute("ordersearch");
     if (ordersearch == null) {
         List<TblOrder> tblOrder = TblOrderService.getTblOrderList();
@@ -30,11 +27,11 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
+                <div class="widget-title"> <span class="icon"> <i class="icon-book"></i> </span>
                     <h5>SEARCH ORDER FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
-                <form class="form-horizontal" method="post" action="../OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
+                    <form class="form-horizontal" method="post" action="../OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
@@ -50,58 +47,58 @@
                             </div>
                         </div>
                     </form>
-                      <hr>
-                      <div class="container-fluid" style="margin-top: 0px;padding-top: 0px;">
-                          <div class="span12">
-                              <div class="widget-box">
-                <div class="widget-content nopadding">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>CLIENT NAME</th>
-                                <th>GSM</th>
-                                
-                                <th>LAMINATION</th>
-                                <th>PRINTING</th>
-                                <th>QTY</th>
-                                
-                                <th>SIDE</th>
-                                <th>PAPER</th>
-                                <th>CARD</th>
-                                
-                                <th>COMMENT</th>
-                                <th>DATE</th>
-                                <th>STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach var="order" items="${pageScope.tblOrder}"> 
-                                <tr>
-                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER%>&id=${order.orderId}"><i class="icon-edit"></i></a></td>
-                                    <td><i class="icon-"></i></td>
-                                    <td></td>
-                                    
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </c:forEach>
-                              </tbody>
-                            </table>
-                          </div>
+                    <hr>
+                    <div class="container-fluid" style="margin-top: 0px;padding-top: 0px;">
+                        <div class="span12">
+                            <div class="widget-box">
+                                <div class="widget-content nopadding">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>CLIENT NAME</th>
+                                                <th>GSM</th>
+
+                                                <th>LAMINATION</th>
+                                                <th>PRINTING</th>
+                                                <th>QTY</th>
+
+                                                <th>SIDE</th>
+                                                <th>PAPER</th>
+                                                <th>CARD</th>
+
+                                                <th>COMMENT</th>
+                                                <th>DATE</th>
+                                                <th>STATUS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="order" items="${pageScope.tblOrder}"> 
+                                                <tr>
+                                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER%>&id=${order.orderId}"><i class="icon-edit"></i></a></td>
+                                                    <td><i class="icon-"></i></td>
+                                                    <td></td>
+
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                   </div>
-               </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

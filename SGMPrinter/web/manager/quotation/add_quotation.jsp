@@ -8,7 +8,7 @@
     Object idrequest = request.getParameter("id");
     if (idrequest != null) {
         TblQuotation tblQuotationList = QuotationService.getTblQuotationById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblQuotationList", tblQuotationList);
+        pageContext.setAttribute("tblQuotation", tblQuotationList);
         pageContext.setAttribute("btnValue", "EDIT QUOTATION");
         pageContext.setAttribute("btnClass", "btn btn-success");
         pageContext.setAttribute("actionvalue", IServletConstant.ACTION_UPDATE);

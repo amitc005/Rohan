@@ -32,6 +32,12 @@
             $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
         });
     </script>
+    <style>
+        *{
+            font-family: verdana;
+            text-transform: capitalize;
+        }
+    </style>
     <body>
         <div id="header"><h1><a href="index.jsp?requestPage=">CUSTOM</a></h1></div>
         <div id="user-nav" class="navbar navbar-inverse"><%@include file="../topnavigation.jsp" %></div>
@@ -39,7 +45,7 @@
         <div id="content">
             <div id="content-header">
                 <div id="breadcrumb"> 
-                    <a href="index.jsp?requestPage=" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> Home</a> 
+                    <a href="index.jsp?requestPage=" title="Dashboard" class="tip-bottom"><i class="icon-home"></i> HOME</a> 
                     <a href="#" class="current"><%=requestTitlePage%></a> </div>
             </div>
             <jsp:include flush="true" page="<%=requestIncludePage%>"></jsp:include> 

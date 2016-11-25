@@ -72,7 +72,7 @@ public class SuperConnection {
         return criteria.list();
     }
 
-    public static <T> List<T> searchEntity(T entity, HashMap<String, String> searchMap) throws Exception {
+    public static <T> List<T> searchEntity(T entity, HashMap<String, Object> searchMap) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
@@ -82,7 +82,7 @@ public class SuperConnection {
         }
         return criteria.list();
     }
-    public static <T> List<T> searchEntityExactEqual(T entity, HashMap<String, String> searchMap) throws Exception {
+    public static <T> List<T> searchEntityExactEqual(T entity, HashMap<String, Object> searchMap) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());

@@ -55,7 +55,7 @@
                                 <div class="span6"  style="float: left">
                                     <label class="control-label ">PRO-PRITER NAME :</label>
                                     <div class="controls">
-                                        <input type="text" name="propriter_name" value="${tblClient.propriterName}" maxlength="100" class="span12"  required="" placeholder="PROPRITER NAME" />
+                                        <input type="text" name="propriter_name" autofocus="" value="${tblClient.propriterName}" maxlength="100" class="span12"  required="" placeholder="PROPRITER NAME" />
                                     </div>
                                 </div>
                                 <div class="span6"  style="float: left">

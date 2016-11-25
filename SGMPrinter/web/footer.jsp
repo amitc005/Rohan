@@ -1,6 +1,6 @@
-<%@page import="com.main.servlet.IServletConstant"%>
-<div id="footer" class="span12"> 2013 &copy;   Brought to you by <a href="">Footer Text</a> </div>
-<!--end-Footer-part-->
+<div id="footer" class="span12" style="color: greenyellow"> 
+    2016 &copy; BROUGHT TO YOU BY  ROHAN GILLURKAR, PALLAVI SHUKLA
+</div>
 
 
  

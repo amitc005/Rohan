@@ -7,12 +7,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
-    List<TblClient> tblClients = ClientService.getClientList();
-    pageContext.setAttribute("Client", tblClients);
+    List<TblClient> tblClientList = ClientService.getClientList();
+    pageContext.setAttribute("tblClientList", tblClientList);
 
-%>
-
-<%    Object quotationsearch = request.getSession().getAttribute("quotationsearch");
+    Object quotationsearch = request.getSession().getAttribute("quotationsearch");
     if (quotationsearch == null) {
         List<TblQuotation> tblQuotation = QuotationService.getTblQuotationList();
         pageContext.setAttribute("tblQuotation", tblQuotation);
@@ -20,7 +18,6 @@
         pageContext.setAttribute("tblQuotation", quotationsearch);
         request.getSession().setAttribute("quotationsearch", null);
     }
-
 %>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -34,8 +31,8 @@
                         <div class="control-group">
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                                <select class="span11" name="client_id">
-                                    <c:forEach var="client" items="${pageScope.Client}">
+                                <select class="span11" name="clientId">
+                                    <c:forEach var="client" items="${pageScope.tblClientList}">
                                         <option value="${client.clientId}">${client.clientName}</option>
                                     </c:forEach>  
                                 </select>
@@ -43,12 +40,13 @@
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
                                 <button type="submit" class="btn btn-info">SEARCH</button>
-                                <a href="../<%= IServletConstant.PAGE_ADD_QUOTATION%>"><button type="button" class="btn btn-warning">VIEW CLIENT</button></a>
+                                <a href="../<%= IServletConstant.PAGE_VIEW_CLIENT%>"><button type="button" class="btn btn-warning">VIEW CLIENT</button></a>
                                 <a onclick="addQuotation('../<%= IServletConstant.PAGE_ADD_QUOTATION%>')" ><button type="button" class="btn btn-success">ADD QUOTATION</button></a>
                             </div>
                         </div>
                     </form>
                 </div>
+
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="widget-content nopadding">
@@ -66,21 +64,23 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="quotation" items="${pageScope.tblQuotation}"> 
+                                        <c:set scope="page" value="${quotation.quotationId}" property="clientId" var="clientId" />
+                                        <%
+                                            Object clientId = pageContext.getAttribute("clientId");
+                                            TblClient tblClient = ClientService.getTblClientById(new Integer(clientId.toString()));
+                                            pageContext.setAttribute("tblClient", tblClient);
+                                        %>
                                         <tr>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_QUOTATION%>&id=${quotation.quotationId}"><i class="icon-edit"></i></a></td>
-                                            <td><i class="icon-"></i></td>
-                                            <td><i class="icon-"></i></td>
+                                            <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></td>
+                                            <td><c:out value="${tblClient.clientName}"/> </td>
                                             <td><c:out value="${quotation.quotationDesc}"/> </td>
                                             <td><c:out value="${quotation.quotationAddedDate}"/> </td>
                                             <td><c:out value="${quotation.readStatus}"/> </td>
                                             <td><c:out value="${quotation.isActive}"/> </td>
                                         </tr>
                                     </c:forEach>
-                                    <tr>
-                                        <td colspan="7"></td>
-                                    </tr>
                                 </tbody>
-                                <thead><tr><th colspan="7" style="height: 15px;"></th></tr></thead>
                             </table>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
 </div> 
 
 <script>
-    function addQuotation(url){
+    function addQuotation(url) {
         var clientId = document.getElementById("client_id").value();
         alert(clientId);
         //document.basic_validate.submit();

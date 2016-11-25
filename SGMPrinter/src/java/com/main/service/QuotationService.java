@@ -74,7 +74,7 @@ public class QuotationService {
         }
         return null;
     }
-     public static List<TblQuotation> searchQuotation(HashMap<String, String> searchMap) {
+     public static List<TblQuotation> searchQuotation(HashMap<String, Object> searchMap) {
         try {
             return SuperConnection.searchEntity(new TblQuotation(), searchMap);
         } catch (Exception ex) {

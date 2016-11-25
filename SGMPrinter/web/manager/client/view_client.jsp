@@ -44,7 +44,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="widget-content nopadding">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" style="text-transform: capitalize">
                                 <thead>
                                     <tr>
                                         <th style="width: 2%">#</th>
@@ -63,10 +63,10 @@
                                     <c:forEach var="client" items="${pageScope.tblClients}"> 
                                         <tr>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_CLIENT%>&clientId=${client.clientId}"><i class="icon-edit"></i></a></td>
-                                            <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></i></td>
+                                            <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></td>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_ORDER %>&clientId=${client.clientId}" title="ADD ORDER"><i class="icon-file"></i></a> </td>
                                             <td><a  href="../<%=IServletConstant.PAGE_ADD_QUOTATION %>&clientId=${client.clientId}"  title="ADD QUOTATION"><i class="icon-beer"></i></a> </td>
-                                            <td><a  href="../<%=IServletConstant.PAGE_ADD_ACCOUNT %>&clientId=${client.clientId}" title="VIEW ACCOUNT"><i class="icon-book"></i></a> </td>
+                                            <td><a  href="../<%=IServletConstant.PAGE_VIEW_ACCOUNT %>&clientId=${client.clientId}" title="VIEW ACCOUNT"><i class="icon-book"></i></a> </td>
                                             <td><c:out value="${client.clientName}"/> </td>
                                             <td><c:out value="${client.firmName}"/> </td>
                                             <td><c:out value="${client.mobileNo}"/> </td>
@@ -75,7 +75,6 @@
                                         </tr>
                                     </c:forEach>
                                 </tbody>
-                                <thead><tr><th colspan="10" style="height: 18px;"></th></tr></thead>
                             </table>
                         </div>
                     </div>

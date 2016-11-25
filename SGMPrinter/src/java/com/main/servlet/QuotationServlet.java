@@ -1,6 +1,8 @@
 package com.main.servlet;
 
+import com.main.pojo.TblClient;
 import com.main.pojo.TblQuotation;
+import com.main.service.ClientService;
 import com.main.service.QuotationService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -149,18 +151,12 @@ public class QuotationServlet extends HttpServlet {
     }
       private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
-            //// get all search parameter 
-            String client_id = request.getParameter("client_id"); 
-            
-            /// create mapper pojo fields
-            HashMap<String, String> hashMap = new HashMap<>();
-            
-            hashMap.put("tblClient", client_id);
-            
+            String clientId = request.getParameter("clientId"); 
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("tblClient", clientId);
             List<TblQuotation> searchQuotation = QuotationService.searchQuotation(hashMap);
-            
+            System.out.println("searchQuotation =============== " + searchQuotation.size());
             request.getSession().setAttribute("quotationsearch", searchQuotation);
-            
             response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
         } catch (IOException ex) {
             Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);

@@ -7,11 +7,9 @@
 <%@page import="com.main.pojo.TblCitylist"%>
 <%@page import="java.util.List"%>
 <%@page import="com.main.service.CitylistService"%>
-
 <%
     List<TblClient> tblClients = ClientService.getClientList();
     pageContext.setAttribute("Client", tblClients);
-
 %>
 
 <%    Object accountsearch = request.getSession().getAttribute("accountsearch");
@@ -28,8 +26,8 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH ACCOUNT FORM</h5>
+                <div class="widget-title"> <span class="icon"> <i class="icon-money"></i> </span>
+                    <h5>CLIENT ACCOUNT TALLY</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../AccountServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
@@ -48,63 +46,48 @@
                             </div>
                         </div>
                     </form>
-                    <hr>
-                    <div class="container-fluid" style="margin-top: 0px;padding-top: 0px;">
+                    <div class="row-fluid">
                         <div class="span12">
-                            <div class="widget-box">
-                                <div class="widget-content nopadding">
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
+                            <div class="widget-content nopadding">
+                                <table class="table table-bordered table-striped" style="border-top: solid 1px rgb(220,220,220);text-transform: capitalize">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 1%">#</th>
+                                            <th style="width: 1%">#</th>
+                                            <th>CLIENT NAME</th>
+                                            <th>ORDER ID</th>
+                                            <th>CREDIT </th>
+                                            <th>DEBIT</th>
+                                            <th>DATE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="account" items="${pageScope.tblAccounts}"> 
                                             <tr>
-                                                <th style="width: 1%">#</th>
-                                                <th style="width: 1%">#</th>
-                                                <th>CLIENT NAME</th>
-                                                <th>ORDER ID</th>
-                                                <th>CREDIT </th>
-                                                <th>DEBIT</th>
-                                                <th>DATE</th>
+                                                <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
+                                                <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></td>
+                                                <td><c:out value="${account.tblClient}"/> </td>
+                                                <td><c:out value="${account.tblOrder}"/> </td>
+                                                <td><c:out value="${account.credited}"/> </td>
+                                                <td><c:out value="${account.debited}"/> </td>
+                                                <td><c:out value="${account.accountAddedDate}"/> </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="account" items="${pageScope.tblAccounts}"> 
-                                                <tr>
-                                                    <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
-                                                    <td><i class="icon-"></i></td>
-                                                    <td><c:out value="${account.tblClient}"/> </td>
-                                                    <td><c:out value="${account.tblOrder}"/> </td>
-                                                    <td><c:out value="${account.credited}"/> </td>
-                                                    <td><c:out value="${account.debited}"/> </td>
-                                                    <td><c:out value="${account.accountAddedDate}"/> </td>
-                                                </tr>
-                                            </c:forEach>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                        <thead>
-                                            <tr>
-                                                <td ></td>
-                                                <td ></td>
-                                                <td></td>
-                                                <td></th>
-                                                <th>1000/-</th>
-                                                <th>1000/-</th>
-                                                <td></td>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
+                                        </c:forEach>
+                                    </tbody>
+                                    <thead>
+                                        <tr style="font-size: 14px;font-weight: bold">
+                                            <td colspan="4"></td>
+                                            <td>1000/-</td>
+                                            <td>1000/-</th>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>   
-</div>
+    </div>
+</div>   

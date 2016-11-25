@@ -94,7 +94,7 @@ public class UsertypeServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsertypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -111,12 +111,26 @@ public class UsertypeServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsertypeServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer usertypeId = Integer.parseInt(request.getParameter("usertypeId"));
+            UsertypeService.deleteTblUsertype(UsertypeService.getTblUsertypeById(usertypeId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(UsertypeServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(UsertypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

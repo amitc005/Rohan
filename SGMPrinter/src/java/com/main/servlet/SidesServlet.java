@@ -94,7 +94,7 @@ public class SidesServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SidesServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -110,12 +110,26 @@ public class SidesServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SidesServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer sideId = Integer.parseInt(request.getParameter("sideId"));
+            SidesService.deleteTblSides(SidesService.getTblSlidesById(sideId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_SIDE);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(SidesServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(SidesServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

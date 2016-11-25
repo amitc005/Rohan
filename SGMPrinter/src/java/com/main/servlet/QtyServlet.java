@@ -94,7 +94,7 @@ public class QtyServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QtyServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -111,12 +111,26 @@ public class QtyServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QtyServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer qtyId = Integer.parseInt(request.getParameter("qtyId"));
+            QtyService.deleteTblQty(QtyService.getTblQtyById(qtyId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_QUANTITY);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(QtyServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(QtyServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

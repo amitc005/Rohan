@@ -115,6 +115,20 @@ public class CardTypeServlet extends HttpServlet {
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer cardId = Integer.parseInt(request.getParameter("cardId"));
+            CardTypeService.deleteTblCard(CardTypeService.getTblCardById(cardId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_CARD);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

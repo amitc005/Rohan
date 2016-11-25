@@ -93,7 +93,7 @@ public class OrderServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -110,12 +110,26 @@ public class OrderServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+       try {
+            Integer orderId = Integer.parseInt(request.getParameter("orderId"));
+            TblOrderService.deleteTblOrder(TblOrderService.getTblOrderlistById(orderId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_ORDER);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

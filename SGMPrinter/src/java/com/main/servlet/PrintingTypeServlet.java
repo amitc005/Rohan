@@ -117,6 +117,20 @@ public class PrintingTypeServlet extends HttpServlet {
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer printingId = Integer.parseInt(request.getParameter("printingId"));
+            PrintingService.deleteTblPrinting(PrintingService.getTblPrintingById(printingId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_PRINTTYPE);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

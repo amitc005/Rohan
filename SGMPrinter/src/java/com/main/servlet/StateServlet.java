@@ -93,7 +93,7 @@ public class StateServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -110,12 +110,26 @@ public class StateServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer stateId = Integer.parseInt(request.getParameter("stateId"));
+            StateService.deleteTblState(StateService.getTblStateById(stateId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_STATE);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(StateServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(StateServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

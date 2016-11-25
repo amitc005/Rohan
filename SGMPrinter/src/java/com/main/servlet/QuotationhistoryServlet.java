@@ -94,7 +94,7 @@ public class QuotationhistoryServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -111,12 +111,26 @@ public class QuotationhistoryServlet extends HttpServlet {
                 response.sendRedirect(IServletConstant.PAGE_FAILUER);
             }
         } catch (IOException ex) {
-            Logger.getLogger(CardTypeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            QuotationhistoryService.deleteTblQuotationhistory(QuotationhistoryService.getTblQuotationHistoryById(id));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

@@ -135,6 +135,20 @@ public class AccountServlet extends HttpServlet {
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        
+        try {
+            Integer accountId = Integer.parseInt(request.getParameter("accountId"));
+            AccountService.deleteTblAccount(AccountService.getTblAccountById(accountId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_ACCOUNT);
+        } catch (IOException | NumberFormatException e) {
+            try {
+                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException ex) {
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {

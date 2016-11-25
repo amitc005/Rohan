@@ -31,7 +31,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>SEARCH ACCOUNT FORM</h5>
+                    <h5>SEARCH ORDER FORM</h5>
                 </div>
                 <div class="widget-content nopadding">
                 <form class="form-horizontal" method="post" action="../OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">

@@ -31,7 +31,7 @@
                         <div class="control-group">
                             <label class="control-label ">CLIENT NAME :</label>
                             <div class="controls">
-                                <select class="span11" name="clientId">
+                                <select class="span11" id="clientId" name="clientId">
                                     <c:forEach var="client" items="${pageScope.tblClientList}">
                                         <option value="${client.clientId}">${client.clientName}</option>
                                     </c:forEach>  
@@ -41,7 +41,9 @@
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
                                 <button type="submit" class="btn btn-info">SEARCH</button>
                                 <a href="../<%= IServletConstant.PAGE_VIEW_CLIENT%>"><button type="button" class="btn btn-warning">VIEW CLIENT</button></a>
-                                <a onclick="addQuotation('../<%= IServletConstant.PAGE_ADD_QUOTATION%>')" ><button type="button" class="btn btn-success">ADD QUOTATION</button></a>
+                                <button type="button" class="btn btn-success" onclick="addQuotation('../<%= IServletConstant.PAGE_ADD_QUOTATION%>')">
+                                    ADD QUOTATION
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -64,16 +66,10 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach var="quotation" items="${pageScope.tblQuotation}"> 
-                                        <c:set scope="page" value="${quotation.quotationId}" property="clientId" var="clientId" />
-                                        <%
-                                            Object clientId = pageContext.getAttribute("clientId");
-                                            TblClient tblClient = ClientService.getTblClientById(new Integer(clientId.toString()));
-                                            pageContext.setAttribute("tblClient", tblClient);
-                                        %>
                                         <tr>
                                             <td><a href="../<%=IServletConstant.PAGE_ADD_QUOTATION%>&id=${quotation.quotationId}"><i class="icon-edit"></i></a></td>
                                             <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></td>
-                                            <td><c:out value="${tblClient.clientName}"/> </td>
+                                            <td><c:out value="${quotation.tblClient.clientName}"/> </td>
                                             <td><c:out value="${quotation.quotationDesc}"/> </td>
                                             <td><c:out value="${quotation.quotationAddedDate}"/> </td>
                                             <td><c:out value="${quotation.readStatus}"/> </td>
@@ -92,8 +88,7 @@
 
 <script>
     function addQuotation(url) {
-        var clientId = document.getElementById("client_id").value();
-        alert(clientId);
-        //document.basic_validate.submit();
+        var clientId = document.getElementById("clientId").value;
+        window.location.href = url + "&clientId=" + clientId;
     }
 </script>

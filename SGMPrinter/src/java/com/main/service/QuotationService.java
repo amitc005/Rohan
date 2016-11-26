@@ -15,15 +15,10 @@ import java.util.logging.Logger;
 public class QuotationService {
 
     public static void main(String[] args) {
+        TblQuotation tblQuotation = new TblQuotation();
+        tblQuotation.setTblClient(ClientService.getTblClientById(1));
+        saveTblQuotation(tblQuotation);
         
-       TblQuotation tblQuotation = new TblQuotation();
-       List<TblQuotation> quotations= getTblQuotationByLimit(tblQuotation, 2);
-        for (TblQuotation quotation : quotations) {
-            System.out.println("recordname="+quotation.getReadStatus());
-        }
-       
-      TblQuotation tblQuotationById = getTblQuotationById(2);
-        System.out.println("tblQuotationById =" +tblQuotationById.getQuotationDesc());
     }
     
     public static boolean saveTblQuotation(TblQuotation tblTblQuotation) {
@@ -74,7 +69,7 @@ public class QuotationService {
         }
         return null;
     }
-     public static List<TblQuotation> searchQuotation(HashMap<String, Object> searchMap) {
+     public static List<TblQuotation> searchQuotation(HashMap<String, String> searchMap) {
         try {
             return SuperConnection.searchEntity(new TblQuotation(), searchMap);
         } catch (Exception ex) {

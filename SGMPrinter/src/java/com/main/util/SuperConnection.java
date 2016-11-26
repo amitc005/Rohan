@@ -13,76 +13,89 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
+
+enum OrderStatus{
+    NEW_Q, FINAL_Q, PENDING_Q, INPROGRESS_Q
+}
+enum QuotationStatus{
+    NEW_Q, FINAL_Q, PENDING_Q, INPROGRESS_Q, REJECTED_Q
+}
 public class SuperConnection {
-
-    public static void main(String[] args) {
-
-    }
 
     public static Session session = null;
     public static Transaction transaction = null;
 
-    public static boolean checkStatus() {
-        try {
-            if (session == null) {
-                return false;
-            }
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    static {
+        session = DatabaseUnility.getSessionFactory().openSession();
     }
 
+//    public static boolean checkStatus() {
+//        try {
+//            if (session == null) {
+//                return false;
+//            }
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
+
     public static void saveEntity(Object entity) throws Exception {
-        session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         session.save(entity);
         transaction.commit();
-        session.close();
+//        session.close();
     }
 
     public static void updateEntity(Object entity) throws Exception {
-        session = DatabaseUnility.getSessionFactory().openSession();
+//        session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         session.update(entity);
         transaction.commit();
-        session.close();
+//        session.close();
     }
 
     public static void deleteEntity(Object entity) throws Exception {
-        session = DatabaseUnility.getSessionFactory().openSession();
+//        session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         session.delete(entity);
         transaction.commit();
-        session.close();
+//        session.close();
     }
 
     public static <T> List<T> listEntity(T entity) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
-        return criteria.list();
+        List list = criteria.list();
+//        session.close();
+        return list;
     }
-	
-	public static <T> List<T> listEntityByLimiy(T entity, int limit) throws Exception {
+
+    public static <T> List<T> listEntityByLimiy(T entity, int limit) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
-		criteria.setMaxResults(limit);
-        return criteria.list();
+        criteria.setMaxResults(limit);
+        List list = criteria.list();
+//        session.close();
+        return list;
     }
 
-    public static <T> List<T> searchEntity(T entity, HashMap<String, Object> searchMap) throws Exception {
+    public static <T> List<T> searchEntity(T entity, HashMap<String, String> searchMap) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
         Set<String> keySet = searchMap.keySet();
         for (String columnName : keySet) {
-            criteria.add(Restrictions.like(columnName, searchMap.get(columnName)+"%",MatchMode.ANYWHERE));
+            criteria.add(Restrictions.like(columnName, searchMap.get(columnName) + "%", MatchMode.ANYWHERE));
         }
-        return criteria.list();
+        List list = criteria.list();
+//        session.close();
+        return list;
     }
-    public static <T> List<T> searchEntityExactEqual(T entity, HashMap<String, Object> searchMap) throws Exception {
+
+    public static <T> List<T> searchEntityExactEqual(T entity, HashMap<String, String> searchMap) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(entity.getClass());
@@ -90,18 +103,22 @@ public class SuperConnection {
         for (String columnName : keySet) {
             criteria.add(Restrictions.eq(columnName, searchMap.get(columnName)));
         }
-        return criteria.list();
+        List list = criteria.list();
+//        session.close();
+        return list;
     }
 
     public static Object getEntityById(Object entity, Integer id) {
-        session = DatabaseUnility.getSessionFactory().openSession();
+//        session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Object object;
-        try {
-            object = session.load(entity.getClass(), id);
-        } catch (Exception e) {
+//        try {
+//            object = session.load(entity.getClass(), id);
+//        } catch (Exception e) {
+//            e.printStackTrace();
             object = session.get(entity.getClass(), id);
-        }
+//        }
+//        session.close();
         return object;
     }
 
@@ -109,14 +126,18 @@ public class SuperConnection {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Query createQuery = session.createQuery(query);
-        return createQuery.list();
+        List list = createQuery.list();
+//        session.close();
+        return list;
     }
 
     public static Object uniqueRecordByQuery(String query) throws Exception {
         session = DatabaseUnility.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         Query createQuery = session.createQuery(query);
-        return createQuery.uniqueResult();
+        Object uniqueResult = createQuery.uniqueResult();
+//        session.close();
+        return uniqueResult;
     }
 
     public static String getMd5String() {

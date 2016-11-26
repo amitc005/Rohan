@@ -10,9 +10,7 @@
 <%
     List<TblClient> tblClients = ClientService.getClientList();
     pageContext.setAttribute("Client", tblClients);
-%>
-
-<%    Object accountsearch = request.getSession().getAttribute("accountsearch");
+    Object accountsearch = request.getSession().getAttribute("accountsearch");
     if (accountsearch == null) {
         List<TblAccount> tblAccounts = AccountService.getTblAccountList();
         pageContext.setAttribute("tblAccounts", tblAccounts);
@@ -42,7 +40,7 @@
                             </div>
                             <div class="controls">
                                 <input type="hidden" name="<%= IServletConstant.ACTION%>" value="<%= IServletConstant.ACTION_SEARCH%>" />
-                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-info">SEARCH</button>
                             </div>
                         </div>
                     </form>
@@ -66,8 +64,16 @@
                                             <tr>
                                                 <td><a href="../<%=IServletConstant.PAGE_ADD_ACCOUNT%>&id=${account.accountId}"><i class="icon-edit"></i></a></td>
                                                 <td><a href="../<%=IServletConstant.PAGE_DELETE_CLIENT%>&clientId=${client.clientId}"><i class="icon-cut"></i></a></td>
-                                                <td><c:out value="${account.tblClient}"/> </td>
-                                                <td><c:out value="${account.tblOrder}"/> </td>
+                                                <td>
+                                                    <c:out value="${account.tblClient.clientName}"/> 
+                                                </td>
+                                                <td>
+                                                    <c:out value="${account.tblOrder.tblGsm.gsmName}"/>- 
+                                                    <c:out value="${account.tblOrder.tblPrinting.printingName}"/>- 
+                                                    <c:out value="${account.tblOrder.tblQty.qtyName}"/>- 
+                                                    <c:out value="${account.tblOrder.tblSides.sideName}"/>- 
+                                                    <c:out value="${account.tblOrder.tblPaper.paperName}"/> 
+                                                </td>
                                                 <td><c:out value="${account.credited}"/> </td>
                                                 <td><c:out value="${account.debited}"/> </td>
                                                 <td><c:out value="${account.accountAddedDate}"/> </td>

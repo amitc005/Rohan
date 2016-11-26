@@ -1,117 +1,134 @@
-<%@page import="com.main.service.TblOrderService"%>
+
+<%@page import="com.main.service.ClientService"%>
+<%@page import="com.main.service.OrderService"%>
 <%@page import="com.main.pojo.TblOrder"%>
 <%@page import="com.main.servlet.IServletConstant"%>
-
 <%
-// 2 time import , need to delte one :)
-    Object idrequest = request.getParameter("id");
-    if (idrequest != null) {
-        /// change only this 	
-        TblOrder tblOrder = TblOrderService.getTblOrderlistById(new Integer(idrequest.toString()));
-        pageContext.setAttribute("tblOrder", tblOrder);
-        /// change only this 
+    Object idrequest = request.getParameter("orderId");
 
-	
-        pageContext.setAttribute("btnValue", "Edit");
+    Object clientId = request.getParameter("clientId");
+    if (clientId != null) {
+        pageContext.setAttribute("tblClient", ClientService.getTblClientById(new Integer(clientId.toString())));
+    }
+
+    if (idrequest != null) {
+        TblOrder tblOrder = OrderService.getTblOrderlistById(new Integer(idrequest.toString()));
+        pageContext.setAttribute("tblOrder", tblOrder);
+        pageContext.setAttribute("btnValue", "EDIT ORDER");
         pageContext.setAttribute("btnClass", "btn btn-info");
         pageContext.setAttribute("actionvalue", IServletConstant.ACTION_UPDATE);
     } else {
-        pageContext.setAttribute("btnValue", "Save");
+        pageContext.setAttribute("btnValue", "CREATE ORDER");
         pageContext.setAttribute("btnClass", "btn btn-success");
         pageContext.setAttribute("actionvalue", IServletConstant.ACTION_ADD);
     }
 %>
 
-<a href="../<%= IServletConstant.PAGE_VIEW_ORDER%>" style="padding-left: 20px;">
-    <button type="submit" class="btn btn-success">VIEW ORDER</button>
-</a>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div class="widget-box">
-                <div class="widget-title"> <span class="icon"> <i class="icon-cloud"></i> </span>
-                    <h5>ADD ORDER FORM</h5>
+                <div class="widget-title"> <span class="icon"> <i class="icon-file"></i> </span>
+                    <h5 style="text-transform: uppercase;color: green">
+                        CREATE ORDER FOR <i class="icon-arrow-right"></i> 
+                        ${tblClient.clientName} <i class="icon-arrow-right"></i>  
+                        ${tblClient.firmName} <i class="icon-arrow-right"></i> 
+                        ${tblClient.mobileNo} <i class="icon-arrow-right"></i> 
+                        ${tblClient.tblCitylist.cityName} <i class="icon-arrow-right"></i> 
+                        ${tblClient.tblState.stateName}
+                    </h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form class="form-horizontal" method="post" action="../OrderServlet" name="basic_validate" id="basic_validate" novalidate="novalidate">
                         <div class="control-group">
-                            <label class="control-label ">QUOTATION ID :</label>
-                            <div class="controls">
-                                <input type="text" name="quotation_id" value="${tblOrder.tblQuotation}" id="quotation_id" autofocus="" maxlength="11" class="span11"  required="" placeholder="QUOTATION ID" />
-                            </div>
-                            <label class="control-label ">CLIENT ID :</label>
-                            <div class="controls">
-                                <input type="text" name="client_id" value="${tblOrder.tblClient}" maxlength="11" class="span11"  required="" placeholder="CLIENT ID" />
-                            </div>
+                            <div class="span11" style="clear: both "></div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">ORDER OF :</label>
+                                    <div class="controls">
+                                        <input type="text" name="comment" autofocus="" value="${tblOrder.comment}" maxlength="21845" class="span12"  required="" placeholder="VC / INVITATION / BOOK " />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">CARD ID :</label>
+                                    <div class="controls">
+                                        <input type="text" name="card_id" value="${tblOrder.tblCard}" maxlength="11" class="span12"  required="" placeholder="ART CARD / VISTING CARD" />
+                                    </div>
+                                </div>
+                            </div> 
 
-                            <label class="control-label ">GSM ID :</label>
-                            <div class="controls">
-                                <input type="text" name="gsm_id" value="${tblOrder.tblCard}" maxlength="11" class="span11"  required="" placeholder="GSM ID" />
-                            </div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">GSM:</label>
+                                    <div class="controls">
+                                        <input type="text" name="gsm_id" value="${tblOrder.tblCard}" maxlength="11" class="span12"  required="" placeholder="70 GSM, 80 GSM, 250 GSM " />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">PAPER ID :</label>
+                                    <div class="controls">
+                                        <input type="text" name="paper_id" value="${tblOrder.tblPaper}" maxlength="11" class="span12"  required="" placeholder="MATT PAPER / GLOSS PAPER" />
+                                    </div>
+                                </div>
+                            </div> 
 
-                            <label class="control-label ">LAMINATION ID :</label>
-                            <div class="controls">
-                                <input type="text" name="lamination_id" value="${tblOrder.tblLamination}" maxlength="11" class="span11"  required="" placeholder="LAMINATION ID" />
-                            </div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">PRINTING :</label>
+                                    <div class="controls">
+                                        <input type="text" name="printing_id" value="${tblOrder.tblPrinting}" maxlength="11" class="span12"  required="" placeholder="S.S / F.B / MULTI" />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">QTY ID :</label>
+                                    <div class="controls">
+                                        <input type="text" name="qty_id" value="${tblOrder.tblQty}" maxlength="11" class="span12"  required="" placeholder="1000 / 2000 / 3000 " />
+                                    </div>
+                                </div>
+                            </div> 
 
-                            <label class="control-label ">POSTPRESS ID :</label>
-                            <div class="controls">
-                                <input type="text" name="postpress_id" value="${tblOrder.tblPostpress}" maxlength="11" class="span11"  required="" placeholder="POSTPRESS ID" />
-                            </div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">LAMINATION :</label>
+                                    <div class="controls">
+                                        <input type="text" name="lamination_id" value="${tblOrder.tblLamination}" maxlength="11" class="span12"    placeholder="GLOASS L / MATT L" />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">POST-PRESS :</label>
+                                    <div class="controls">
+                                        <input type="text" name="postpress_id" value="${tblOrder.tblPostpress}" maxlength="11" class="span12"   placeholder="PUCHNING / CUTTING" />
+                                    </div>
+                                </div>
+                            </div> 
 
-                            <label class="control-label ">PRINTING ID :</label>
-                            <div class="controls">
-                                <input type="text" name="printing_id" value="${tblOrder.tblPrinting}" maxlength="11" class="span11"  required="" placeholder="PRINTING ID" />
-                            </div>
-
-                            <label class="control-label ">QTY ID :</label>
-                            <div class="controls">
-                                <input type="text" name="qty_id" value="${tblOrder.tblQty}" maxlength="11" class="span11"  required="" placeholder="QTY ID" />
-                            </div>
-
-                            <label class="control-label ">SIDE ID :</label>
-                            <div class="controls">
-                                <input type="text" name="side_id" value="${tblOrder.tblSides}" maxlength="11" class="span11"  required="" placeholder="SIDE ID" />
-                            </div>
-
-                            <label class="control-label ">PAPER ID :</label>
-                            <div class="controls">
-                                <input type="text" name="paper_id" value="${tblOrder.tblPaper}" maxlength="11" class="span11"  required="" placeholder="PAPER ID" />
-                            </div>
-
-                            <label class="control-label ">CARD ID :</label>
-                            <div class="controls">
-                                <input type="text" name="card_id" value="${tblOrder.tblCard}" maxlength="11" class="span11"  required="" placeholder="CARD ID" />
-                            </div>
-
-                            <label class="control-label ">COMMENT :</label>
-                            <div class="controls">
-                                <input type="text" name="comment" value="${tblOrder.comment}" maxlength="21845" class="span11"  required="" placeholder="COMMENT" />
-                            </div>
-
-                            <label class="control-label ">REQUESTDATE :</label>
-                            <div class="controls">
-                                <input type="text" name="requestdate" value="${tblOrder.requestdate}" maxlength="10" class="span11"  required="" placeholder="REQUESTDATE" />
-                            </div>
-
-                            <label class="control-label ">ORDERSTATUS :</label>
-                            <div class="controls">
-                                <input type="text" name="orderstatus" value="${tblOrder.orderstatus}" maxlength="10" class="span11"  required="" placeholder="ORDERSTATUS" />
-                            </div>
-
-                            <label class="control-label ">ISACTIVE :</label>
-                            <div class="controls">
-                                <input type="text" name="isactive" value="${tblOrder.isactive}" maxlength="1" class="span11"  required="" placeholder="ISACTIVE" />
-                            </div>
+                            <div class="span11">
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">ORDER AMOUNT :</label>
+                                    <div class="controls">
+                                        <input type="text" name="lamination_id" value="${tblOrder.tblLamination}" maxlength="11" class="span12"    placeholder="GLOASS L / MATT L" />
+                                    </div>
+                                </div>
+                                <div class="span6"  style="float: left">
+                                    <label class="control-label ">0. :</label>
+                                    <div class="controls">
+                                        <input type="text" name="postpress_id" value="${tblOrder.tblPostpress}" maxlength="11" class="span12"   placeholder="PUCHNING / CUTTING" />
+                                    </div>
+                                </div>
+                            </div> 
+                                    
+                                    
+                        </div>
+                        <div class="control-group">
                             <center>
                                 <div class="form-actions right">
                                     <input type="hidden" name="<%= IServletConstant.ACTION%>" value="${actionvalue}" />
                                     <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblOrder.orderId}" />
+                                    <input type="hidden" name="<%= IServletConstant.HIDDEN_CLIENT_ID%>" value="${tblClient.clientId}" />
                                     <button type="submit" class="${btnClass}">${btnValue}</button>
-                                    <button type="reset" class="btn btn-primary">Reset</button>
+                                    <button type="reset" class="btn btn-primary">RESET</button>
                                     <a href="../<%=IServletConstant.PAGE_VIEW_ORDER%>">
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                        <button type="button" class="btn btn-danger">VIEW ORDER</button>
                                     </a>
                                 </div>
                             </center>
@@ -122,34 +139,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        var availableTags = [
-            "ActionScript",
-            "AppleScript",
-            "Asp",
-            "BASIC",
-            "C",
-            "C++",
-            "Clojure",
-            "COBOL",
-            "ColdFusion",
-            "Erlang",
-            "Fortran",
-            "Groovy",
-            "Haskell",
-            "Java",
-            "JavaScript",
-            "Lisp",
-            "Perl",
-            "PHP",
-            "Python",
-            "Ruby",
-            "Scala",
-            "Scheme"
-        ];
-        $("#quotation_id").autocomplete({
-            source: availableTags
-        });
-    });
-</script>

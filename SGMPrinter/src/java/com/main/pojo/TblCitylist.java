@@ -109,7 +109,7 @@ public class TblCitylist  implements java.io.Serializable {
         this.isActive = isActive;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="tblCitylist")
+@OneToMany(fetch=FetchType.EAGER, mappedBy="tblCitylist")
     public Set<TblClient> getTblClients() {
         return this.tblClients;
     }

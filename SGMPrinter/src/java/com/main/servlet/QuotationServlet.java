@@ -6,6 +6,7 @@ import com.main.service.ClientService;
 import com.main.service.QuotationService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,9 +35,9 @@ public class QuotationServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+            } else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
                 search(request, response);
-           }
+            }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -84,9 +85,9 @@ public class QuotationServlet extends HttpServlet {
     }// </editor-fold>
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
-             TblQuotation tblQuotation = doMapping(request, response);
+            TblQuotation tblQuotation = doMapping(request, response);
             boolean saveTblQuotation = QuotationService.saveTblQuotation(tblQuotation);
             if (saveTblQuotation) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
@@ -97,13 +98,13 @@ public class QuotationServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
-        
-         try {
-             TblQuotation tblQuotation = doMapping(request, response);
+
+        try {
+            TblQuotation tblQuotation = doMapping(request, response);
             boolean updateTblQuotation = QuotationService.updateTblQuotation(tblQuotation);
             if (updateTblQuotation) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
@@ -114,11 +115,11 @@ public class QuotationServlet extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             Integer quotationId = Integer.parseInt(request.getParameter("quotationId"));
             QuotationService.deleteTblQuotation(QuotationService.getTblQuotationById(quotationId));
@@ -131,7 +132,7 @@ public class QuotationServlet extends HttpServlet {
                 Logger.getLogger(QuotationServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -140,22 +141,23 @@ public class QuotationServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    
     private TblQuotation doMapping(HttpServletRequest request, HttpServletResponse response) {
-         TblQuotation  tblQuotation = new TblQuotation();
-        
-        
-        
-        
+        TblQuotation tblQuotation = new TblQuotation();
+        tblQuotation.setTblClient(ClientService.getTblClientById(new Integer(request.getParameter("clientId"))));
+        tblQuotation.setIsActive('Y');
+        tblQuotation.setQuotationAddedDate(new Date());
+        tblQuotation.setQuotationUpdateDate(new Date());
+        tblQuotation.setReadStatus("pending");
+        tblQuotation.setQuotationDesc(request.getParameter("quotation_desc"));
         return tblQuotation;
     }
-      private void search(HttpServletRequest request, HttpServletResponse response) {
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
-            String clientId = request.getParameter("clientId"); 
-            HashMap<String, Object> hashMap = new HashMap<>();
+            String clientId = request.getParameter("clientId");
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("tblClient", clientId);
             List<TblQuotation> searchQuotation = QuotationService.searchQuotation(hashMap);
-            System.out.println("searchQuotation =============== " + searchQuotation.size());
             request.getSession().setAttribute("quotationsearch", searchQuotation);
             response.sendRedirect(IServletConstant.PAGE_VIEW_QUOTATION);
         } catch (IOException ex) {

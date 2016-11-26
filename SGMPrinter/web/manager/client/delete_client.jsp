@@ -21,9 +21,6 @@
     } else {
         TblClient tblClient = ClientService.getTblClientById(new Integer(idrequest.toString()));
         pageContext.setAttribute("tblClient", tblClient);
-        pageContext.setAttribute("btnValue", "DELETE CLIENT");
-        pageContext.setAttribute("btnClass", "btn btn-danger");
-        pageContext.setAttribute("actionvalue", IServletConstant.ACTION_DELETE);
     }
 %>
 
@@ -109,13 +106,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="control-group">
                             <center>
                                 <div class="form-actions right">
-                                    <input type="hidden" name="<%= IServletConstant.ACTION_DELETE%>" value="${actionvalue}" />
+                                    <input type="hidden" name="<%= IServletConstant.ACTION_DELETE%>" value="<%= IServletConstant.ACTION_DELETE%>" />
                                     <input type="hidden" name="<%= IServletConstant.HIDDEN_ID%>" value="${tblClient.clientId}" />
-                                    <button type="submit" class="${btnClass}">${btnValue}</button>
+                                    <button type="submit" class="btn btn-danger">DELETE CLIENT</button>
                                     <button type="reset" class="btn btn-primary">RESET</button>
                                     <a href="../<%= IServletConstant.PAGE_VIEW_CLIENT%>"><button type="button" class="btn btn-info">VIEW CLIENT</button></a>
                                 </div>

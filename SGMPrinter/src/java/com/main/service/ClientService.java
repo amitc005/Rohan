@@ -5,15 +5,9 @@
  */
 package com.main.service;
 
-import com.main.pojo.TblCitylist;
 import com.main.pojo.TblClient;
-import com.main.pojo.TblDistrict;
-import com.main.pojo.TblQuotation;
-import com.main.pojo.TblState;
 import com.main.util.SuperConnection;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

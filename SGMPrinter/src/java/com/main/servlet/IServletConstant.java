@@ -3,7 +3,7 @@ package com.main.servlet;
 public interface IServletConstant {
 
  
-    public static final String PAGE_TITLE = "SGM Offset Printer";
+    public static final String PAGE_TITLE = "SGM OFFSET PRINTER | MAHAL NAGPUR";
     public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
     public static final String LOGO_URL = "http://localhost:8080/SGMPrinter/img";
  
@@ -56,6 +56,7 @@ public interface IServletConstant {
      */
     public static final String ACTION = "action";
     public static final String HIDDEN_ID = "updateId";
+    public static final String HIDDEN_CLIENT_ID = "clientId";
     public static final String ACTION_LOGIN = "loginaction";
     public static final String ACTION_RECOVER = "recoveraction";
     public static final String ACTION_ADD = "addaction";
@@ -78,4 +79,5 @@ public interface IServletConstant {
     public static final String MESSAGE = "message";
     public static final String MESSAGE_SUCCESS = "Operation Done!!!";
     public static final String MESSAGE_FAIL = "Operation Fail!!!";
+    public static final String MESSAGE_EXCEPTION = "exception";
 }

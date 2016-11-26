@@ -6,6 +6,8 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/offsetmanager</property>
     <property name="hibernate.connection.username">root</property>
+	<property name="hibernate.show_sql">true</property>
+	<property name="current_session_context_class">thread</property> 
     <mapping resource="com/main/pojo/TblOrderStatusHistory.hbm.xml"/>
     <mapping resource="com/main/pojo/Offsetuser.hbm.xml"/>
     <mapping resource="com/main/pojo/TblOrder.hbm.xml"/>

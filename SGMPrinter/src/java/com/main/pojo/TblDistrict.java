@@ -110,7 +110,7 @@ public class TblDistrict  implements java.io.Serializable {
         this.isActive = isActive;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="tblDistrict")
+@OneToMany(fetch=FetchType.EAGER, mappedBy="tblDistrict")
     public Set<TblClient> getTblClients() {
         return this.tblClients;
     }

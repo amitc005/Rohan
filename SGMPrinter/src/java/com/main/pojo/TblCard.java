@@ -74,7 +74,7 @@ public class TblCard  implements java.io.Serializable {
         this.isActive = isActive;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="tblCard")
+@OneToMany(fetch=FetchType.EAGER, mappedBy="tblCard")
     public Set<TblOrder> getTblOrders() {
         return this.tblOrders;
     }

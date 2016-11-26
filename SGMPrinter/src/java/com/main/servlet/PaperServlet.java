@@ -1,7 +1,7 @@
 package com.main.servlet;
 
 import com.main.pojo.TblPaper;
-import com.main.service.TblPaperService;
+import com.main.service.PaperService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -87,7 +87,7 @@ public class PaperServlet extends HttpServlet {
 
         try {
             TblPaper tblPaper = doMapping(request, response);
-            boolean saveTblPaper = TblPaperService.saveTblPaper(tblPaper);
+            boolean saveTblPaper = PaperService.saveTblPaper(tblPaper);
             if (saveTblPaper) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
             } else {
@@ -104,7 +104,7 @@ public class PaperServlet extends HttpServlet {
 
         try {
             TblPaper tblPaper = doMapping(request, response);
-            boolean updateTblPaper = TblPaperService.updateTblPaper(tblPaper);
+            boolean updateTblPaper = PaperService.updateTblPaper(tblPaper);
             if (updateTblPaper) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
             } else {
@@ -121,7 +121,7 @@ public class PaperServlet extends HttpServlet {
         
         try {
             Integer paperId = Integer.parseInt(request.getParameter("paperId"));
-            TblPaperService.deleteTblPaper(TblPaperService.getTblPaperById(paperId));
+            PaperService.deleteTblPaper(PaperService.getTblPaperById(paperId));
             response.sendRedirect(IServletConstant.PAGE_VIEW_PAPER);
         } catch (IOException | NumberFormatException e) {
             try {
@@ -164,7 +164,7 @@ public class PaperServlet extends HttpServlet {
             
            hashMap.put("paperName", paper_name);
             
-            List<TblPaper> searchPaper = TblPaperService.searchPaper(hashMap);
+            List<TblPaper> searchPaper = PaperService.searchPaper(hashMap);
             
             request.getSession().setAttribute("papersearch", searchPaper);
             

@@ -35,9 +35,7 @@ public class ClientServlet extends HttpServlet {
                 autoCompletRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
                 search(request, response);
-            } else if (foraction.equals(IServletConstant.ACTION_DELETE)) {
-                delete(request, response);
-            }
+            }  
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -118,6 +116,18 @@ public class ClientServlet extends HttpServlet {
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            Integer clientId = Integer.parseInt(request.getParameter("updateId"));
+            System.out.println("clientId =============== " + clientId);
+            ClientService.deleteClient(ClientService.getTblClientById(clientId));
+            response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
+        } catch (IOException | NumberFormatException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+//                response.sendRedirect(IServletConstant.PAGE_FAILUER);
+            Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, e);
+
+        }
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -169,17 +179,6 @@ public class ClientServlet extends HttpServlet {
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            Integer clientId = Integer.parseInt(request.getParameter("clientId"));
-            ClientService.deleteClient(ClientService.getTblClientById(clientId));
-            response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
-        } catch (IOException | NumberFormatException e) {
-            try {
-                response.sendRedirect(IServletConstant.PAGE_FAILUER);
-                Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, e);
-            } catch (IOException ex) {
-                Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
     }
 }

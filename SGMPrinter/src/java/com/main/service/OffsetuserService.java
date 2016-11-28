@@ -5,7 +5,7 @@
  */
 package com.main.service;
 
-import com.main.pojo.Offsetuser;
+import com.main.pojo.TblOffsetuser;
 import com.main.util.SuperConnection;
 import java.util.HashMap;
 import java.util.List;
@@ -15,21 +15,21 @@ import java.util.logging.Logger;
 public class OffsetuserService {
 
     public static void main(String[] args) {
-        
-        Offsetuser offsetuser =new Offsetuser();
+
+        TblOffsetuser offsetuser = new TblOffsetuser();
         offsetuser.setAdminId(1);
         offsetuser.setUserTypeId(12);
         offsetuser.setEmailId("rojan.gill");
         offsetuser.setLastName("sadasd");
-        saveOffsetuser(offsetuser);
-        
-      Offsetuser OffsetUserById = getTblOffsetuserlistById(1);
-        System.out.println("OffsetUserById =" +OffsetUserById.getFirstName());
+        saveTblOffsetuser(offsetuser);
+
+        TblOffsetuser OffsetUserById = getTblTblOffsetuserlistById(1);
+        System.out.println("OffsetUserById =" + OffsetUserById.getFirstName());
     }
-    
-    public static boolean saveOffsetuser(Offsetuser tblOffsetuser) {
+
+    public static boolean saveTblOffsetuser(TblOffsetuser tblTblOffsetuser) {
         try {
-            SuperConnection.saveEntity(tblOffsetuser);
+            SuperConnection.saveEntity(tblTblOffsetuser);
             return true;
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
@@ -37,9 +37,9 @@ public class OffsetuserService {
         }
     }
 
-    public static boolean updateOffsetuser(Offsetuser tblOffsetuser) {
+    public static boolean updateTblOffsetuser(TblOffsetuser tblTblOffsetuser) {
         try {
-            SuperConnection.updateEntity(tblOffsetuser);
+            SuperConnection.updateEntity(tblTblOffsetuser);
             return true;
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,9 +47,9 @@ public class OffsetuserService {
         }
     }
 
-    public static boolean deleteOffsetuser(Offsetuser tblOffsetuser) {
+    public static boolean deleteTblOffsetuser(TblOffsetuser tblTblOffsetuser) {
         try {
-            SuperConnection.deleteEntity(tblOffsetuser);
+            SuperConnection.deleteEntity(tblTblOffsetuser);
             return true;
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,27 +57,28 @@ public class OffsetuserService {
         }
     }
 
-    public static List<Offsetuser> getOffsetuserList() {
+    public static List<TblOffsetuser> getTblOffsetuserList() {
         try {
-            return SuperConnection.listEntity(new Offsetuser());
+            return SuperConnection.listEntity(new TblOffsetuser());
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
-    public static Offsetuser getTblOffsetuserlistById(Integer id){
-     try {
-            Object object = SuperConnection.getEntityById(new Offsetuser(), id);
-            return (Offsetuser) object;
+    public static TblOffsetuser getTblTblOffsetuserlistById(Integer id) {
+        try {
+            Object object = SuperConnection.getEntityById(new TblOffsetuser(), id);
+            return (TblOffsetuser) object;
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }   
-    public static List<Offsetuser> searchOffsetuser(HashMap<String, String> searchMap) {
+    }
+
+    public static List<TblOffsetuser> searchTblOffsetuser(HashMap<String, String> searchMap) {
         try {
-            return SuperConnection.searchEntity(new Offsetuser(), searchMap);
+            return SuperConnection.searchEntity(new TblOffsetuser(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(OffsetuserService.class.getName()).log(Level.SEVERE, null, ex);
         }

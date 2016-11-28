@@ -18,7 +18,6 @@ public class OrderService {
         try {
             List<TblOrder> tblOrderList = getTblOrderList();
             for (TblOrder tblOrder : tblOrderList) {
-                System.out.println("tblOrder = " + tblOrder.getTblCard().getCardName());
             }
         } catch (Exception e) {
         }

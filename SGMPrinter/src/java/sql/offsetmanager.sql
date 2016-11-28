@@ -1,56 +1,12 @@
-DROP DATABASE IF EXISTS `offsetmanager`;
-CREATE DATABASE `offsetmanager`;
+
 USE `offsetmanager`;
-
  
---
--- Table structure for table `offsetuser`
---
-
-CREATE TABLE `offsetuser` (
-  `admin_id` int(11) NOT NULL,
-  `user_type_id` int(11) DEFAULT NULL,
-  `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `first_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email_id` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_login` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `action_permission` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `page_permission` text COLLATE utf8_unicode_ci,
-  `intime` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `outtime` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `macid` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `offsetuser`
---
-
 INSERT INTO `offsetuser` (`admin_id`, `user_type_id`, `username`, `password`, `first_name`, `last_name`, `email_id`, `last_login`, `action_permission`, `page_permission`, `intime`, `outtime`, `macid`, `is_active`) VALUES
 (1, 1, 'pravintumsare@gmail.com', 'james@007', 'Pravin', 'Tumsare', 'pravintumsare@gmail.com', NULL, '1', NULL, '1', '1', '1', 'Y'),
 (2, 1, 'eew.rohan@gmail.com ', 'rohan@123', 'Rohan', 'Gillurkar', 'eew.rohan@gmail.com ', '1', '1', '1', '1', '1', '1', 'Y');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `tbl_account`
---
-
-CREATE TABLE `tbl_account` (
-  `account_id` int(11) NOT NULL,
-  `client_id` int(11) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `credited` int(8) DEFAULT NULL,
-  `debited` int(8) DEFAULT NULL,
-  `account_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_account`
---
+ 
 
 INSERT INTO `tbl_account` (`account_id`, `client_id`, `order_id`, `credited`, `debited`, `account_added_date`, `is_active`) VALUES
 (1, 1, 1, 2000, 3000, '2016-11-08', 'Y'),
@@ -58,22 +14,7 @@ INSERT INTO `tbl_account` (`account_id`, `client_id`, `order_id`, `credited`, `d
 (3, 1, 3, 60000, 1000000, '2016-11-01', 'Y'),
 (4, 1, 4, 2200, 3625, '2016-11-01', 'Y'),
 (5, 1, 3, 6500, 3600, '2016-11-16', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_card`
---
-
-CREATE TABLE `tbl_card` (
-  `card_id` int(5) NOT NULL,
-  `card_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_card`
---
+ 
 
 INSERT INTO `tbl_card` (`card_id`, `card_name`, `is_active`) VALUES
 (1, 'READY-MADE SWEET BOX', 'Y'),
@@ -85,26 +26,7 @@ INSERT INTO `tbl_card` (`card_id`, `card_name`, `is_active`) VALUES
 (7, 'ENVELOPE', 'Y'),
 (8, 'FILE', 'Y'),
 (9, 'STICKER', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_citylist`
---
-
-CREATE TABLE `tbl_citylist` (
-  `city_id` int(5) NOT NULL,
-  `city_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `latitude` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `longitude` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `state_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_citylist`
---
-
+ 
 INSERT INTO `tbl_citylist` (`city_id`, `city_name`, `latitude`, `longitude`, `state_id`, `is_active`) VALUES
 (1, 'Port Blair', '11.67 N', '92.76 E', '1', 'Y'),
 (2, 'Adilabad', '19.68 N', '78.53 E', '2', 'Y'),
@@ -1142,35 +1064,7 @@ INSERT INTO `tbl_citylist` (`city_id`, `city_name`, `latitude`, `longitude`, `st
 (1034, 'Narsinghpur', '', '', '16', 'Y'),
 (1035, 'Balod', '', '', '7', 'Y'),
 (1037, 'Neral', NULL, NULL, '17', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_client`
---
-
-CREATE TABLE `tbl_client` (
-  `client_id` int(11) NOT NULL,
-  `client_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `client_address` text COLLATE utf8_unicode_ci NOT NULL,
-  `propriter_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `propriter_image` text COLLATE utf8_unicode_ci NOT NULL,
-  `firm_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `mobile_no` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `phone_no_1` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `postal_address` text COLLATE utf8_unicode_ci NOT NULL,
-  `phone_no_2` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `city_id` int(11) DEFAULT NULL,
-  `district_id` int(11) DEFAULT NULL,
-  `state_id` int(11) DEFAULT NULL,
-  `client_added_date` date NOT NULL,
-  `client_update_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_client`
---
+ 
 
 INSERT INTO `tbl_client` (`client_id`, `client_name`, `client_address`, `propriter_name`, `propriter_image`, `firm_name`, `mobile_no`, `phone_no_1`, `postal_address`, `phone_no_2`, `city_id`, `district_id`, `state_id`, `client_added_date`, `client_update_date`, `is_active`) VALUES
 (1, 'pallavi shukla', 'indora square', 'pallavi shukla', '', 'ps chemicals', '9876543210', '111222', 'indora square', '222333', NULL, NULL, NULL, '2016-11-24', '2016-11-24', 'Y'),
@@ -1188,26 +1082,7 @@ INSERT INTO `tbl_client` (`client_id`, `client_name`, `client_address`, `proprit
 (13, 'sonu pandey', 'kl street15', 'sonu ', '', 'sonu accesories', '45747678454', '1616445645', 'kl street 12', '454548455', NULL, NULL, NULL, '2016-11-24', '2016-11-24', 'Y'),
 (14, 'aparna dhote', 'lll building ', 'pallavi shukla', '', 'aparna clinic', '45698775', '464656563', 'indora square', '354354135413', NULL, NULL, NULL, '2016-11-24', '2016-11-24', 'Y'),
 (15, 'jai bonde', 'dmc gate', 'jai bonde', '', 'jai ccomputers', '45756956456', '758589553.', 'pu univeersiy it park', '46569854556', NULL, NULL, NULL, '2016-11-24', '2016-11-24', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_district`
---
-
-CREATE TABLE `tbl_district` (
-  `district_id` int(5) NOT NULL,
-  `district_name` varchar(100) DEFAULT NULL,
-  `latitude` varchar(10) DEFAULT NULL,
-  `longitude` varchar(10) DEFAULT NULL,
-  `state_id` varchar(50) NOT NULL,
-  `is_active` char(1) NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tbl_district`
---
-
+  
 INSERT INTO `tbl_district` (`district_id`, `district_name`, `latitude`, `longitude`, `state_id`, `is_active`) VALUES
 (3, 'Akola', '', '', '', 'T'),
 (4, 'Amravati', '', '', '', 'T'),
@@ -1300,23 +1175,7 @@ INSERT INTO `tbl_district` (`district_id`, `district_name`, `latitude`, `longitu
 (92, 'Kalahandi', NULL, NULL, '23', 'Y'),
 (93, 'kali(D.k.)', NULL, NULL, '17', 'Y'),
 (94, 'Balod', NULL, NULL, '', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_gsm`
---
-
-CREATE TABLE `tbl_gsm` (
-  `gsm_id` int(11) NOT NULL,
-  `gsm_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `gsm_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_gsm`
---
+ 
 
 INSERT INTO `tbl_gsm` (`gsm_id`, `gsm_name`, `gsm_added_date`, `is_active`) VALUES
 (1, '10 gsm', '2012-07-05', 'Y'),
@@ -1355,58 +1214,14 @@ INSERT INTO `tbl_gsm` (`gsm_id`, `gsm_name`, `gsm_added_date`, `is_active`) VALU
 (34, '340 GSM', '2012-07-05', 'Y'),
 (35, '350 GSM', '2012-07-05', 'Y'),
 (36, '360 GSM', '2012-07-05', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_lamination`
---
-
-CREATE TABLE `tbl_lamination` (
-  `lamination_id` int(11) NOT NULL,
-  `lamination_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `lamination_desc` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `lamination_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_lamination`
---
+  
 
 INSERT INTO `tbl_lamination` (`lamination_id`, `lamination_name`, `lamination_desc`, `lamination_added_date`, `is_active`) VALUES
 (1, 'Gloss Lamination', 'Type of lamination', '2012-07-06', 'Y'),
 (2, 'Matt Lamination', 'Type of lamination', '2012-07-06', 'Y'),
 (3, 'Without Lamination', 'Type of lamination', '2012-07-06', 'Y'),
 (4, 'Spot Lamination', 'Type of lamination', '2012-07-06', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_order`
---
-
-CREATE TABLE `tbl_order` (
-  `order_id` int(11) NOT NULL,
-  `quotation_id` int(11) DEFAULT NULL,
-  `client_id` int(11) DEFAULT NULL,
-  `gsm_id` int(11) DEFAULT NULL,
-  `lamination_id` int(11) DEFAULT NULL,
-  `postpress_id` int(11) DEFAULT NULL,
-  `printing_id` int(11) DEFAULT NULL,
-  `qty_id` int(11) DEFAULT NULL,
-  `side_id` int(11) DEFAULT NULL,
-  `paper_id` int(11) DEFAULT NULL,
-  `card_id` int(11) DEFAULT NULL,
-  `comment` text COLLATE utf8_unicode_ci,
-  `requestdate` date NOT NULL,
-  `orderstatus` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `isactive` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_order`
---
+ 
 
 INSERT INTO `tbl_order` (`order_id`, `quotation_id`, `client_id`, `gsm_id`, `lamination_id`, `postpress_id`, `printing_id`, `qty_id`, `side_id`, `paper_id`, `card_id`, `comment`, `requestdate`, `orderstatus`, `isactive`) VALUES
 (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'order with quotation 1 with 200prints', '2016-11-02', 'completed', 'y'),
@@ -1419,38 +1234,7 @@ INSERT INTO `tbl_order` (`order_id`, `quotation_id`, `client_id`, `gsm_id`, `lam
 (8, 3, 6, 8, 2, 9, 2, 8, 2, 7, 4, 'djdldjfwolejwf', '2016-11-01', 'done', 'y'),
 (9, 2, 2, 3, 1, 1, 1, 1, 1, 2, 1, 'thisas is orderv9', '2016-11-15', 'done', 'y'),
 (10, 2, 3, 1, 1, 1, 1, 1, 1, 2, 1, 'this is order 10', '2016-11-16', 'done', 'y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_order_status_history`
---
-
-CREATE TABLE `tbl_order_status_history` (
-  `id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `orderstatus` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `createdate` date DEFAULT NULL,
-  `modifydate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_paper`
---
-
-CREATE TABLE `tbl_paper` (
-  `paper_id` int(11) NOT NULL,
-  `paper_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `p_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_paper`
---
-
+ 
 INSERT INTO `tbl_paper` (`paper_id`, `paper_name`, `p_added_date`, `is_active`) VALUES
 (1, 'Art Card', '2012-07-06', 'T'),
 (2, 'Art Paper', '2012-07-06', 'T'),
@@ -1464,24 +1248,7 @@ INSERT INTO `tbl_paper` (`paper_id`, `paper_name`, `p_added_date`, `is_active`) 
 (10, 'Sticker', '2012-07-06', 'T'),
 (11, 'White Back Duplex', '2012-08-14', 'T'),
 (12, 'Gray Back Duplex', '2012-08-14', 'T');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_postpress`
---
-
-CREATE TABLE `tbl_postpress` (
-  `postpress_id` int(11) NOT NULL,
-  `postpress_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `postpress_desc` text COLLATE utf8_unicode_ci NOT NULL,
-  `postpress_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_postpress`
---
+ 
 
 INSERT INTO `tbl_postpress` (`postpress_id`, `postpress_name`, `postpress_desc`, `postpress_added_date`, `is_active`) VALUES
 (1, 'Round Corner', 'Round Corner', '2012-12-25', 'T'),
@@ -1496,45 +1263,14 @@ INSERT INTO `tbl_postpress` (`postpress_id`, `postpress_name`, `postpress_desc`,
 (10, 'Clips', 'Clips', '2012-12-25', 'T'),
 (11, 'Without Clips', 'Without Clips', '2012-12-25', 'T');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_printing`
---
-
-CREATE TABLE `tbl_printing` (
-  `printing_id` int(11) NOT NULL,
-  `printing_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `pt_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_printing`
---
-
+ 
 INSERT INTO `tbl_printing` (`printing_id`, `printing_name`, `pt_added_date`, `is_active`) VALUES
 (1, 'Single Color Printing', '2012-07-06', 'T'),
 (2, 'Two color Printing', '2012-07-06', 'T'),
 (3, 'Three color Printing', '2012-07-06', 'T'),
 (4, 'Multi color Printing', '2012-07-06', 'T');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_qty`
---
-
-CREATE TABLE `tbl_qty` (
-  `qty_id` int(11) NOT NULL,
-  `qty_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `qty_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_qty`
---
+ 
 
 INSERT INTO `tbl_qty` (`qty_id`, `qty_name`, `qty_added_date`, `is_active`) VALUES
 (1, '1000', '2012-07-11', 'Y'),
@@ -1548,25 +1284,7 @@ INSERT INTO `tbl_qty` (`qty_id`, `qty_name`, `qty_added_date`, `is_active`) VALU
 (9, '9000', '0000-00-00', 'Y'),
 (10, '10000', '2012-07-11', 'Y');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_quotation`
---
-
-CREATE TABLE `tbl_quotation` (
-  `quotation_id` int(11) NOT NULL,
-  `client_id` int(11) DEFAULT NULL,
-  `quotation_desc` text COLLATE utf8_unicode_ci,
-  `quotation_added_date` date NOT NULL,
-  `quotation_update_date` date NOT NULL,
-  `read_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_quotation`
---
+ 
 
 INSERT INTO `tbl_quotation` (`quotation_id`, `client_id`, `quotation_desc`, `quotation_added_date`, `quotation_update_date`, `read_status`, `is_active`) VALUES
 (1, 1, 'it is with 250 gsm papers', '2016-11-22', '2016-11-23', 'completed', 'y'),
@@ -1582,59 +1300,12 @@ INSERT INTO `tbl_quotation` (`quotation_id`, `client_id`, `quotation_desc`, `quo
 (11, 4, 'this is for client 4', '2016-11-09', '2016-11-17', 'done', 'y'),
 (12, 4, 'this is for client 4 with 510 gsm', '2016-11-08', '2016-11-11', 'done', 'y');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_quotationhistory`
---
-
-CREATE TABLE `tbl_quotationhistory` (
-  `id` int(11) NOT NULL,
-  `quotation_id` int(11) DEFAULT NULL,
-  `requestquery` text COLLATE utf8_unicode_ci,
-  `replyanswer` text COLLATE utf8_unicode_ci,
-  `requestdate` date NOT NULL,
-  `replydate` date NOT NULL,
-  `hisstatus` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `isactive` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_sides`
---
-
-CREATE TABLE `tbl_sides` (
-  `side_id` int(11) NOT NULL,
-  `side_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `side_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_sides`
---
+ 
 
 INSERT INTO `tbl_sides` (`side_id`, `side_name`, `side_added_date`, `is_active`) VALUES
 (1, 'Single Side', '2012-07-06', 'Y'),
 (2, 'Front Back', '2012-07-06', 'Y');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_state`
---
-
-CREATE TABLE `tbl_state` (
-  `state_id` int(11) NOT NULL,
-  `state_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_state`
---
+ 
 
 INSERT INTO `tbl_state` (`state_id`, `state_name`, `is_active`) VALUES
 (1, 'Andaman & Nocobar', 'Y'),
@@ -1670,316 +1341,10 @@ INSERT INTO `tbl_state` (`state_id`, `state_name`, `is_active`) VALUES
 (31, 'Uttaranchal', 'Y'),
 (32, 'West Bengal', 'Y');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_usertype`
---
-
-CREATE TABLE `tbl_usertype` (
-  `usertype_id` int(11) NOT NULL,
-  `usertype` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `usertype_added_date` date NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_usertype`
---
+ 
 
 INSERT INTO `tbl_usertype` (`usertype_id`, `usertype`, `usertype_added_date`, `is_active`) VALUES
 (1, 'Admin', '2012-07-05', 'Y'),
 (2, 'Manager', '2012-07-05', 'Y'),
 (3, 'Employee', '2012-07-05', 'Y'),
 (4, 'Account', '2012-07-05', 'Y');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `offsetuser`
---
-ALTER TABLE `offsetuser`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `tbl_account`
---
-ALTER TABLE `tbl_account`
-  ADD PRIMARY KEY (`account_id`),
-  ADD KEY `client_id` (`client_id`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `tbl_card`
---
-ALTER TABLE `tbl_card`
-  ADD PRIMARY KEY (`card_id`);
-
---
--- Indexes for table `tbl_citylist`
---
-ALTER TABLE `tbl_citylist`
-  ADD PRIMARY KEY (`city_id`);
-
---
--- Indexes for table `tbl_client`
---
-ALTER TABLE `tbl_client`
-  ADD PRIMARY KEY (`client_id`),
-  ADD KEY `city_id` (`city_id`),
-  ADD KEY `district_id` (`district_id`),
-  ADD KEY `state_id` (`state_id`);
-
---
--- Indexes for table `tbl_district`
---
-ALTER TABLE `tbl_district`
-  ADD PRIMARY KEY (`district_id`);
-
---
--- Indexes for table `tbl_gsm`
---
-ALTER TABLE `tbl_gsm`
-  ADD PRIMARY KEY (`gsm_id`);
-
---
--- Indexes for table `tbl_lamination`
---
-ALTER TABLE `tbl_lamination`
-  ADD PRIMARY KEY (`lamination_id`);
-
---
--- Indexes for table `tbl_order`
---
-ALTER TABLE `tbl_order`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `quotation_id` (`quotation_id`),
-  ADD KEY `gsm_id` (`gsm_id`),
-  ADD KEY `lamination_id` (`lamination_id`),
-  ADD KEY `paper_id` (`paper_id`),
-  ADD KEY `postpress_id` (`postpress_id`),
-  ADD KEY `printing_id` (`printing_id`),
-  ADD KEY `qty_id` (`qty_id`),
-  ADD KEY `side_id` (`side_id`),
-  ADD KEY `card_id` (`card_id`),
-  ADD KEY `client_id` (`client_id`);
-
---
--- Indexes for table `tbl_order_status_history`
---
-ALTER TABLE `tbl_order_status_history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `tbl_paper`
---
-ALTER TABLE `tbl_paper`
-  ADD PRIMARY KEY (`paper_id`);
-
---
--- Indexes for table `tbl_postpress`
---
-ALTER TABLE `tbl_postpress`
-  ADD PRIMARY KEY (`postpress_id`);
-
---
--- Indexes for table `tbl_printing`
---
-ALTER TABLE `tbl_printing`
-  ADD PRIMARY KEY (`printing_id`);
-
---
--- Indexes for table `tbl_qty`
---
-ALTER TABLE `tbl_qty`
-  ADD PRIMARY KEY (`qty_id`);
-
---
--- Indexes for table `tbl_quotation`
---
-ALTER TABLE `tbl_quotation`
-  ADD PRIMARY KEY (`quotation_id`),
-  ADD KEY `client_id` (`client_id`);
-
---
--- Indexes for table `tbl_quotationhistory`
---
-ALTER TABLE `tbl_quotationhistory`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `quotation_id` (`quotation_id`);
-
---
--- Indexes for table `tbl_sides`
---
-ALTER TABLE `tbl_sides`
-  ADD PRIMARY KEY (`side_id`);
-
---
--- Indexes for table `tbl_state`
---
-ALTER TABLE `tbl_state`
-  ADD PRIMARY KEY (`state_id`);
-
---
--- Indexes for table `tbl_usertype`
---
-ALTER TABLE `tbl_usertype`
-  ADD PRIMARY KEY (`usertype_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `offsetuser`
---
-ALTER TABLE `offsetuser`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `tbl_account`
---
-ALTER TABLE `tbl_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `tbl_card`
---
-ALTER TABLE `tbl_card`
-  MODIFY `card_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `tbl_citylist`
---
-ALTER TABLE `tbl_citylist`
-  MODIFY `city_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1038;
---
--- AUTO_INCREMENT for table `tbl_client`
---
-ALTER TABLE `tbl_client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `tbl_district`
---
-ALTER TABLE `tbl_district`
-  MODIFY `district_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
---
--- AUTO_INCREMENT for table `tbl_gsm`
---
-ALTER TABLE `tbl_gsm`
-  MODIFY `gsm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
---
--- AUTO_INCREMENT for table `tbl_lamination`
---
-ALTER TABLE `tbl_lamination`
-  MODIFY `lamination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `tbl_order`
---
-ALTER TABLE `tbl_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `tbl_order_status_history`
---
-ALTER TABLE `tbl_order_status_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_paper`
---
-ALTER TABLE `tbl_paper`
-  MODIFY `paper_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `tbl_postpress`
---
-ALTER TABLE `tbl_postpress`
-  MODIFY `postpress_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `tbl_printing`
---
-ALTER TABLE `tbl_printing`
-  MODIFY `printing_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `tbl_qty`
---
-ALTER TABLE `tbl_qty`
-  MODIFY `qty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `tbl_quotation`
---
-ALTER TABLE `tbl_quotation`
-  MODIFY `quotation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `tbl_quotationhistory`
---
-ALTER TABLE `tbl_quotationhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tbl_sides`
---
-ALTER TABLE `tbl_sides`
-  MODIFY `side_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `tbl_state`
---
-ALTER TABLE `tbl_state`
-  MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
---
--- AUTO_INCREMENT for table `tbl_usertype`
---
-ALTER TABLE `tbl_usertype`
-  MODIFY `usertype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tbl_account`
---
-ALTER TABLE `tbl_account`
-  ADD CONSTRAINT `tbl_account_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_account_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_client`
---
-ALTER TABLE `tbl_client`
-  ADD CONSTRAINT `tbl_client_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `tbl_citylist` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_client_ibfk_2` FOREIGN KEY (`district_id`) REFERENCES `tbl_district` (`district_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_client_ibfk_3` FOREIGN KEY (`state_id`) REFERENCES `tbl_state` (`state_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_order`
---
-ALTER TABLE `tbl_order`
-  ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`quotation_id`) REFERENCES `tbl_quotation` (`quotation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_10` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_2` FOREIGN KEY (`gsm_id`) REFERENCES `tbl_gsm` (`gsm_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_3` FOREIGN KEY (`lamination_id`) REFERENCES `tbl_lamination` (`lamination_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_4` FOREIGN KEY (`paper_id`) REFERENCES `tbl_paper` (`paper_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_5` FOREIGN KEY (`postpress_id`) REFERENCES `tbl_postpress` (`postpress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_6` FOREIGN KEY (`printing_id`) REFERENCES `tbl_printing` (`printing_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_7` FOREIGN KEY (`qty_id`) REFERENCES `tbl_qty` (`qty_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_8` FOREIGN KEY (`side_id`) REFERENCES `tbl_sides` (`side_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_order_ibfk_9` FOREIGN KEY (`card_id`) REFERENCES `tbl_card` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_order_status_history`
---
-ALTER TABLE `tbl_order_status_history`
-  ADD CONSTRAINT `tbl_order_status_history_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_quotation`
---
-ALTER TABLE `tbl_quotation`
-  ADD CONSTRAINT `tbl_quotation_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_quotationhistory`
---
-ALTER TABLE `tbl_quotationhistory`
-  ADD CONSTRAINT `tbl_quotationhistory_ibfk_1` FOREIGN KEY (`quotation_id`) REFERENCES `tbl_quotation` (`quotation_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

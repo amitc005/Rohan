@@ -1,7 +1,7 @@
 package com.main.servlet;
 
-import com.main.pojo.TblCard;
-import com.main.service.CardTypeService;
+import com.main.pojo.TblOrdertype;
+import com.main.service.OrderTypeService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -84,9 +84,9 @@ public class CardTypeServlet extends HttpServlet {
 
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            TblCard tblCard = doMapping(request, response);
-            boolean saveTblCard = CardTypeService.saveTblCard(tblCard);
-            if (saveTblCard) {
+            TblOrdertype tblCard = doMapping(request, response);
+            boolean saveTblOrdertype = OrderTypeService.saveTblOrdertype(tblCard);
+            if (saveTblOrdertype) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
@@ -100,9 +100,9 @@ public class CardTypeServlet extends HttpServlet {
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            TblCard tblCard = doMapping(request, response);
-            boolean updateTblCard = CardTypeService.updateTblCard(tblCard);
-            if (updateTblCard) {
+            TblOrdertype tblCard = doMapping(request, response);
+            boolean updateTblOrdertype = OrderTypeService.updateTblOrdertype(tblCard);
+            if (updateTblOrdertype) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_CITY);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
@@ -118,7 +118,7 @@ public class CardTypeServlet extends HttpServlet {
         
         try {
             Integer cardId = Integer.parseInt(request.getParameter("cardId"));
-            CardTypeService.deleteTblCard(CardTypeService.getTblCardById(cardId));
+            OrderTypeService.deleteTblOrdertype(OrderTypeService.getTblOrdertypeById(cardId));
             response.sendRedirect(IServletConstant.PAGE_VIEW_CARD);
         } catch (IOException | NumberFormatException e) {
             try {
@@ -138,15 +138,15 @@ public class CardTypeServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private TblCard doMapping(HttpServletRequest request, HttpServletResponse response) {
-        TblCard tblCard = new TblCard();
-        tblCard.setCardName(request.getParameter("card_name"));
+    private TblOrdertype doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblOrdertype tblCard = new TblOrdertype();
+        tblCard.setOrdertypeName(request.getParameter("card_name"));
         tblCard.setIsActive('Y');
 
         Object updateId = request.getParameter("updateId");
         if (updateId != null) {
             if (updateId.toString().trim().length() != 0) {
-                tblCard.setCardId(Integer.parseInt(request.getParameter("updateId")));
+                tblCard.setOrdertypeId(Integer.parseInt(request.getParameter("updateId")));
             }
         }
         return tblCard;
@@ -161,7 +161,7 @@ public class CardTypeServlet extends HttpServlet {
             HashMap<String, String> hashMap = new HashMap<>();
             
             hashMap.put("cardName", card_name);
-            List<TblCard> searchCard = CardTypeService.searchCard(hashMap);
+            List<TblOrdertype> searchCard = OrderTypeService.searchCard(hashMap);
             
             request.getSession().setAttribute("cardsearch", searchCard);
             

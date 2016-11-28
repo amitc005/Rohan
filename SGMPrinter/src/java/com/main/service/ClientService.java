@@ -80,5 +80,14 @@ public class ClientService {
         }
         return null;
     }
+    
+    public static List<TblClient> searchExactClient(HashMap<String, String> searchMap) {
+        try {
+            return SuperConnection.searchEntityExactEqual(new TblClient(), searchMap);
+        } catch (Exception ex) {
+            Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
 }

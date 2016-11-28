@@ -1,6 +1,6 @@
 package com.main.servlet;
 
-import com.main.pojo.Offsetuser;
+import com.main.pojo.TblOffsetuser;
 import com.main.service.OffsetuserService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,9 +32,9 @@ public class OffsetuserServlet extends HttpServlet {
                 viewRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_AUTOCOMPLET)) {
                 autoCompletRequest(request, response);
-            }else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
+            } else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
                 search(request, response);
-            } 
+            }
         } catch (Exception e) {
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
@@ -84,9 +84,9 @@ public class OffsetuserServlet extends HttpServlet {
     private void saveRequest(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            Offsetuser offsetuser = doMapping(request, response);
-            boolean saveOffsetuser = OffsetuserService.saveOffsetuser(offsetuser);
-            if (saveOffsetuser) {
+            TblOffsetuser offsetuser = doMapping(request, response);
+            boolean saveTblOffsetuser = OffsetuserService.saveTblOffsetuser(offsetuser);
+            if (saveTblOffsetuser) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
@@ -100,9 +100,9 @@ public class OffsetuserServlet extends HttpServlet {
     private void updateRequest(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            Offsetuser offsetuser = doMapping(request, response);
-            boolean updateOffsetuser = OffsetuserService.updateOffsetuser(offsetuser);
-            if (updateOffsetuser) {
+            TblOffsetuser offsetuser = doMapping(request, response);
+            boolean updateTblOffsetuser = OffsetuserService.updateTblOffsetuser(offsetuser);
+            if (updateTblOffsetuser) {
                 response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
             } else {
                 request.getSession().setAttribute(IServletConstant.MESSAGE, "Operation Fail !!!");
@@ -114,10 +114,10 @@ public class OffsetuserServlet extends HttpServlet {
     }
 
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
-        
+
         try {
             Integer adminId = Integer.parseInt(request.getParameter("adminId"));
-            OffsetuserService.deleteOffsetuser(OffsetuserService.getTblOffsetuserlistById(adminId));
+            OffsetuserService.deleteTblOffsetuser(OffsetuserService.getTblTblOffsetuserlistById(adminId));
             response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
         } catch (IOException | NumberFormatException e) {
             try {
@@ -127,7 +127,7 @@ public class OffsetuserServlet extends HttpServlet {
                 Logger.getLogger(OffsetuserServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -136,9 +136,8 @@ public class OffsetuserServlet extends HttpServlet {
     private void autoCompletRequest(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private Offsetuser doMapping(HttpServletRequest request, HttpServletResponse response) {
-        Offsetuser offsetuser = new Offsetuser();
-
+    private TblOffsetuser doMapping(HttpServletRequest request, HttpServletResponse response) {
+        TblOffsetuser offsetuser = new TblOffsetuser();
         offsetuser.setUserTypeId(Integer.parseInt(request.getParameter("user_type_id")));
         offsetuser.setUsername(request.getParameter("username"));
         offsetuser.setPassword(request.getParameter("password"));
@@ -152,27 +151,26 @@ public class OffsetuserServlet extends HttpServlet {
         offsetuser.setOuttime(request.getParameter("outtime"));
         offsetuser.setMacid(request.getParameter("macid"));
         offsetuser.setIsActive('Y');
-
         return offsetuser;
     }
-    
-     private void search(HttpServletRequest request, HttpServletResponse response) {
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
         try {
             //// get all search parameter 
-            String username = request.getParameter("username"); 
-            
+            String username = request.getParameter("username");
+
             /// create mapper pojo fields
             HashMap<String, String> hashMap = new HashMap<>();
-            
+
             hashMap.put("username", username);
-            List<Offsetuser> searchOffsetuser = OffsetuserService.searchOffsetuser(hashMap);
-            
-            request.getSession().setAttribute("offsetsearch", searchOffsetuser);
-            
+            List<TblOffsetuser> searchTblOffsetuser = OffsetuserService.searchTblOffsetuser(hashMap);
+
+            request.getSession().setAttribute("offsetsearch", searchTblOffsetuser);
+
             response.sendRedirect(IServletConstant.PAGE_VIEW_EMPLOYEE);
         } catch (IOException ex) {
             Logger.getLogger(OffsetuserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

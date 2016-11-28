@@ -2,11 +2,10 @@ package com.main.servlet;
 
 public interface IServletConstant {
 
- 
     public static final String PAGE_TITLE = "SGM OFFSET PRINTER | MAHAL NAGPUR";
     public static final String SERVER_URL = "http://localhost:8080/SGMPrinter/";
     public static final String LOGO_URL = "http://localhost:8080/SGMPrinter/img";
- 
+
     /*
      * PAGE LEVEL SETTING
      */
@@ -14,6 +13,7 @@ public interface IServletConstant {
     public static final String PAGE_SUCCESS = "";
     public static final String PAGE_FAILUER = "manager/index.jsp?requestPage=add_failure";
     public static final String PAGE_NOTFOUND = "";
+    public static final String PAGE_DASHBOARD = "manager/index.jsp?requestPage=";
 
     public static final String PAGE_ADD_ACCOUNT = "manager/index.jsp?requestPage=add_account";
     public static final String PAGE_VIEW_ACCOUNT = "manager/index.jsp?requestPage=view_account";
@@ -42,20 +42,21 @@ public interface IServletConstant {
     public static final String PAGE_VIEW_PRINTTYPE = "manager/index.jsp?requestPage=view_printtype";
     public static final String PAGE_ADD_QUANTITY = "manager/index.jsp?requestPage=add_quantity";
     public static final String PAGE_VIEW_QUANTITY = "manager/index.jsp?requestPage=view_quantity";
-    public static final String PAGE_ADD_QUOTATION = "manager/index.jsp?requestPage=add_quotation";
-    public static final String PAGE_VIEW_QUOTATION = "manager/index.jsp?requestPage=view_quotation";
+    public static final String PAGE_ADD_QUOTATION = "manager/index.jsp?requestPage=add_order";
+    public static final String PAGE_VIEW_QUOTATION = "manager/index.jsp?requestPage=view_order";
     public static final String PAGE_ADD_SIDE = "manager/index.jsp?requestPage=add_side";
     public static final String PAGE_VIEW_SIDE = "manager/index.jsp?requestPage=view_side";
     public static final String PAGE_ADD_STATE = "manager/index.jsp?requestPage=add_state";
     public static final String PAGE_VIEW_STATE = "manager/index.jsp?requestPage=view_state";
     public static final String PAGE_ADD_CARD = "manager/index.jsp?requestPage=add_card";
     public static final String PAGE_VIEW_CARD = "manager/index.jsp?requestPage=view_card";
-    
+
     /*
      * ACTION LEVEL SETTING
      */
     public static final String ACTION = "action";
     public static final String HIDDEN_ID = "updateId";
+    public static final String HIDDEN_MODE = "hiddenMode";
     public static final String HIDDEN_CLIENT_ID = "clientId";
     public static final String ACTION_LOGIN = "loginaction";
     public static final String ACTION_RECOVER = "recoveraction";
@@ -80,4 +81,14 @@ public interface IServletConstant {
     public static final String MESSAGE_SUCCESS = "Operation Done!!!";
     public static final String MESSAGE_FAIL = "Operation Fail!!!";
     public static final String MESSAGE_EXCEPTION = "exception";
+
+    /*
+     * PROGRESS STATUS
+     */
+    public static final String NEW = "NEW";
+    public static final String ACCEPTED = "ACCEPTED";
+    public static final String INPROGRESS = "INPROGRESS";
+    public static final String DONE = "DONE";
+    public static final String REJECTED = "REJECTED";
+    public static final String DELIVERED = "DELIVERED";
 }

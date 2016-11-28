@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated Nov 26, 2016 10:29:34 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblOrder" table="tbl_order" catalog="offsetmanager">
         <id name="orderId" type="java.lang.Integer">
@@ -10,9 +10,6 @@
         </id>
         <many-to-one name="tblClient" class="com.main.pojo.TblClient" fetch="select">
             <column name="client_id" />
-        </many-to-one>
-        <many-to-one name="tblCard" class="com.main.pojo.TblCard" fetch="select">
-            <column name="card_id" />
         </many-to-one>
         <many-to-one name="tblPrinting" class="com.main.pojo.TblPrinting" fetch="select">
             <column name="printing_id" />
@@ -23,6 +20,9 @@
         <many-to-one name="tblPaper" class="com.main.pojo.TblPaper" fetch="select">
             <column name="paper_id" />
         </many-to-one>
+        <many-to-one name="tblOrdertype" class="com.main.pojo.TblOrdertype" fetch="select">
+            <column name="ordertype_id" />
+        </many-to-one>
         <many-to-one name="tblQty" class="com.main.pojo.TblQty" fetch="select">
             <column name="qty_id" />
         </many-to-one>
@@ -32,14 +32,32 @@
         <many-to-one name="tblSides" class="com.main.pojo.TblSides" fetch="select">
             <column name="side_id" />
         </many-to-one>
-        <many-to-one name="tblQuotation" class="com.main.pojo.TblQuotation" fetch="select">
-            <column name="quotation_id" />
-        </many-to-one>
         <many-to-one name="tblLamination" class="com.main.pojo.TblLamination" fetch="select">
             <column name="lamination_id" />
         </many-to-one>
+        <property name="quotationId" type="java.lang.Integer">
+            <column name="quotation_id" />
+        </property>
+        <property name="height" type="string">
+            <column name="height" length="5" />
+        </property>
+        <property name="weight" type="string">
+            <column name="weight" length="5" />
+        </property>
         <property name="comment" type="string">
             <column name="comment" length="65535" />
+        </property>
+        <property name="orderAmount" type="java.lang.Integer">
+            <column name="orderAmount" />
+        </property>
+        <property name="paidAmount" type="java.lang.Integer">
+            <column name="paidAmount" />
+        </property>
+        <property name="balanceAmount" type="java.lang.Integer">
+            <column name="balanceAmount" />
+        </property>
+        <property name="paymentMode" type="java.lang.Integer">
+            <column name="paymentMode" />
         </property>
         <property name="requestdate" type="date">
             <column name="requestdate" length="10" not-null="true" />
@@ -50,12 +68,6 @@
         <property name="isactive" type="java.lang.Character">
             <column name="isactive" length="1" />
         </property>
-        <set name="tblOrderStatusHistories" table="tbl_order_status_history" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="order_id" />
-            </key>
-            <one-to-many class="com.main.pojo.TblOrderStatusHistory" />
-        </set>
         <set name="tblAccounts" table="tbl_account" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="order_id" />

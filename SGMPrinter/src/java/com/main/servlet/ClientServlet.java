@@ -35,8 +35,9 @@ public class ClientServlet extends HttpServlet {
                 autoCompletRequest(request, response);
             } else if (foraction.equals(IServletConstant.ACTION_SEARCH)) {
                 search(request, response);
-            }  
+            }
         } catch (Exception e) {
+            e.printStackTrace();
             request.getSession().setAttribute(IServletConstant.MESSAGE, e.getMessage());
             response.sendRedirect(IServletConstant.PAGE_FAILUER);
         }
@@ -118,15 +119,12 @@ public class ClientServlet extends HttpServlet {
     private void deleteRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
             Integer clientId = Integer.parseInt(request.getParameter("updateId"));
-            System.out.println("clientId =============== " + clientId);
+            System.out.println("clientId =============================== " + clientId);
             ClientService.deleteClient(ClientService.getTblClientById(clientId));
             response.sendRedirect(IServletConstant.PAGE_VIEW_CLIENT);
         } catch (IOException | NumberFormatException e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
-//                response.sendRedirect(IServletConstant.PAGE_FAILUER);
             Logger.getLogger(ClientServlet.class.getName()).log(Level.SEVERE, null, e);
-
         }
     }
 
@@ -147,7 +145,7 @@ public class ClientServlet extends HttpServlet {
         tblClient.setMobileNo(request.getParameter("mobile_no"));
         tblClient.setPhoneNo1(request.getParameter("phone_no_1") == null ? "" : request.getParameter("phone_no_1"));
         tblClient.setPostalAddress(request.getParameter("postal_address"));
-        tblClient.setPhoneNo2(request.getParameter("phone_no_2") == null ? "" : request.getParameter("phone_no_2"));
+        tblClient.setEmailId(request.getParameter("emailId") == null ? "" : request.getParameter("emailId"));
         tblClient.setClientAddedDate(new Date());
         tblClient.setClientUpdateDate(new Date());
         tblClient.setIsActive('Y');

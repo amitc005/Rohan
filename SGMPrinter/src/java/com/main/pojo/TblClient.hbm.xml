@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 24, 2016 11:14:27 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated Nov 26, 2016 10:29:34 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="com.main.pojo.TblClient" table="tbl_client" catalog="offsetmanager">
         <id name="clientId" type="java.lang.Integer">
@@ -18,31 +18,31 @@
             <column name="city_id" />
         </many-to-one>
         <property name="clientName" type="string">
-            <column name="client_name" length="30" not-null="true" />
+            <column name="client_name" length="30" />
         </property>
         <property name="clientAddress" type="string">
-            <column name="client_address" length="65535" not-null="true" />
+            <column name="client_address" length="65535" />
         </property>
         <property name="propriterName" type="string">
-            <column name="propriter_name" length="100" not-null="true" />
+            <column name="propriter_name" length="100" />
         </property>
         <property name="propriterImage" type="string">
-            <column name="propriter_image" length="65535" not-null="true" />
+            <column name="propriter_image" length="65535" />
         </property>
         <property name="firmName" type="string">
-            <column name="firm_name" length="100" not-null="true" />
+            <column name="firm_name" length="100" />
         </property>
         <property name="mobileNo" type="string">
-            <column name="mobile_no" length="11" not-null="true" />
+            <column name="mobile_no" length="11" />
         </property>
         <property name="phoneNo1" type="string">
-            <column name="phone_no_1" length="30" not-null="true" />
+            <column name="phone_no_1" length="30" />
         </property>
         <property name="postalAddress" type="string">
-            <column name="postal_address" length="65535" not-null="true" />
+            <column name="postal_address" length="65535" />
         </property>
-        <property name="phoneNo2" type="string">
-            <column name="phone_no_2" length="30" not-null="true" />
+        <property name="emailId" type="string">
+            <column name="emailId" length="30" />
         </property>
         <property name="clientAddedDate" type="date">
             <column name="client_added_date" length="10" not-null="true" />
@@ -58,12 +58,6 @@
                 <column name="client_id" />
             </key>
             <one-to-many class="com.main.pojo.TblOrder" />
-        </set>
-        <set name="tblQuotations" table="tbl_quotation" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="client_id" />
-            </key>
-            <one-to-many class="com.main.pojo.TblQuotation" />
         </set>
         <set name="tblAccounts" table="tbl_account" inverse="true" lazy="true" fetch="select">
             <key>

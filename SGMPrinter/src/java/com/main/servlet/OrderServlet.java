@@ -1,8 +1,7 @@
 package com.main.servlet;
 
-import com.main.pojo.TblClient;
 import com.main.pojo.TblOrder;
-import com.main.service.CardTypeService;
+import com.main.service.OrderTypeService;
 import com.main.service.ClientService;
 import com.main.service.GsmService;
 import com.main.service.LaminationService;
@@ -139,7 +138,6 @@ public class OrderServlet extends HttpServlet {
                 Logger.getLogger(OrderServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 
     private void viewRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -152,7 +150,7 @@ public class OrderServlet extends HttpServlet {
         TblOrder tblOrder = new TblOrder();
         tblOrder.setComment(request.getParameter("comment") == null ? "" : request.getParameter("comment"));
         tblOrder.setTblClient(ClientService.getTblClientById(Integer.parseInt(request.getParameter("clientId"))));
-        tblOrder.setTblCard(CardTypeService.getTblCardById(Integer.parseInt(request.getParameter("card_id"))));
+        tblOrder.setTblOrdertype(OrderTypeService.getTblOrdertypeById(Integer.parseInt(request.getParameter("card_id"))));
         tblOrder.setTblGsm(GsmService.getTblGsmlistById(Integer.parseInt(request.getParameter("gsm_id"))));
         tblOrder.setTblPaper(PaperService.getTblPaperById(Integer.parseInt(request.getParameter("paper_id"))));
         tblOrder.setTblPrinting(PrintingService.getTblPrintingById(Integer.parseInt(request.getParameter("printing_id"))));
@@ -160,7 +158,7 @@ public class OrderServlet extends HttpServlet {
         tblOrder.setTblLamination(LaminationService.getTblLaminationlistById(Integer.parseInt(request.getParameter("lamination_id"))));
         tblOrder.setTblPostpress(PostpressService.getTblPostpressById(Integer.parseInt(request.getParameter("postpress_id"))));
         tblOrder.setIsactive('Y');
-        tblOrder.setOrderstatus("NEW");
+        tblOrder.setOrderstatus(IServletConstant.NEW);
         tblOrder.setRequestdate(new Date());
         return tblOrder;
     }

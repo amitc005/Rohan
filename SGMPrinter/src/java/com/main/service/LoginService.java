@@ -5,7 +5,7 @@
  */
 package com.main.service;
 
-import com.main.pojo.Offsetuser;
+import com.main.pojo.TblOffsetuser;
 import com.main.util.SuperConnection;
 import java.util.HashMap;
 import java.util.List;
@@ -17,17 +17,17 @@ public class LoginService {
     public static void main(String[] args) {
         HashMap<String,String> hashMap =  new HashMap<String,String>();
         hashMap.put("username", "pravintumsare@gmail.com");
-        hashMap.put("password", "james@0071");
+        hashMap.put("password", "james@007");
         
-        Offsetuser offsetuser = loginService(hashMap);
+        TblOffsetuser offsetuser = loginService(hashMap);
         System.out.println("offsetuser = " + offsetuser);
     }
     
     
-    public static Offsetuser loginService(HashMap<String, String> searchMap) {
-        List<Offsetuser> offsetusers = null;
+    public static TblOffsetuser loginService(HashMap<String, String> searchMap) {
+        List<TblOffsetuser> offsetusers = null;
         try {
-            offsetusers = SuperConnection.searchEntityExactEqual(new Offsetuser(), searchMap);
+            offsetusers = SuperConnection.searchEntityExactEqual(new TblOffsetuser(), searchMap);
         } catch (Exception ex) {
             Logger.getLogger(LoginService.class.getName()).log(Level.SEVERE, null, ex);
         }

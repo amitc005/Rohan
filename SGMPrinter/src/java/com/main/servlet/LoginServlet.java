@@ -5,13 +5,11 @@
  */
 package com.main.servlet;
 
-import com.main.pojo.Offsetuser;
+import com.main.pojo.TblOffsetuser;
 import com.main.service.LoginService;
-import com.main.service.OffsetuserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,21 +25,20 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String uname = request.getParameter("username");
         String pass = request.getParameter("password");
-       
+
         try {
-          HashMap<String,String> hashMap =  new HashMap<String,String>();
-          hashMap.put("username", uname);
-          hashMap.put("password", pass);
-          Offsetuser offsetuser = LoginService.loginService(hashMap);
-          
-          if(offsetuser != null){
-              session.setAttribute("Username", uname);
-           response.sendRedirect("manager/index.jsp");
-          }
-          else{
-            response.sendRedirect("manager/login_failed.jsp");
-          }
-          } finally {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("username", uname);
+            hashMap.put("password", pass);
+            TblOffsetuser offsetuser = LoginService.loginService(hashMap);
+            if (offsetuser != null) {
+                session.setAttribute("username", uname);
+                response.sendRedirect(IServletConstant.PAGE_DASHBOARD);
+            } else {
+                session.setAttribute("failtext", uname);
+                response.sendRedirect(IServletConstant.PAGE_INDEX);
+            }
+        } finally {
             out.close();
         }
     }

@@ -99,15 +99,15 @@ CREATE TABLE `tbl_state` (
 
 
 
-CREATE TABLE `tbl_card` (
-  `card_id` int(5)  primary key auto_increment,
-  `card_name` varchar(100) NOT NULL,
+CREATE TABLE `tbl_ordertype` (
+  `ordertype_id` int(5)  primary key auto_increment,
+  `ordertype_name` varchar(100) NOT NULL,
   `is_active` char(1) NOT NULL DEFAULT 'Y'
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
-CREATE TABLE `offsetuser` (
+CREATE TABLE `tbl_offsetuser` (
   `admin_id` int(11) primary key auto_increment,
   `user_type_id` int(11) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
@@ -135,7 +135,7 @@ CREATE TABLE `tbl_client` (
   `mobile_no` varchar(11)  DEFAULT '',
   `phone_no_1` varchar(30)  DEFAULT '',
   `postal_address` text  DEFAULT '',
-  `phone_no_2` varchar(30)  DEFAULT '',
+  `emailId` varchar(30)  DEFAULT '',
   `city_id` int(11)  DEFAULT 0,
   `district_id` int(11)  DEFAULT 0,
   `state_id` int(11)  DEFAULT 0,
@@ -147,39 +147,13 @@ CREATE TABLE `tbl_client` (
   foreign key(`state_id`) references `tbl_state`(`state_id`)  ON DELETE CASCADE ON UPDATE CASCADE  
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
- 
-
-CREATE TABLE `tbl_quotation` (
-  `quotation_id` int(11)  primary key auto_increment,
-  `client_id` int(11) ,
-  `quotation_desc` text COLLATE utf8_unicode_ci,
-  `quotation_added_date` DATE NOT NULL,
-  `quotation_update_date` DATE NOT NULL,
-  `read_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `is_active` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
-   foreign key(`client_id`) references `tbl_client`(`client_id`)  ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-CREATE TABLE `tbl_quotationhistory` (
-  `id` int(11)  primary key auto_increment,
-  `quotation_id` int(11),
-  `requestquery` text,
-  `replyanswer` text,
-  `requestdate`  DATE NOT NULL,
-  `replydate`  DATE NOT NULL,
-  `hisstatus` varchar(10) DEFAULT NULL,
-  `isactive` char(1) DEFAULT NULL,
-   foreign key(`quotation_id`) references `tbl_quotation`(`quotation_id`)  ON DELETE CASCADE ON UPDATE CASCADE
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
 
 
 CREATE TABLE `tbl_order` (
   `order_id` int(11)  primary key auto_increment,
   `quotation_id` int(11),
   `client_id` int(11) ,
+  `ordertype_id` int(11) ,
   `gsm_id` int(11) ,
   `lamination_id` int(11) ,
   `postpress_id` int(11) ,
@@ -187,32 +161,28 @@ CREATE TABLE `tbl_order` (
   `qty_id` int(11) ,
   `side_id` int(11) ,
   `paper_id` int(11) ,
-  `card_id` int(11) ,
+  `height` varchar(5),
+  `weight` varchar(5),
   `comment` text,
+  `orderAmount` int(11) ,
+  `paidAmount` int(11) ,
+  `balanceAmount` int(11) ,
+  `paymentMode` int(11) ,
   `requestdate`  DATE NOT NULL,
   `orderstatus` varchar(10) DEFAULT NULL,
   `isactive` char(1) DEFAULT NULL,
-   foreign key(`quotation_id`) references `tbl_quotation`(`quotation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`gsm_id`) references `tbl_gsm`(`gsm_id`)   ON DELETE CASCADE ON UPDATE CASCADE,				
    foreign key(`lamination_id`) references `tbl_lamination`(`lamination_id`)   ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`paper_id`) references `tbl_paper`(`paper_id`)  ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`postpress_id`) references `tbl_postpress`(`postpress_id`)   ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`printing_id`) references `tbl_printing`(`printing_id`)   ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`qty_id`) references `tbl_qty`(`qty_id`)  ON DELETE CASCADE ON UPDATE CASCADE,
+   foreign key(`ordertype_id`) references `tbl_ordertype`(`ordertype_id`)  ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`side_id`) references `tbl_sides`(`side_id`)   ON DELETE CASCADE ON UPDATE CASCADE,
-   foreign key(`card_id`) references `tbl_card`(`card_id`)  ON DELETE CASCADE ON UPDATE CASCADE,
    foreign key(`client_id`) references `tbl_client`(`client_id`)   ON DELETE CASCADE ON UPDATE CASCADE
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;  
 
-
-CREATE TABLE `tbl_order_status_history` (
-  `id` int(11)  primary key auto_increment,
-  `order_id` int(11),
-  `orderstatus` varchar(10) DEFAULT NULL,
-  `createdate` DATE DEFAULT NULL,
-  `modifydate` DATE DEFAULT NULL,
-  foreign key(`order_id`) references `tbl_order`(`order_id`)  ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--  
 
 CREATE TABLE `tbl_account` (
 `account_id` int(11)  primary key auto_increment,
